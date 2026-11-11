@@ -26,7 +26,7 @@ export function StartFreeModal({ isOpen, onClose, selectedPlan = "Professional" 
       <div className="relative w-full max-w-md rounded-3xl bg-[#10110E] border border-white/15 shadow-[0_25px_80px_rgba(0,0,0,0.9)] p-6 sm:p-8 overflow-hidden">
         
         {/* Ambient Top Glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-24 bg-[#C6FF36]/15 blur-2xl pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-24 bg-[#B2D234]/15 blur-2xl pointer-events-none" />
 
         {/* Close Button */}
         <button
@@ -38,16 +38,16 @@ export function StartFreeModal({ isOpen, onClose, selectedPlan = "Professional" 
 
         {!submitted ? (
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#161814] border border-[#C6FF36]/30 text-[11px] font-mono text-[#C6FF36] mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#161814] border border-[#B2D234]/30 text-[11px] font-mono text-[#B2D234] mb-4">
               <Sparkles className="w-3.5 h-3.5" />
               <span>14-DAY FULL TRIAL // {selectedPlan.toUpperCase()}</span>
             </div>
 
             <h3 className="text-2xl font-bold text-white tracking-tight mb-2">
-              Start building with Relay.
+              Start building with Bounty Bytes.
             </h3>
             <p className="text-xs sm:text-sm text-neutral-400 mb-6 font-normal">
-              No credit card required. Connect up to 240 apps and deploy your first handoff in minutes.
+              No credit card required. Experience cutting-edge 3D interactive web experiences engineered for your brand.
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -61,13 +61,13 @@ export function StartFreeModal({ isOpen, onClose, selectedPlan = "Professional" 
                   placeholder="name@company.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl bg-[#0a0b09] border border-white/10 focus:border-[#C6FF36] focus:outline-none text-white text-sm font-mono placeholder:text-neutral-600 transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-[#0a0b09] border border-white/10 focus:border-[#B2D234] focus:outline-none text-white text-sm font-mono placeholder:text-neutral-600 transition-colors"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full py-3.5 rounded-full bg-[#C6FF36] hover:bg-[#d5ff5e] text-[#050505] font-semibold text-sm transition-all duration-300 shadow-[0_0_25px_rgba(198,255,54,0.35)] flex items-center justify-center gap-2 cursor-pointer active:scale-98"
+                className="w-full py-3.5 rounded-full bg-[#B2D234] hover:bg-[#C5EB2A] text-[#050505] font-bold text-sm transition-all duration-300 shadow-[0_0_25px_rgba(178,210,52,0.4)] flex items-center justify-center gap-2 cursor-pointer active:scale-98"
               >
                 <span>Create Workspace</span>
                 <ArrowRight className="w-4 h-4" />
@@ -76,7 +76,7 @@ export function StartFreeModal({ isOpen, onClose, selectedPlan = "Professional" 
 
             <div className="mt-6 pt-5 border-t border-white/8 flex items-center justify-between text-[11px] font-mono text-neutral-500">
               <span className="flex items-center gap-1 text-neutral-400">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#C6FF36]" />
+                <ShieldCheck className="w-3.5 h-3.5 text-[#B2D234]" />
                 SOC2 Type II Ready
               </span>
               <span>Instant provisioning</span>
@@ -84,12 +84,12 @@ export function StartFreeModal({ isOpen, onClose, selectedPlan = "Professional" 
           </div>
         ) : (
           <div className="text-center py-6">
-            <div className="w-12 h-12 rounded-full bg-[#C6FF36]/20 border border-[#C6FF36] text-[#C6FF36] flex items-center justify-center mx-auto mb-4 shadow-[0_0_20px_rgba(198,255,54,0.4)]">
+            <div className="w-12 h-12 rounded-full bg-[#B2D234]/20 border border-[#B2D234] text-[#B2D234] flex items-center justify-center mx-auto mb-4 shadow-[0_0_20px_rgba(178, 210, 52,0.4)]">
               <Check className="w-6 h-6 stroke-[3]" />
             </div>
             <h4 className="text-xl font-bold text-white mb-2">Check your inbox</h4>
             <p className="text-xs text-neutral-400 font-mono mb-6 max-w-xs mx-auto">
-              We&apos;ve sent your magic setup link to <span className="text-[#C6FF36]">{email}</span>.
+              We&apos;ve sent your magic setup link to <span className="text-[#B2D234]">{email}</span>.
             </p>
             <button
               onClick={onClose}

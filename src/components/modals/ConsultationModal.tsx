@@ -48,10 +48,10 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-lg rounded-3xl bg-[#10110E] border border-white/10 p-6 sm:p-8 shadow-[0_25px_70px_rgba(0,0,0,0.9),0_0_50px_rgba(198,255,54,0.06)] overflow-hidden z-10"
+            className="relative w-full max-w-lg rounded-3xl bg-[#10110E] border border-white/10 p-6 sm:p-8 shadow-[0_25px_70px_rgba(0,0,0,0.9),0_0_50px_rgba(178, 210, 52,0.06)] overflow-hidden z-10"
           >
             {/* Ambient Background Glow */}
-            <div className="absolute -top-24 -right-24 w-60 h-60 rounded-full bg-[radial-gradient(circle,rgba(198,255,54,0.15),transparent_70%)] blur-3xl pointer-events-none" />
+            <div className="absolute -top-24 -right-24 w-60 h-60 rounded-full bg-[radial-gradient(circle,rgba(178, 210, 52,0.15),transparent_70%)] blur-3xl pointer-events-none" />
 
             {/* Close Button */}
             <button
@@ -64,7 +64,7 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
             {step === "form" ? (
               <>
                 <div className="mb-6">
-                  <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-[#161814] border border-[#C6FF36]/30 text-[#C6FF36] text-[10px] font-mono mb-3">
+                  <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-[#161814] border border-[#B2D234]/30 text-[#B2D234] text-[10px] font-mono mb-3">
                     <Sparkles className="w-3 h-3" />
                     <span>PRIVATE ARCHITECTURE SESSION</span>
                   </div>
@@ -95,7 +95,7 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                           onClick={() => setSelectedFocus(item)}
                           className={`px-3 py-2 rounded-xl text-xs font-medium text-left transition-all border ${
                             selectedFocus === item
-                              ? "bg-[#C6FF36]/15 border-[#C6FF36] text-[#C6FF36] shadow-[0_0_12px_rgba(198,255,54,0.15)]"
+                              ? "bg-[#B2D234]/15 border-[#B2D234] text-[#B2D234] shadow-[0_0_12px_rgba(178, 210, 52,0.15)]"
                               : "bg-[#161814] border-white/10 text-neutral-300 hover:border-white/20"
                           }`}
                         >
@@ -117,7 +117,7 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="Alex Morgan"
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#161814] border border-white/10 focus:border-[#C6FF36] text-sm text-white placeholder-neutral-600 focus:outline-none transition-colors"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#161814] border border-white/10 focus:border-[#B2D234] text-sm text-white placeholder-neutral-600 focus:outline-none transition-colors"
                       />
                     </div>
                     <div>
@@ -130,7 +130,7 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="alex@company.com"
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#161814] border border-white/10 focus:border-[#C6FF36] text-sm text-white placeholder-neutral-600 focus:outline-none transition-colors"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#161814] border border-white/10 focus:border-[#B2D234] text-sm text-white placeholder-neutral-600 focus:outline-none transition-colors"
                       />
                     </div>
                   </div>
@@ -147,7 +147,7 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                         placeholder="Acme Corp"
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#161814] border border-white/10 focus:border-[#C6FF36] text-sm text-white placeholder-neutral-600 focus:outline-none transition-colors"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#161814] border border-white/10 focus:border-[#B2D234] text-sm text-white placeholder-neutral-600 focus:outline-none transition-colors"
                       />
                     </div>
                     <div>
@@ -157,7 +157,7 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                       <select
                         value={formData.teamSize}
                         onChange={(e) => setFormData({ ...formData, teamSize: e.target.value })}
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#161814] border border-white/10 focus:border-[#C6FF36] text-sm text-white focus:outline-none transition-colors"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#161814] border border-white/10 focus:border-[#B2D234] text-sm text-white focus:outline-none transition-colors"
                       >
                         <option value="1-10">1-10 people</option>
                         <option value="10-50">10-50 people</option>
@@ -170,7 +170,7 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    className="w-full mt-4 py-3.5 rounded-xl bg-[#C6FF36] hover:bg-[#b8f02f] text-black font-semibold text-sm flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(198,255,54,0.3)] transition-all cursor-pointer"
+                    className="w-full mt-4 py-3.5 rounded-xl bg-[#B2D234] hover:bg-[#b8f02f] text-black font-semibold text-sm flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(178, 210, 52,0.3)] transition-all cursor-pointer"
                   >
                     <Calendar className="w-4 h-4" />
                     <span>Confirm Consultation Request</span>
@@ -184,14 +184,14 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
               </>
             ) : (
               <div className="py-8 flex flex-col items-center text-center">
-                <div className="w-14 h-14 rounded-full bg-[#C6FF36]/15 border border-[#C6FF36] flex items-center justify-center text-[#C6FF36] mb-4 shadow-[0_0_25px_rgba(198,255,54,0.35)]">
+                <div className="w-14 h-14 rounded-full bg-[#B2D234]/15 border border-[#B2D234] flex items-center justify-center text-[#B2D234] mb-4 shadow-[0_0_25px_rgba(178, 210, 52,0.35)]">
                   <CheckCircle className="w-7 h-7" />
                 </div>
                 <h4 className="font-syne text-xl font-bold text-white mb-2">
                   Consultation Confirmed!
                 </h4>
                 <p className="text-sm text-neutral-300 max-w-sm mb-6 leading-relaxed">
-                  Thanks, <span className="text-[#C6FF36]">{formData.name || "friend"}</span>. Our lead automation architect will email you at{" "}
+                  Thanks, <span className="text-[#B2D234]">{formData.name || "friend"}</span>. Our lead automation architect will email you at{" "}
                   <span className="text-white font-mono">{formData.email}</span> with calendar availability for your session.
                 </p>
                 <button

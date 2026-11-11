@@ -95,24 +95,24 @@ export function IntegrationsSection() {
       {/* ─── ANIMATED VERTICAL GREEN LIGHT TRAILS BACKGROUND ─── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Vertical laser light lines streaming down */}
-        <div className="absolute left-[15%] top-0 w-px h-full bg-gradient-to-b from-transparent via-[#C6FF36]/30 to-transparent" />
-        <div className="absolute left-[38%] top-0 w-px h-full bg-gradient-to-b from-transparent via-[#C6FF36]/15 to-transparent" />
-        <div className="absolute left-[62%] top-0 w-px h-full bg-gradient-to-b from-transparent via-[#C6FF36]/25 to-transparent" />
-        <div className="absolute left-[85%] top-0 w-px h-full bg-gradient-to-b from-transparent via-[#C6FF36]/10 to-transparent" />
+        <div className="absolute left-[15%] top-0 w-px h-full bg-gradient-to-b from-transparent via-[#B2D234]/30 to-transparent" />
+        <div className="absolute left-[38%] top-0 w-px h-full bg-gradient-to-b from-transparent via-[#B2D234]/15 to-transparent" />
+        <div className="absolute left-[62%] top-0 w-px h-full bg-gradient-to-b from-transparent via-[#B2D234]/25 to-transparent" />
+        <div className="absolute left-[85%] top-0 w-px h-full bg-gradient-to-b from-transparent via-[#B2D234]/10 to-transparent" />
 
         {/* Ambient background glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-[radial-gradient(ellipse,rgba(198,255,54,0.06),transparent_70%)] blur-[90px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-[radial-gradient(ellipse,rgba(178, 210, 52,0.06),transparent_70%)] blur-[90px]" />
       </div>
 
       <div className="relative max-w-7xl mx-auto">
         {/* Section Header with Scroll Reveal */}
         <ScrollReveal className="max-w-3xl mx-auto text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#10110E] border border-white/10 text-xs font-mono text-[#C6FF36] mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#10110E] border border-white/10 text-xs font-mono text-[#B2D234] mb-4">
             <span>ECOSYSTEM // 240+ CONNECTORS</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-5">
             One canvas,{" "}
-            <span className="font-serif-italic font-normal text-[#C6FF36]">
+            <span className="font-serif-italic font-normal text-[#B2D234]">
               many branches.
             </span>
           </h2>
@@ -127,17 +127,17 @@ export function IntegrationsSection() {
             {marqueeList.map((app, index) => (
               <div
                 key={`${app.name}-${index}`}
-                className="group inline-flex items-center gap-3.5 px-5 py-3 rounded-xl bg-[#10110E]/90 border border-white/10 hover:border-[#C6FF36]/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(198,255,54,0.2)] hover:scale-105 cursor-pointer whitespace-nowrap"
+                className="group inline-flex items-center gap-3.5 px-5 py-3 rounded-xl bg-[#10110E]/90 border border-white/10 hover:border-[#B2D234]/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(178, 210, 52,0.2)] hover:scale-105 cursor-pointer whitespace-nowrap"
               >
-                <div className="w-8 h-8 rounded-lg bg-[#161814] border border-white/10 flex items-center justify-center text-white group-hover:text-[#C6FF36] group-hover:border-[#C6FF36]/40 transition-colors">
+                <div className="w-8 h-8 rounded-lg bg-[#161814] border border-white/10 flex items-center justify-center text-white group-hover:text-[#B2D234] group-hover:border-[#B2D234]/40 transition-colors">
                   {app.icon}
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="text-xs sm:text-sm font-semibold text-white group-hover:text-[#C6FF36] transition-colors">
+                    <span className="text-xs sm:text-sm font-semibold text-white group-hover:text-[#B2D234] transition-colors">
                       {app.name}
                     </span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C6FF36] opacity-75 group-hover:opacity-100 group-hover:shadow-[0_0_6px_#C6FF36]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B2D234] opacity-75 group-hover:opacity-100 group-hover:shadow-[0_0_6px_#B2D234]" />
                   </div>
                   <span className="text-[10px] font-mono text-neutral-500 block">
                     {app.latency} sync
@@ -155,17 +155,17 @@ export function IntegrationsSection() {
               <div
                 onMouseEnter={() => setHoveredApp(app.name)}
                 onMouseLeave={() => setHoveredApp(null)}
-                className="card-futuristic-interactive group relative p-4 rounded-2xl bg-[#10110E]/80 border border-white/8 hover:border-[#C6FF36]/50 flex flex-col justify-between min-h-[140px] cursor-pointer"
+                className="card-futuristic-interactive group relative p-4 rounded-2xl bg-[#10110E]/80 border border-white/8 hover:border-[#B2D234]/50 flex flex-col justify-between min-h-[140px] cursor-pointer"
               >
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-[#161814] border border-white/10 flex items-center justify-center text-white group-hover:text-[#C6FF36] group-hover:border-[#C6FF36]/40 transition-colors">
+                  <div className="w-10 h-10 rounded-xl bg-[#161814] border border-white/10 flex items-center justify-center text-white group-hover:text-[#B2D234] group-hover:border-[#B2D234]/40 transition-colors">
                     {app.icon}
                   </div>
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#C6FF36] opacity-60 group-hover:opacity-100 group-hover:shadow-[0_0_8px_#C6FF36]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#B2D234] opacity-60 group-hover:opacity-100 group-hover:shadow-[0_0_8px_#B2D234]" />
                 </div>
 
                 <div>
-                  <h4 className="text-sm font-semibold text-white group-hover:text-[#C6FF36] transition-colors flex items-center justify-between">
+                  <h4 className="text-sm font-semibold text-white group-hover:text-[#B2D234] transition-colors flex items-center justify-between">
                     <span>{app.name}</span>
                     <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </h4>
@@ -176,7 +176,7 @@ export function IntegrationsSection() {
 
                 <div className="pt-2 border-t border-white/5 flex items-center justify-between text-[10px] font-mono text-neutral-500">
                   <span>{app.latency}</span>
-                  <span className="text-[#C6FF36] opacity-80">Synced</span>
+                  <span className="text-[#B2D234] opacity-80">Synced</span>
                 </div>
               </div>
             </StaggerItem>
@@ -185,10 +185,10 @@ export function IntegrationsSection() {
 
         {/* Ecosystem Bottom Callout Pill */}
         <ScrollReveal delay={0.2} className="mt-12 text-center">
-          <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#10110E] border border-white/10 text-xs text-neutral-300 font-mono hover:border-[#C6FF36]/30 transition-all hover:shadow-[0_0_15px_rgba(198,255,54,0.1)]">
-            <span className="text-[#C6FF36]">✦ Need a custom API?</span>
+          <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#10110E] border border-white/10 text-xs text-neutral-300 font-mono hover:border-[#B2D234]/30 transition-all hover:shadow-[0_0_15px_rgba(178, 210, 52,0.1)]">
+            <span className="text-[#B2D234]">✦ Need a custom API?</span>
             <span>Write custom TypeScript hooks or trigger via webhook in under 3 lines.</span>
-            <span className="text-white hover:text-[#C6FF36] underline cursor-pointer ml-1">View API Docs</span>
+            <span className="text-white hover:text-[#B2D234] underline cursor-pointer ml-1">View API Docs</span>
           </div>
         </ScrollReveal>
 

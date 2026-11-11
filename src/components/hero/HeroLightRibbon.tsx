@@ -45,7 +45,7 @@ export function HeroLightRibbon() {
     },
     {
       d: "M 1440 85 C 1185 145, 890 265, 630 405 C 480 482, 328 488, 338 568 C 348 658, 510 712, 725 702 C 965 692, 1215 752, 1440 812",
-      stroke: "#C6FF36",
+      stroke: "#B2D234",
       width: 1.6,
       opacity: 0.8,
       dash: "700 1300",
@@ -63,7 +63,7 @@ export function HeroLightRibbon() {
     },
     {
       d: "M 1440 118 C 1200 175, 915 295, 655 435 C 505 510, 345 515, 355 595 C 365 685, 535 740, 755 730 C 995 720, 1245 780, 1440 840",
-      stroke: "#C6FF36",
+      stroke: "#B2D234",
       width: 1.5,
       opacity: 0.55,
       dash: "500 1050",
@@ -81,7 +81,7 @@ export function HeroLightRibbon() {
     },
     {
       d: "M 1440 152 C 1215 205, 940 325, 685 465 C 530 535, 365 540, 375 620 C 385 712, 560 765, 785 755 C 1025 745, 1275 805, 1440 865",
-      stroke: "#C6FF36",
+      stroke: "#B2D234",
       width: 0.9,
       opacity: 0.4,
       dash: "400 900",
@@ -108,7 +108,7 @@ export function HeroLightRibbon() {
     },
     {
       d: "M 1440 10 C 1150 70, 830 190, 570 330 C 425 410, 290 425, 300 505 C 310 590, 455 642, 650 632 C 890 622, 1140 682, 1440 742",
-      stroke: "#C6FF36",
+      stroke: "#B2D234",
       width: 0.75,
       opacity: 0.35,
       dash: "500 1100",
@@ -158,7 +158,7 @@ export function HeroLightRibbon() {
     },
     {
       d: "M 1440 108 C 1195 168, 905 288, 645 428 C 492 502, 335 508, 345 588 C 355 678, 525 732, 742 722 C 982 712, 1232 772, 1440 832",
-      stroke: "#C6FF36",
+      stroke: "#B2D234",
       width: 1.8,
       opacity: 0.8,
       dash: "520 1080",
@@ -176,7 +176,7 @@ export function HeroLightRibbon() {
     },
     {
       d: "M 1440 142 C 1210 198, 930 318, 672 458 C 512 528, 348 532, 358 612 C 368 702, 550 758, 772 748 C 1012 738, 1262 798, 1440 858",
-      stroke: "#C6FF36",
+      stroke: "#B2D234",
       width: 1.4,
       opacity: 0.55,
       dash: "600 1220",
@@ -194,7 +194,7 @@ export function HeroLightRibbon() {
     },
     {
       d: "M 1440 178 C 1225 228, 955 348, 700 488 C 532 552, 362 558, 372 638 C 382 728, 575 782, 802 772 C 1042 762, 1292 822, 1440 882",
-      stroke: "#C6FF36",
+      stroke: "#B2D234",
       width: 0.85,
       opacity: 0.4,
       dash: "540 1120",
@@ -259,7 +259,7 @@ export function HeroLightRibbon() {
           top: "48%",
           transform: "translate(-50%, -50%)",
           background:
-            "radial-gradient(circle, rgba(255, 255, 240, 0.45) 0%, rgba(198, 255, 54, 0.32) 30%, rgba(174, 234, 0, 0.12) 60%, transparent 75%)",
+            "radial-gradient(circle, rgba(255, 255, 240, 0.45) 0%, rgba(178, 210, 52, 0.32) 30%, rgba(174, 234, 0, 0.12) 60%, transparent 75%)",
           mixBlendMode: "screen",
         }}
       />
@@ -272,7 +272,7 @@ export function HeroLightRibbon() {
           top: "56%",
           transform: "translate(-50%, -50%)",
           background:
-            "radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(229, 255, 69, 0.5) 40%, rgba(198, 255, 54, 0.15) 70%, transparent 85%)",
+            "radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(229, 255, 69, 0.5) 40%, rgba(178, 210, 52, 0.15) 70%, transparent 85%)",
           mixBlendMode: "screen",
         }}
       />
@@ -284,7 +284,7 @@ export function HeroLightRibbon() {
           right: "-5%",
           top: "8%",
           background:
-            "radial-gradient(circle, rgba(198, 255, 54, 0.18) 0%, rgba(138, 201, 38, 0.06) 50%, transparent 75%)",
+            "radial-gradient(circle, rgba(178, 210, 52, 0.18) 0%, rgba(138, 201, 38, 0.06) 50%, transparent 75%)",
           mixBlendMode: "screen",
         }}
       />
@@ -296,7 +296,7 @@ export function HeroLightRibbon() {
           right: "-5%",
           bottom: "5%",
           background:
-            "radial-gradient(circle, rgba(198, 255, 54, 0.14) 0%, rgba(138, 201, 38, 0.04) 50%, transparent 75%)",
+            "radial-gradient(circle, rgba(178, 210, 52, 0.14) 0%, rgba(138, 201, 38, 0.04) 50%, transparent 75%)",
           mixBlendMode: "screen",
         }}
       />
@@ -340,28 +340,28 @@ export function HeroLightRibbon() {
 
           {/* Gradients along the Ribbon Trajectory */}
           <linearGradient id={`gradHotCore_${id}`} x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#C6FF36" stopOpacity="0.25" />
+            <stop offset="0%" stopColor="#B2D234" stopOpacity="0.25" />
             <stop offset="18%" stopColor="#EEFF60" stopOpacity="0.85" />
             <stop offset="38%" stopColor="#FFFFFF" stopOpacity="1.0" />
             <stop offset="55%" stopColor="#FFFFFF" stopOpacity="1.0" />
             <stop offset="72%" stopColor="#E5FF45" stopOpacity="0.9" />
-            <stop offset="88%" stopColor="#C6FF36" stopOpacity="0.6" />
+            <stop offset="88%" stopColor="#B2D234" stopOpacity="0.6" />
             <stop offset="100%" stopColor="#7CB342" stopOpacity="0.1" />
           </linearGradient>
 
           <linearGradient id={`gradLimeRibbon_${id}`} x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#7CB342" stopOpacity="0.2" />
-            <stop offset="25%" stopColor="#C6FF36" stopOpacity="0.75" />
+            <stop offset="25%" stopColor="#B2D234" stopOpacity="0.75" />
             <stop offset="48%" stopColor="#EEFF60" stopOpacity="0.95" />
-            <stop offset="65%" stopColor="#C6FF36" stopOpacity="0.85" />
+            <stop offset="65%" stopColor="#B2D234" stopOpacity="0.85" />
             <stop offset="88%" stopColor="#88CC14" stopOpacity="0.5" />
             <stop offset="100%" stopColor="#558B2F" stopOpacity="0" />
           </linearGradient>
 
           <linearGradient id={`gradSpiralBack_${id}`} x1="0%" y1="100%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#C6FF36" stopOpacity="0.65" />
+            <stop offset="0%" stopColor="#B2D234" stopOpacity="0.65" />
             <stop offset="50%" stopColor="#AEEA00" stopOpacity="0.4" />
-            <stop offset="100%" stopColor="#C6FF36" stopOpacity="0.1" />
+            <stop offset="100%" stopColor="#B2D234" stopOpacity="0.1" />
           </linearGradient>
         </defs>
 
@@ -380,7 +380,7 @@ export function HeroLightRibbon() {
           <path
             d={spiralBackD2}
             fill="none"
-            stroke="#C6FF36"
+            stroke="#B2D234"
             strokeWidth="1.2"
             opacity="0.35"
             strokeDasharray="4 6"
@@ -484,7 +484,7 @@ export function HeroLightRibbon() {
               repeatCount="indefinite"
             />
           </circle>
-          <circle r="12" fill="#C6FF36" opacity="0.75">
+          <circle r="12" fill="#B2D234" opacity="0.75">
             <animateMotion
               path={corePathD}
               dur="6.5s"
@@ -523,7 +523,7 @@ export function HeroLightRibbon() {
               repeatCount="indefinite"
             />
           </circle>
-          <circle r="8" fill="#C6FF36" opacity="0.5">
+          <circle r="8" fill="#B2D234" opacity="0.5">
             <animateMotion
               path={corePathD}
               dur="10.5s"

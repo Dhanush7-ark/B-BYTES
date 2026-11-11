@@ -17,7 +17,7 @@ export function Navbar({ onStartFree }: NavbarProps) {
       setIsScrolled(window.scrollY > 20);
 
       // Active section spy
-      const sections = ["product", "workflow", "customers", "pricing"];
+      const sections = ["product", "step-of-work", "workflow", "customers", "pricing"];
       const scrollPos = window.scrollY + 200;
 
       for (const sectionId of sections) {
@@ -26,7 +26,7 @@ export function Navbar({ onStartFree }: NavbarProps) {
           const top = el.offsetTop;
           const height = el.offsetHeight;
           if (scrollPos >= top && scrollPos < top + height) {
-            setActiveSection(sectionId);
+            setActiveSection(sectionId === "step-of-work" ? "workflow" : sectionId);
             break;
           }
         }
@@ -50,35 +50,23 @@ export function Navbar({ onStartFree }: NavbarProps) {
       <div
         className={`max-w-6xl mx-auto rounded-full pointer-events-auto transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           isScrolled
-            ? "bg-[#10110E]/85 backdrop-blur-2xl border border-[#C6FF36]/20 shadow-[0_12px_40px_rgba(0,0,0,0.85),0_0_20px_rgba(198,255,54,0.06)] py-2.5 px-4 sm:px-6"
+            ? "bg-[#10110E]/85 backdrop-blur-2xl border border-[#B2D234]/25 shadow-[0_12px_40px_rgba(0,0,0,0.85),0_0_20px_rgba(178,210,52,0.12)] py-2.5 px-4 sm:px-6"
             : "bg-transparent border border-white/5 py-3 px-4 sm:px-6 backdrop-blur-[2px]"
         }`}
       >
         <div className="flex items-center justify-between">
-          {/* Left: Neon-green logo icon + Brand name: Relay */}
+          {/* Left: Bounty Bytes AI Studios Logo */}
           <a href="#" className="flex items-center gap-2.5 group cursor-pointer">
-            <div className="w-8 h-8 rounded-lg bg-[#161814] border border-[#C6FF36]/30 flex items-center justify-center transition-all duration-300 group-hover:border-[#C6FF36] group-hover:shadow-[0_0_18px_rgba(198,255,54,0.4)] group-hover:scale-105">
-              {/* Custom Relay Logo SVG */}
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12"
-                  stroke="#C6FF36"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M9 16L12 12L15 16"
-                  stroke="#C6FF36"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <circle cx="12" cy="12" r="2.5" fill="#C6FF36" />
-              </svg>
+            <div className="relative h-9 sm:h-10 flex items-center transition-all duration-300 group-hover:scale-105">
+              <img
+                src="/logo.png"
+                alt="Bounty Bytes AI Studios"
+                className="h-7 sm:h-8 w-auto object-contain filter drop-shadow-[0_0_10px_rgba(178,210,52,0.45)]"
+              />
             </div>
-            <span className="font-semibold text-base sm:text-lg tracking-tight text-white flex items-center gap-1.5">
-              Relay
-              <span className="w-1.5 h-1.5 rounded-full bg-[#C6FF36] animate-pulse" />
+            <span className="font-syne font-bold text-sm sm:text-base tracking-tight text-white flex items-center gap-1.5">
+              Bounty Bytes
+              <span className="w-1.5 h-1.5 rounded-full bg-[#B2D234] shadow-[0_0_8px_#B2D234] animate-pulse" />
             </span>
           </a>
 
@@ -98,7 +86,7 @@ export function Navbar({ onStartFree }: NavbarProps) {
                 >
                   <span>{link.label}</span>
                   {isActive && (
-                    <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#C6FF36] rounded-full shadow-[0_0_8px_#C6FF36]" />
+                    <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#B2D234] rounded-full shadow-[0_0_8px_#B2D234]" />
                   )}
                 </a>
               );
@@ -110,16 +98,16 @@ export function Navbar({ onStartFree }: NavbarProps) {
             {/* Status indicator pill */}
             <div className="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-[#161814]/80 border border-white/5 text-[11px] font-mono text-neutral-300">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C6FF36] opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#C6FF36]" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#B2D234] opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#B2D234]" />
               </span>
               <span>All systems normal</span>
             </div>
 
-            {/* Neon-green "Start free" button with light sweep & glow */}
+            {/* Bounty Green "Start free" button with light sweep & glow */}
             <button
               onClick={onStartFree}
-              className="btn-primary-neon group relative inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full bg-[#C6FF36] text-[#050505] font-semibold text-xs sm:text-sm cursor-pointer"
+              className="btn-primary-neon group relative inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full bg-[#B2D234] hover:bg-[#C5EB2A] text-[#050505] font-bold text-xs sm:text-sm cursor-pointer shadow-[0_0_20px_rgba(178,210,52,0.35)] transition-all duration-300"
             >
               <span>Start free</span>
               <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
@@ -146,15 +134,15 @@ export function Navbar({ onStartFree }: NavbarProps) {
                 onClick={() => setMobileMenuOpen(false)}
                 className={`text-sm py-1.5 transition-colors font-medium px-2 ${
                   activeSection === link.id
-                    ? "text-[#C6FF36]"
-                    : "text-neutral-300 hover:text-[#C6FF36]"
+                    ? "text-[#B2D234]"
+                    : "text-neutral-300 hover:text-[#B2D234]"
                 }`}
               >
                 {link.label}
               </a>
             ))}
             <div className="pt-2 flex items-center gap-2 text-xs font-mono text-neutral-400 px-2">
-              <span className="w-2 h-2 rounded-full bg-[#C6FF36]" />
+              <span className="w-2 h-2 rounded-full bg-[#B2D234]" />
               <span>All systems normal</span>
             </div>
           </div>

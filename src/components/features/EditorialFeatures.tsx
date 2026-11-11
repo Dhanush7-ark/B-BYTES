@@ -35,7 +35,7 @@ export function EditorialFeatures() {
       action: "Rotated AWS IAM credentials & quarantined repo branch",
       status: "Critical Handled",
       duration: "85ms",
-      actor: "Relay Guardian",
+      actor: "Bounty Bytes Guardian",
     },
     {
       time: "03:12 PM",
@@ -82,18 +82,26 @@ export function EditorialFeatures() {
           SECTION A: "One canvas, many branches."
           Visual Workflow Builder Editorial Section
       ────────────────────────────────────────────────────────────────────────── */}
-      <section className="relative py-28 sm:py-36 px-4 sm:px-6 lg:px-8 border-t border-white/5">
+      <section className="relative py-28 sm:py-36 px-4 sm:px-6 lg:px-8">
+        <div
+          className="absolute inset-0 w-screen min-w-full h-full pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse 100% 70% at 50% 20%, rgba(178, 210, 52, 0.08) 0%, transparent 70%)",
+            filter: "blur(60px)",
+          }}
+        />
         <div className="relative max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             {/* Copy Column with Scroll Reveal */}
             <ScrollReveal className="lg:col-span-5 flex flex-col items-start">
-              <span className="text-xs font-mono uppercase tracking-[0.3em] text-[#C6FF36] mb-3">
+              <span className="text-xs font-mono uppercase tracking-[0.3em] text-[#B2D234] mb-3">
                 01 // VISUAL CANVAS
               </span>
               <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-6 leading-[1.15]">
                 One canvas,{" "}
-                <span className="font-serif-italic font-normal text-[#C6FF36]">
+                <span className="font-serif-italic font-normal text-[#B2D234]">
                   many branches.
                 </span>
               </h2>
@@ -104,19 +112,19 @@ export function EditorialFeatures() {
               {/* Feature Points */}
               <div className="flex flex-col gap-4 text-sm text-neutral-300 font-mono">
                 <div className="flex items-center gap-3">
-                  <span className="w-5 h-5 rounded bg-[#C6FF36]/15 border border-[#C6FF36]/40 flex items-center justify-center text-[#C6FF36] text-xs shadow-[0_0_8px_rgba(198,255,54,0.2)]">
+                  <span className="w-5 h-5 rounded bg-[#B2D234]/15 border border-[#B2D234]/40 flex items-center justify-center text-[#B2D234] text-xs shadow-[0_0_8px_rgba(178, 210, 52,0.2)]">
                     ✓
                   </span>
                   <span>Branch conditionally on any JSON payload key</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <span className="w-5 h-5 rounded bg-[#C6FF36]/15 border border-[#C6FF36]/40 flex items-center justify-center text-[#C6FF36] text-xs shadow-[0_0_8px_rgba(198,255,54,0.2)]">
+                  <span className="w-5 h-5 rounded bg-[#B2D234]/15 border border-[#B2D234]/40 flex items-center justify-center text-[#B2D234] text-xs shadow-[0_0_8px_rgba(178, 210, 52,0.2)]">
                     ✓
                   </span>
                   <span>Human-in-the-loop approvals via Slack or Email</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <span className="w-5 h-5 rounded bg-[#C6FF36]/15 border border-[#C6FF36]/40 flex items-center justify-center text-[#C6FF36] text-xs shadow-[0_0_8px_rgba(198,255,54,0.2)]">
+                  <span className="w-5 h-5 rounded bg-[#B2D234]/15 border border-[#B2D234]/40 flex items-center justify-center text-[#B2D234] text-xs shadow-[0_0_8px_rgba(178, 210, 52,0.2)]">
                     ✓
                   </span>
                   <span>Automatic schema inference & payload validation</span>
@@ -127,28 +135,28 @@ export function EditorialFeatures() {
             {/* Visual Dashboard Column with Interactive Card Hover */}
             <ScrollReveal delay={0.2} scale={0.98} className="lg:col-span-7">
               <div className="card-futuristic-interactive relative rounded-3xl bg-[#10110E] border border-white/10 p-6 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.8)] overflow-hidden">
-                <div className="absolute top-0 right-0 w-80 h-80 bg-[radial-gradient(circle,rgba(198,255,54,0.06),transparent_70%)] blur-3xl pointer-events-none" />
+                <div className="absolute top-0 right-0 w-80 h-80 bg-[radial-gradient(circle,rgba(178, 210, 52,0.06),transparent_70%)] blur-3xl pointer-events-none" />
 
                 {/* Canvas Mini Header */}
                 <div className="flex items-center justify-between pb-5 border-b border-white/8 mb-6 text-xs font-mono">
                   <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded bg-[#C6FF36] shadow-[0_0_8px_#C6FF36]" />
+                    <span className="w-2.5 h-2.5 rounded bg-[#B2D234] shadow-[0_0_8px_#B2D234]" />
                     <span className="text-white font-semibold">Workflow: Enterprise SLA Escalation</span>
                   </div>
-                  <span className="text-[#C6FF36]">Auto-save: 2s ago</span>
+                  <span className="text-[#B2D234]">Auto-save: 2s ago</span>
                 </div>
 
                 {/* Node Tree Diagram */}
                 <div className="flex flex-col gap-5">
-                  <div className="p-4 rounded-xl bg-[#161814] border border-[#C6FF36]/40 flex items-center justify-between shadow-[0_0_15px_rgba(198,255,54,0.08)]">
+                  <div className="p-4 rounded-xl bg-[#161814] border border-[#B2D234]/40 flex items-center justify-between shadow-[0_0_15px_rgba(178, 210, 52,0.08)]">
                     <div>
-                      <span className="text-[10px] font-mono text-[#C6FF36]">TRIGGER</span>
+                      <span className="text-[10px] font-mono text-[#B2D234]">TRIGGER</span>
                       <h4 className="text-sm font-semibold text-white">Zendesk Ticket: SLA Breach Alert</h4>
                     </div>
                     <span className="text-xs font-mono text-neutral-400">P0 Urgent</span>
                   </div>
 
-                  <div className="pl-6 border-l-2 border-dashed border-[#C6FF36]/40 flex flex-col gap-4">
+                  <div className="pl-6 border-l-2 border-dashed border-[#B2D234]/40 flex flex-col gap-4">
                     <div className="p-3.5 rounded-xl bg-[#161814] border border-white/10 flex items-center justify-between">
                       <div>
                         <span className="text-[10px] font-mono text-amber-300">RULE</span>
@@ -158,12 +166,12 @@ export function EditorialFeatures() {
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      <div className="p-3 rounded-lg bg-[#0a0b09] border border-[#C6FF36]/30 hover:border-[#C6FF36] transition-colors">
-                        <span className="text-[10px] font-mono text-[#C6FF36]">ACTION 1</span>
+                      <div className="p-3 rounded-lg bg-[#0a0b09] border border-[#B2D234]/30 hover:border-[#B2D234] transition-colors">
+                        <span className="text-[10px] font-mono text-[#B2D234]">ACTION 1</span>
                         <p className="text-xs text-neutral-200 mt-1">Page On-Call VP via PagerDuty</p>
                       </div>
-                      <div className="p-3 rounded-lg bg-[#0a0b09] border border-[#C6FF36]/30 hover:border-[#C6FF36] transition-colors">
-                        <span className="text-[10px] font-mono text-[#C6FF36]">ACTION 2</span>
+                      <div className="p-3 rounded-lg bg-[#0a0b09] border border-[#B2D234]/30 hover:border-[#B2D234] transition-colors">
+                        <span className="text-[10px] font-mono text-[#B2D234]">ACTION 2</span>
                         <p className="text-xs text-neutral-200 mt-1">Open War Room Slack Channel</p>
                       </div>
                     </div>
@@ -178,28 +186,28 @@ export function EditorialFeatures() {
       </section>
 
       {/* ──────────────────────────────────────────────────────────────────────────
-          SECTION B: "A Tuesday, seen from Relay."
+          SECTION B: "A Tuesday, seen from Bounty Bytes."
           Editorial Timeline Execution Dashboard
       ────────────────────────────────────────────────────────────────────────── */}
       <section className="relative py-28 sm:py-36 px-4 sm:px-6 lg:px-8 border-t border-white/5 bg-transparent">
         {/* Ambient subtle green glow */}
-        <div className="absolute top-1/2 right-1/4 w-[700px] h-[400px] bg-[radial-gradient(circle,rgba(198,255,54,0.05),transparent_70%)] blur-[140px] pointer-events-none" />
+        <div className="absolute top-1/2 right-1/4 w-[700px] h-[400px] bg-[radial-gradient(circle,rgba(178, 210, 52,0.05),transparent_70%)] blur-[140px] pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto">
           
           {/* Section B Header with Scroll Reveal */}
           <ScrollReveal className="max-w-3xl mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#10110E] border border-white/10 text-xs font-mono text-[#C6FF36] mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#10110E] border border-white/10 text-xs font-mono text-[#B2D234] mb-4">
               <span>02 // REAL-TIME DISPATCH</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-5 leading-[1.15]">
               A Tuesday,{" "}
-              <span className="font-serif-italic font-normal text-[#C6FF36]">
-                seen from Relay.
+              <span className="font-serif-italic font-normal text-[#B2D234]">
+                seen from Bounty Bytes.
               </span>
             </h2>
             <p className="text-base sm:text-lg text-[#888888] font-normal leading-relaxed">
-              Every handoff happens silently in the background. Your team only hears from Relay when a human exception genuinely requires judgment.
+              Every handoff happens silently in the background. Your team only hears from Bounty Bytes when a human exception genuinely requires judgment.
             </p>
           </ScrollReveal>
 
@@ -209,7 +217,7 @@ export function EditorialFeatures() {
             {/* Daily Activity Badge Header */}
             <div className="flex flex-wrap items-center justify-between px-6 py-4 border-b border-white/8 bg-[#0a0b09]/80 gap-4">
               <div className="flex items-center gap-3">
-                <span className="px-3 py-1 rounded-full bg-[#C6FF36]/15 border border-[#C6FF36]/30 text-[#C6FF36] text-xs font-mono font-semibold shadow-[0_0_10px_rgba(198,255,54,0.15)]">
+                <span className="px-3 py-1 rounded-full bg-[#B2D234]/15 border border-[#B2D234]/30 text-[#B2D234] text-xs font-mono font-semibold shadow-[0_0_10px_rgba(178, 210, 52,0.15)]">
                   Tuesday, Nov 12 • 4,812 runs completed
                 </span>
                 <span className="text-neutral-500 font-mono text-xs hidden sm:inline">All automated pipelines nominal</span>
@@ -232,12 +240,12 @@ export function EditorialFeatures() {
                   onClick={() => setSelectedLogIndex(idx)}
                   className={`p-5 sm:px-8 transition-all duration-200 cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-4 ${
                     selectedLogIndex === idx
-                      ? "bg-[#161814] border-l-2 border-[#C6FF36]"
+                      ? "bg-[#161814] border-l-2 border-[#B2D234]"
                       : "hover:bg-white/[0.03]"
                   }`}
                 >
                   <div className="flex items-start sm:items-center gap-4">
-                    <span className="text-xs font-mono text-[#C6FF36] w-20 shrink-0 font-semibold">
+                    <span className="text-xs font-mono text-[#B2D234] w-20 shrink-0 font-semibold">
                       {event.time}
                     </span>
                     <span className="px-2 py-0.5 rounded bg-white/5 text-[11px] font-mono text-neutral-300 border border-white/10">
@@ -270,18 +278,18 @@ export function EditorialFeatures() {
       ────────────────────────────────────────────────────────────────────────── */}
       <section className="relative py-28 sm:py-36 px-4 sm:px-6 lg:px-8 border-t border-white/5 bg-transparent">
         {/* Green light beam behind chart */}
-        <div className="absolute top-1/2 left-1/3 -translate-x-1/2 w-[850px] h-[350px] bg-[radial-gradient(ellipse,rgba(198,255,54,0.07),transparent_70%)] blur-[100px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/3 -translate-x-1/2 w-[850px] h-[350px] bg-[radial-gradient(ellipse,rgba(178, 210, 52,0.07),transparent_70%)] blur-[100px] pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto">
           
           {/* Section C Header with Scroll Reveal */}
           <ScrollReveal className="max-w-3xl mb-16">
-            <span className="text-xs font-mono uppercase tracking-[0.3em] text-[#C6FF36] mb-3 block">
+            <span className="text-xs font-mono uppercase tracking-[0.3em] text-[#B2D234] mb-3 block">
               03 // REPLAY & COMPLIANCE
             </span>
             <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-5 leading-[1.15]">
               Every run is{" "}
-              <span className="font-serif-italic font-normal text-[#C6FF36]">
+              <span className="font-serif-italic font-normal text-[#B2D234]">
                 on the record.
               </span>
             </h2>
@@ -303,8 +311,8 @@ export function EditorialFeatures() {
                   <span className="text-2xl sm:text-3xl font-bold text-white font-mono">
                     {activeBar.count.toLocaleString()} runs
                   </span>
-                  <span className="text-xs font-mono text-[#C6FF36] flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C6FF36] animate-pulse" />
+                  <span className="text-xs font-mono text-[#B2D234] flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B2D234] animate-pulse" />
                     Latency: {activeBar.latency}
                   </span>
                 </div>
@@ -314,7 +322,7 @@ export function EditorialFeatures() {
                 <span className="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-neutral-300">
                   Time Window: 12 Hours
                 </span>
-                <span className="px-3 py-1.5 rounded-xl bg-[#C6FF36]/15 border border-[#C6FF36]/30 text-xs font-mono text-[#C6FF36] font-semibold">
+                <span className="px-3 py-1.5 rounded-xl bg-[#B2D234]/15 border border-[#B2D234]/30 text-xs font-mono text-[#B2D234] font-semibold">
                   Retention: 90 Days
                 </span>
               </div>
@@ -334,7 +342,7 @@ export function EditorialFeatures() {
                       {/* Tooltip on Hover */}
                       <span
                         className={`text-[10px] font-mono transition-opacity duration-200 ${
-                          isSelected ? "opacity-100 text-[#C6FF36] font-semibold" : "opacity-0 group-hover:opacity-100 text-neutral-400"
+                          isSelected ? "opacity-100 text-[#B2D234] font-semibold" : "opacity-0 group-hover:opacity-100 text-neutral-400"
                         }`}
                       >
                         {bar.count}
@@ -346,8 +354,8 @@ export function EditorialFeatures() {
                           style={{ height: `${bar.height}%` }}
                           className={`w-full rounded-t-lg transition-all duration-300 relative ${
                             isSelected
-                              ? "bg-gradient-to-t from-[#C6FF36]/40 to-[#C6FF36] shadow-[0_0_25px_rgba(198,255,54,0.5)] scale-y-105"
-                              : "bg-[#1f2319] hover:bg-[#C6FF36]/40 border-t border-white/20"
+                              ? "bg-gradient-to-t from-[#B2D234]/40 to-[#B2D234] shadow-[0_0_25px_rgba(178, 210, 52,0.5)] scale-y-105"
+                              : "bg-[#1f2319] hover:bg-[#B2D234]/40 border-t border-white/20"
                           }`}
                         >
                           {isSelected && (
@@ -359,7 +367,7 @@ export function EditorialFeatures() {
                       {/* Hour Label */}
                       <span
                         className={`text-[11px] font-mono transition-colors ${
-                          isSelected ? "text-[#C6FF36] font-bold" : "text-neutral-500 group-hover:text-neutral-300"
+                          isSelected ? "text-[#B2D234] font-bold" : "text-neutral-500 group-hover:text-neutral-300"
                         }`}
                       >
                         {bar.hour}
@@ -373,7 +381,7 @@ export function EditorialFeatures() {
             {/* 90-Day Execution Replay Inspector */}
             <div className="mt-8 pt-6 border-t border-white/8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-[#0a0b09] p-4 rounded-2xl border border-white/5">
               <div className="flex items-center gap-3 text-xs font-mono">
-                <span className="p-2 rounded-lg bg-white/5 text-[#C6FF36]">
+                <span className="p-2 rounded-lg bg-white/5 text-[#B2D234]">
                   <RefreshCw className="w-4 h-4" />
                 </span>
                 <div>
@@ -382,7 +390,7 @@ export function EditorialFeatures() {
                 </div>
               </div>
 
-              <button className="btn-secondary-glow px-4 py-2 rounded-xl bg-[#161814] hover:bg-[#1a2014] border border-[#C6FF36]/30 text-xs font-mono text-[#C6FF36] transition-all cursor-pointer whitespace-nowrap">
+              <button className="btn-secondary-glow px-4 py-2 rounded-xl bg-[#161814] hover:bg-[#1a2014] border border-[#B2D234]/30 text-xs font-mono text-[#B2D234] transition-all cursor-pointer whitespace-nowrap">
                 Inspect Payload {activeBar.hour}:00 UTC →
               </button>
             </div>

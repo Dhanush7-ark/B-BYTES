@@ -143,7 +143,7 @@ export function CinematicGreenBackground({
         vec3 colBg = vec3(0.012, 0.027, 0.016);          // #030704
         vec3 colDarkGreen = vec3(0.024, 0.239, 0.125);   // #063D20
         vec3 colDeepEmerald = vec3(0.0, 0.561, 0.298);    // #008F4C
-        vec3 colNeonGreen = vec3(0.0, 1.0, 0.522);        // #00FF85
+        vec3 colNeonGreen = vec3(0.0, 1.0, 0.522);        // #C5EB2A
         vec3 colHighlight = vec3(0.224, 1.0, 0.612);      // #39FF9C
 
         // Sharp liquid flame edge thresholds
@@ -262,13 +262,13 @@ export function CinematicGreenBackground({
         {[...Array(14)].map((_, i) => (
           <div
             key={i}
-            className="absolute rounded-full bg-[#00FF85] opacity-60 filter blur-[1px]"
+            className="absolute rounded-full bg-[#C5EB2A] opacity-60 filter blur-[1px]"
             style={{
               width: `${(i % 3) + 2}px`,
               height: `${(i % 3) + 2}px`,
               left: `${(i * 7.5 + 4) % 96}%`,
               bottom: "-5%",
-              boxShadow: "0 0 8px #00FF85",
+              boxShadow: "0 0 8px #C5EB2A",
               animation: `particleFlow ${7 + (i % 5) * 2}s linear infinite`,
               animationDelay: `-${(i * 1.3) % 8}s`,
             }}
@@ -292,7 +292,7 @@ export function CinematicGreenBackground({
             style={{
               opacity: emblemGlow,
               background:
-                "radial-gradient(ellipse at center, rgba(0, 255, 133, 0.32) 0%, rgba(0, 143, 76, 0.15) 45%, transparent 75%)",
+                "radial-gradient(ellipse at center, rgba(197, 235, 42, 0.32) 0%, rgba(0, 143, 76, 0.15) 45%, transparent 75%)",
               mixBlendMode: "screen",
             }}
           />
@@ -300,7 +300,7 @@ export function CinematicGreenBackground({
           {/* Symmetrical Cyber-Tribal Flame Winged Emblem Vector */}
           <div className="relative w-[340px] sm:w-[560px] md:w-[720px] lg:w-[860px] h-auto">
             <svg
-              className="w-full h-auto filter drop-shadow-[0_0_22px_rgba(0,255,133,0.65)] drop-shadow-[0_0_55px_rgba(0,255,133,0.3)]"
+              className="w-full h-auto filter drop-shadow-[0_0_22px_rgba(197, 235, 42,0.65)] drop-shadow-[0_0_55px_rgba(197, 235, 42,0.3)]"
               viewBox="0 0 1000 600"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -309,7 +309,7 @@ export function CinematicGreenBackground({
                 {/* Luminous Neon Gradient */}
                 <linearGradient id="emblemNeonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stopColor="#39FF9C" />
-                  <stop offset="35%" stopColor="#00FF85" />
+                  <stop offset="35%" stopColor="#C5EB2A" />
                   <stop offset="70%" stopColor="#008F4C" />
                   <stop offset="100%" stopColor="#063D20" />
                 </linearGradient>
@@ -332,7 +332,7 @@ export function CinematicGreenBackground({
                 <path
                   d="M 500 300 C 470 200, 390 100, 260 50 C 310 110, 360 210, 380 290 C 330 240, 240 180, 130 150 C 190 220, 260 280, 330 330 C 260 320, 170 320, 80 340 C 160 380, 250 395, 330 400 C 240 430, 140 470, 70 540 C 160 510, 260 470, 340 440 C 270 480, 190 530, 120 590 C 220 560, 330 500, 410 440 C 450 400, 480 350, 500 300 Z"
                   fill="#063D20"
-                  stroke="#00FF85"
+                  stroke="#C5EB2A"
                   strokeWidth="2.5"
                   strokeLinejoin="round"
                 />
@@ -348,14 +348,14 @@ export function CinematicGreenBackground({
 
                 <path
                   d="M 380 330 C 300 280, 220 230, 130 200 C 190 260, 260 310, 330 350 Z"
-                  fill="#00FF85"
+                  fill="#C5EB2A"
                   opacity="0.8"
                 />
 
                 {/* Lower Curling Thorn Tendril */}
                 <path
                   d="M 420 440 C 360 480, 280 520, 180 560 C 270 530, 350 480, 400 440 Z"
-                  fill="#00FF85"
+                  fill="#C5EB2A"
                   stroke="#39FF9C"
                   strokeWidth="1.2"
                 />
@@ -377,7 +377,7 @@ export function CinematicGreenBackground({
                 <path
                   d="M 500 60 L 512 280 L 500 540 L 488 280 Z"
                   fill="#39FF9C"
-                  stroke="#00FF85"
+                  stroke="#C5EB2A"
                   strokeWidth="2"
                   filter="url(#emblemGlowFilter)"
                 />
@@ -401,13 +401,13 @@ export function CinematicGreenBackground({
       {/* ─── LAYER 4: EDITORIAL VIGNETTE & METADATA ─── */}
       <div className="absolute inset-0 pointer-events-none z-30 flex flex-col justify-between p-6 sm:p-10">
         {/* Top telemetry tags */}
-        <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.3em] uppercase text-[#00FF85]/60">
+        <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.3em] uppercase text-[#C5EB2A]/60">
           <span>03 // KINETIC MATRIX</span>
           <span>EMERALD CORE // 60 FPS</span>
         </div>
 
         {/* Bottom telemetry tags */}
-        <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.3em] uppercase text-[#00FF85]/60">
+        <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.3em] uppercase text-[#C5EB2A]/60">
           <span>FLUID NOISE // DOMAIN WARPED</span>
           <span>LATENCY // &lt;16MS</span>
         </div>

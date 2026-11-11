@@ -121,8 +121,8 @@ export const SHOWCASE_PROJECTS: ShowcaseProject[] = [
     description:
       "Next-generation sonic visualizer featuring real-time frequency waveforms, lossless analog warmth, and immersive tactile soundstage controls.",
     image: "/projects/solaris-audio.svg",
-    accentColor: "#C6FF36",
-    ambientGlow: "rgba(198, 255, 54, 0.42)",
+    accentColor: "#B2D234",
+    ambientGlow: "rgba(178, 210, 52, 0.42)",
     secondaryGlow: "rgba(132, 204, 22, 0.22)",
     aspect: "landscape",
   },

@@ -111,9 +111,9 @@ export function CinematicLoader() {
       aria-valuenow={displayProgress}
       aria-valuemin={0}
       aria-valuemax={100}
-      aria-label="Loading Relay experience"
+      aria-label="Loading Bounty Bytes experience"
     >
-      {/* ─── PROCEDURAL NEON GREEN PARTICLES & CONVECTIVE EMBERS ─── */}
+      {/* ─── PROCEDURAL BOUNTY GREEN PARTICLES & CONVECTIVE EMBERS ─── */}
       {!isTransitionActive && (
         <LoaderParticles
           progress={displayProgress}
@@ -122,7 +122,7 @@ export function CinematicLoader() {
         />
       )}
 
-      {/* ─── ATMOSPHERIC NEON GREEN RADIAL GLOW BEHIND TYPOGRAPHY ─── */}
+      {/* ─── ATMOSPHERIC BOUNTY GREEN RADIAL GLOW BEHIND TYPOGRAPHY ─── */}
       {!isTransitionActive && (
         <div
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none transition-all duration-500 ease-out"
@@ -131,7 +131,7 @@ export function CinematicLoader() {
             height: "min(90vw, 750px)",
             borderRadius: "50%",
             background:
-              "radial-gradient(circle, rgba(198,255,54,0.22) 0%, rgba(198,255,54,0.04) 50%, transparent 75%)",
+              "radial-gradient(circle, rgba(178, 210, 52, 0.22) 0%, rgba(178, 210, 52, 0.04) 50%, transparent 75%)",
             opacity: Math.min(0.65, 0.2 + norm * 0.45),
             transform: `translate(-50%, -50%) scale(${0.75 + norm * 0.55})`,
           }}
@@ -139,10 +139,19 @@ export function CinematicLoader() {
         />
       )}
 
-      {/* ─── CENTRAL COUNTER + NEON LIME BODONI TYPOGRAPHY ─── */}
+      {/* ─── CENTRAL COUNTER + BOUNTY GREEN BODONI TYPOGRAPHY ─── */}
       {!isTransitionActive && (
         <div className="relative z-10 flex flex-col items-center select-none text-center px-4">
-          {/* Neon Lime ITC Bodoni 72 Italic Counter */}
+          {/* Subtle Logo mark */}
+          <div className="mb-2 opacity-80 transition-opacity">
+            <img
+              src="/logo.png"
+              alt="Bounty Bytes"
+              className="h-10 sm:h-12 w-auto object-contain filter drop-shadow-[0_0_15px_rgba(178,210,52,0.5)]"
+            />
+          </div>
+
+          {/* Bounty Green ITC Bodoni 72 Italic Counter */}
           <div
             className="relative leading-none select-none font-serif-italic"
             style={{
@@ -151,26 +160,26 @@ export function CinematicLoader() {
               fontStyle: "italic",
               fontWeight: 400,
               fontFeatureSettings: '"onum" 1, "pnum" 1',
-              fontSize: "clamp(180px, 28vw, 480px)",
-              color: "#C6FF36",
+              fontSize: "clamp(120px, 20vw, 360px)",
+              color: "#B2D234",
               letterSpacing: "-0.02em",
-              textShadow: "0 0 50px rgba(198, 255, 54, 0.45), 0 0 100px rgba(198, 255, 54, 0.2)",
+              textShadow: "0 0 50px rgba(178, 210, 52, 0.45), 0 0 100px rgba(178, 210, 52, 0.2)",
             }}
           >
             {formattedCounter}
           </div>
 
-          {/* Supporting label & stage indicator in Neon Lime & Subtle White */}
+          {/* Supporting label & stage indicator in Bounty Green & Subtle White */}
           <div className="mt-2 sm:mt-4 flex flex-col items-center">
             <div
               className="tracking-[0.4em] uppercase font-mono font-medium"
               style={{
                 fontSize: "clamp(0.6rem, 1.1vw, 0.8rem)",
-                color: "#C6FF36",
+                color: "#B2D234",
                 letterSpacing: "0.35em",
               }}
             >
-              RELAY // AUTONOMOUS WORKFLOWS
+              BOUNTY BYTES // AI STUDIOS
             </div>
 
             <div
@@ -191,7 +200,7 @@ export function CinematicLoader() {
         <div
           className="absolute bottom-0 left-0 right-0 h-px"
           style={{
-            background: "linear-gradient(90deg, transparent, rgba(198,255,54,0.35), transparent)",
+            background: "linear-gradient(90deg, transparent, rgba(178, 210, 52,0.35), transparent)",
           }}
           aria-hidden="true"
         />

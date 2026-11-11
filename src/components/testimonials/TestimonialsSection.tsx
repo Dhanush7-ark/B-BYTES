@@ -6,7 +6,7 @@ export function TestimonialsSection() {
   const testimonials = [
     {
       quote:
-        "We went from spending Monday mornings reconciling failed multi-app webhooks to literally never thinking about handoffs. Relay handles our entire fintech provisioning pipeline silently.",
+        "We went from spending Monday mornings reconciling failed multi-app webhooks to literally never thinking about handoffs. Bounty Bytes handles our entire fintech provisioning pipeline silently.",
       name: "Marcus Vance",
       title: "VP of Engineering",
       company: "Ramp",
@@ -14,7 +14,7 @@ export function TestimonialsSection() {
     },
     {
       quote:
-        "The human-in-the-loop primitive is what makes Relay special. It only pings our account executives when contract value crosses $50k or an anomaly occurs. The rest just executes.",
+        "The human-in-the-loop primitive is what makes Bounty Bytes special. It only pings our account executives when contract value crosses $50k or an anomaly occurs. The rest just executes.",
       name: "Elena Rostova",
       title: "Head of Revenue Operations",
       company: "Retool",
@@ -34,19 +34,19 @@ export function TestimonialsSection() {
     <section id="customers" className="relative py-28 sm:py-36 px-4 sm:px-6 lg:px-8 bg-transparent overflow-hidden border-t border-white/5">
       {/* Ambient background soft glow */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[300px] bg-[radial-gradient(ellipse,rgba(198,255,54,0.04),transparent_70%)] blur-[100px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[300px] bg-[radial-gradient(ellipse,rgba(178, 210, 52,0.04),transparent_70%)] blur-[100px]" />
       </div>
 
       <div className="relative max-w-7xl mx-auto">
         
         {/* Section Header with Scroll Reveal */}
         <ScrollReveal className="max-w-2xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#10110E] border border-white/10 text-xs font-mono text-[#C6FF36] mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#10110E] border border-white/10 text-xs font-mono text-[#B2D234] mb-4">
             <span>PROOF // CUSTOMER VOICES</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-4">
             Built for operators who{" "}
-            <span className="font-serif-italic font-normal text-[#C6FF36]">
+            <span className="font-serif-italic font-normal text-[#B2D234]">
               care about details.
             </span>
           </h2>
@@ -60,7 +60,7 @@ export function TestimonialsSection() {
           {testimonials.map((t) => (
             <StaggerItem key={t.name}>
               <div
-                className="card-futuristic-interactive group relative rounded-3xl bg-[#10110E]/80 border border-white/8 hover:border-[#C6FF36]/40 p-8 flex flex-col justify-between h-full cursor-pointer"
+                className="card-futuristic-interactive group relative rounded-3xl bg-[#10110E]/80 border border-white/8 hover:border-[#B2D234]/40 p-8 flex flex-col justify-between h-full cursor-pointer"
               >
                 <div>
                   {/* Subtle top company pill */}
@@ -68,7 +68,7 @@ export function TestimonialsSection() {
                     <span className="text-sm font-semibold text-white tracking-wide">
                       {t.company}
                     </span>
-                    <span className="text-[10px] font-mono text-[#C6FF36] px-2 py-0.5 rounded bg-[#C6FF36]/10 border border-[#C6FF36]/30 shadow-[0_0_8px_rgba(198,255,54,0.15)]">
+                    <span className="text-[10px] font-mono text-[#B2D234] px-2 py-0.5 rounded bg-[#B2D234]/10 border border-[#B2D234]/30 shadow-[0_0_8px_rgba(178, 210, 52,0.15)]">
                       {t.metric}
                     </span>
                   </div>

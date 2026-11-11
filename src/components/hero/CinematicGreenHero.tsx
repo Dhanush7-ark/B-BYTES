@@ -18,7 +18,7 @@ interface CinematicGreenHeroProps {
  * - Pure black viewport background (#000000)
  * - Procedural organic green flame silhouettes extending downwards from the top edge
  * - Noise-based liquid undulation, downward stretching & retracting tendrils (60 FPS)
- * - Minimal futuristic typography in white & neon green (#00FF41 / #39FF14)
+ * - Minimal futuristic typography in white & neon green (#B2D234 / #C5EB2A)
  * - Minimalist symbols & cyber-sigils inspired by the reference video
  * - Equalizer barcode & telemetry footer matching the reference composition
  */
@@ -64,7 +64,7 @@ export function CinematicGreenHero({
         {/* Cyber-Gothic Butterfly Sigil (from reference emblem) */}
         <div className="flex items-center gap-3">
           <svg
-            className="w-7 h-7 text-[#00FF41] filter drop-shadow-[0_0_8px_rgba(0,255,65,0.7)]"
+            className="w-7 h-7 text-[#B2D234] filter drop-shadow-[0_0_8px_rgba(178, 210, 52,0.7)]"
             viewBox="0 0 100 100"
             fill="none"
             stroke="currentColor"
@@ -76,17 +76,17 @@ export function CinematicGreenHero({
             <path d="M 50 50 C 42 32, 28 16, 14 12 C 20 28, 28 40, 40 48 C 22 46, 8 54, 4 64 C 18 62, 32 70, 42 80 C 46 68, 48 58, 50 50 Z" />
             <path d="M 50 50 C 58 32, 72 16, 86 12 C 80 28, 72 40, 60 48 C 78 46, 92 54, 96 64 C 82 62, 68 70, 58 80 C 54 68, 52 58, 50 50 Z" />
             <path d="M 50 16 L 50 84" strokeWidth="2" />
-            <circle cx="50" cy="50" r="3" fill="#00FF41" />
+            <circle cx="50" cy="50" r="3" fill="#B2D234" />
           </svg>
-          <span className="font-mono text-[9px] sm:text-[11px] uppercase tracking-[0.35em] text-[#00FF41]/90">
+          <span className="font-mono text-[9px] sm:text-[11px] uppercase tracking-[0.35em] text-[#B2D234]/90">
             RELAY // SYNTHETIC KINETICS
           </span>
         </div>
 
         {/* Status Pill Right */}
         <div className="hidden sm:flex items-center gap-3 font-mono text-[11px] text-neutral-400">
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#001A0D]/70 border border-[#00FF41]/30 backdrop-blur-sm shadow-[0_0_12px_rgba(0,255,65,0.15)] text-[#00FF41]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00FF41] animate-pulse shadow-[0_0_6px_#00FF41]" />
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#101704]/70 border border-[#B2D234]/30 backdrop-blur-sm shadow-[0_0_12px_rgba(178, 210, 52,0.15)] text-[#B2D234]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#B2D234] animate-pulse shadow-[0_0_6px_#B2D234]" />
             <span>01 &nbsp;//&nbsp; KINETIC MATRIX</span>
           </span>
         </div>
@@ -99,9 +99,9 @@ export function CinematicGreenHero({
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#001A0D]/80 border border-[#00FF41]/30 text-xs font-mono text-[#00FF41] mb-6 sm:mb-8 backdrop-blur-md shadow-[0_0_18px_rgba(0,255,65,0.2)]"
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#101704]/80 border border-[#B2D234]/30 text-xs font-mono text-[#B2D234] mb-6 sm:mb-8 backdrop-blur-md shadow-[0_0_18px_rgba(178, 210, 52,0.2)]"
         >
-          <Sparkles className="w-3.5 h-3.5 text-[#39FF14]" />
+          <Sparkles className="w-3.5 h-3.5 text-[#C5EB2A]" />
           <span className="tracking-[0.25em] uppercase font-semibold text-[10px] sm:text-xs">
             AUTONOMOUS FLUID ORCHESTRATION
           </span>
@@ -127,7 +127,7 @@ export function CinematicGreenHero({
             {/* Glowing Neon Green 8-Point Asterisk ✳ */}
             <span className="inline-flex items-center justify-center">
               <svg
-                className="w-7 h-7 sm:w-11 sm:h-11 md:w-14 md:h-14 text-[#00FF41] animate-spin-slow filter drop-shadow-[0_0_18px_#00FF41]"
+                className="w-7 h-7 sm:w-11 sm:h-11 md:w-14 md:h-14 text-[#B2D234] animate-spin-slow filter drop-shadow-[0_0_18px_#B2D234]"
                 viewBox="0 0 100 100"
                 fill="currentColor"
               >
@@ -138,10 +138,10 @@ export function CinematicGreenHero({
 
           <div className="mt-1 sm:mt-2">
             <span
-              className="text-[#00FF41] text-5xl sm:text-7xl md:text-8xl lg:text-[98px] block font-serif-italic font-normal tracking-[-0.01em]"
+              className="text-[#B2D234] text-5xl sm:text-7xl md:text-8xl lg:text-[98px] block font-serif-italic font-normal tracking-[-0.01em]"
               style={{
                 textShadow:
-                  "0 0 35px rgba(0, 255, 65, 0.55), 0 0 75px rgba(0, 255, 65, 0.25)",
+                  "0 0 35px rgba(178, 210, 52, 0.55), 0 0 75px rgba(178, 210, 52, 0.25)",
               }}
             >
               Kinetics.&rdquo;
@@ -171,7 +171,7 @@ export function CinematicGreenHero({
             onClick={onStartFree}
             onMouseEnter={() => setHoveredButton(true)}
             onMouseLeave={() => setHoveredButton(false)}
-            className="group relative inline-flex items-center justify-center gap-3 px-8 py-3.5 rounded-full bg-[#00FF41] hover:bg-[#39FF14] text-[#000000] font-semibold text-sm transition-all duration-300 shadow-[0_0_25px_rgba(0,255,65,0.45)] hover:shadow-[0_0_35px_rgba(57,255,20,0.65)] cursor-pointer"
+            className="group relative inline-flex items-center justify-center gap-3 px-8 py-3.5 rounded-full bg-[#B2D234] hover:bg-[#C5EB2A] text-[#000000] font-semibold text-sm transition-all duration-300 shadow-[0_0_25px_rgba(178, 210, 52,0.45)] hover:shadow-[0_0_35px_rgba(197, 235, 42,0.65)] cursor-pointer"
           >
             <span>INITIALIZE ARCHITECTURE</span>
             <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
@@ -180,9 +180,9 @@ export function CinematicGreenHero({
           {/* Secondary Button: Stealth Dark Emerald */}
           <button
             onClick={onWatchBuild}
-            className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-[#001A0D]/90 hover:bg-[#002B18] border border-[#00FF41]/30 hover:border-[#00FF41]/70 text-neutral-200 text-sm font-medium transition-all duration-200 shadow-[0_0_15px_rgba(0,26,13,0.5)] cursor-pointer"
+            className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-[#101704]/90 hover:bg-[#1B2707] border border-[#B2D234]/30 hover:border-[#B2D234]/70 text-neutral-200 text-sm font-medium transition-all duration-200 shadow-[0_0_15px_rgba(0,26,13,0.5)] cursor-pointer"
           >
-            <Terminal className="w-4 h-4 text-[#00FF41]" />
+            <Terminal className="w-4 h-4 text-[#B2D234]" />
             <span>WATCH SYSTEM STREAM</span>
           </button>
         </motion.div>
@@ -195,7 +195,7 @@ export function CinematicGreenHero({
           {equalizerBars.map((bar) => (
             <span
               key={bar.id}
-              className="w-[2px] bg-[#00FF41] rounded-full shadow-[0_0_6px_rgba(0,255,65,0.8)]"
+              className="w-[2px] bg-[#B2D234] rounded-full shadow-[0_0_6px_rgba(178, 210, 52,0.8)]"
               style={{
                 height: bar.h,
                 animation: `greenEqualizerPulse ${bar.dur} ease-in-out infinite alternate`,
@@ -207,7 +207,7 @@ export function CinematicGreenHero({
         {/* Center: Minimalist Plus Telemetry Strip (Exact Reference Video Match) */}
         <div className="flex items-center gap-3 sm:gap-8 md:gap-12 text-[10px] sm:text-xs font-semibold tracking-[0.28em] text-white/90">
           <svg
-            className="w-2.5 h-2.5 text-[#00FF41]/80 inline-block flex-shrink-0"
+            className="w-2.5 h-2.5 text-[#B2D234]/80 inline-block flex-shrink-0"
             viewBox="0 0 10 10"
             fill="none"
             stroke="currentColor"
@@ -220,7 +220,7 @@ export function CinematicGreenHero({
           <span className="tracking-[0.32em] text-white">TENSION</span>
 
           <svg
-            className="w-2.5 h-2.5 text-[#00FF41]/80 inline-block flex-shrink-0"
+            className="w-2.5 h-2.5 text-[#B2D234]/80 inline-block flex-shrink-0"
             viewBox="0 0 10 10"
             fill="none"
             stroke="currentColor"
@@ -233,7 +233,7 @@ export function CinematicGreenHero({
           <span className="tracking-[0.32em] text-white">IMMERSION</span>
 
           <svg
-            className="w-2.5 h-2.5 text-[#00FF41]/80 inline-block flex-shrink-0"
+            className="w-2.5 h-2.5 text-[#B2D234]/80 inline-block flex-shrink-0"
             viewBox="0 0 10 10"
             fill="none"
             stroke="currentColor"
@@ -246,7 +246,7 @@ export function CinematicGreenHero({
           <span className="tracking-[0.32em] text-white">IMPACT</span>
 
           <svg
-            className="w-2.5 h-2.5 text-[#00FF41]/80 inline-block flex-shrink-0"
+            className="w-2.5 h-2.5 text-[#B2D234]/80 inline-block flex-shrink-0"
             viewBox="0 0 10 10"
             fill="none"
             stroke="currentColor"
@@ -259,10 +259,10 @@ export function CinematicGreenHero({
 
         {/* Right: Minimalist Online Badge */}
         <div className="pointer-events-auto">
-          <div className="flex items-center gap-2.5 px-3 py-1.5 rounded bg-black/85 border border-[#00FF41]/30 shadow-[0_0_12px_rgba(0,0,0,0.9)]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00FF41] shadow-[0_0_8px_#00FF41] animate-pulse" />
+          <div className="flex items-center gap-2.5 px-3 py-1.5 rounded bg-black/85 border border-[#B2D234]/30 shadow-[0_0_12px_rgba(0,0,0,0.9)]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#B2D234] shadow-[0_0_8px_#B2D234] animate-pulse" />
             <span className="text-[10px] text-white font-mono tracking-wider font-semibold">
-              ONLINE <span className="text-[#00FF41]">&bull; Let&apos;s Connect</span>
+              ONLINE <span className="text-[#B2D234]">&bull; Let&apos;s Connect</span>
             </span>
           </div>
         </div>

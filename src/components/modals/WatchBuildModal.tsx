@@ -68,7 +68,7 @@ export function WatchBuildModal({ isOpen, onClose, onStartFree }: WatchBuildModa
         {/* Modal Top Bar */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-white/8 bg-[#0a0b09]/80">
           <div className="flex items-center gap-3">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#C6FF36] animate-pulse" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#B2D234] animate-pulse" />
             <h3 className="text-sm font-semibold text-white">Interactive Build Walkthrough: 2-Minute Tour</h3>
             <span className="text-[11px] font-mono text-neutral-400 hidden sm:inline">• Build & Deploy a Multi-App Handoff</span>
           </div>
@@ -87,11 +87,11 @@ export function WatchBuildModal({ isOpen, onClose, onStartFree }: WatchBuildModa
           
           {/* Subtle Canvas Grid */}
           <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-[radial-gradient(circle,rgba(198,255,54,0.08),transparent_70%)] blur-3xl pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-[radial-gradient(circle,rgba(178, 210, 52,0.08),transparent_70%)] blur-3xl pointer-events-none" />
 
           {/* Simulated Interface Demonstration */}
           <div className="relative z-10 flex-1 flex flex-col justify-center items-center text-center max-w-xl mx-auto">
-            <span className="px-3 py-1 rounded-full bg-[#C6FF36]/15 border border-[#C6FF36]/30 text-[#C6FF36] text-xs font-mono font-semibold mb-4">
+            <span className="px-3 py-1 rounded-full bg-[#B2D234]/15 border border-[#B2D234]/30 text-[#B2D234] text-xs font-mono font-semibold mb-4">
               STEP {currentStep} OF 4 // {buildSteps[currentStep - 1].timestamp}
             </span>
             <h2 className="text-xl sm:text-2xl font-bold text-white mb-3">
@@ -102,10 +102,10 @@ export function WatchBuildModal({ isOpen, onClose, onStartFree }: WatchBuildModa
             </p>
 
             {/* Simulated Live Action Visual Box */}
-            <div className="mt-6 p-4 rounded-xl bg-[#161814] border border-[#C6FF36]/40 shadow-[0_0_30px_rgba(198,255,54,0.15)] flex items-center gap-4 text-xs font-mono text-neutral-200">
-              <span className="w-2 h-2 rounded-full bg-[#C6FF36] animate-pulse" />
+            <div className="mt-6 p-4 rounded-xl bg-[#161814] border border-[#B2D234]/40 shadow-[0_0_30px_rgba(178, 210, 52,0.15)] flex items-center gap-4 text-xs font-mono text-neutral-200">
+              <span className="w-2 h-2 rounded-full bg-[#B2D234] animate-pulse" />
               <span>[Live Runtime Preview]: Evaluating rule payload on node #0{currentStep}</span>
-              <span className="text-[#C6FF36]">✓ 0 errors</span>
+              <span className="text-[#B2D234]">✓ 0 errors</span>
             </div>
           </div>
 
@@ -114,7 +114,7 @@ export function WatchBuildModal({ isOpen, onClose, onStartFree }: WatchBuildModa
             {/* Scrubber Bar */}
             <div className="w-full h-1.5 rounded-full bg-white/10 overflow-hidden cursor-pointer">
               <div
-                className="h-full bg-[#C6FF36] transition-all duration-100 shadow-[0_0_10px_#C6FF36]"
+                className="h-full bg-[#B2D234] transition-all duration-100 shadow-[0_0_10px_#B2D234]"
                 style={{ width: `${((currentStep - 1) * 25) + (progress * 0.25)}%` }}
               />
             </div>
@@ -164,7 +164,7 @@ export function WatchBuildModal({ isOpen, onClose, onStartFree }: WatchBuildModa
                 onClose();
                 onStartFree?.();
               }}
-              className="px-5 py-2 rounded-full bg-[#C6FF36] text-black font-semibold text-xs transition-all hover:bg-[#d5ff5e] shadow-[0_0_20px_rgba(198,255,54,0.3)] cursor-pointer"
+              className="px-5 py-2 rounded-full bg-[#B2D234] text-black font-semibold text-xs transition-all hover:bg-[#d5ff5e] shadow-[0_0_20px_rgba(178, 210, 52,0.3)] cursor-pointer"
             >
               Start free (14 days)
             </button>

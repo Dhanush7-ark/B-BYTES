@@ -89,27 +89,27 @@ export function AnalyticsSection() {
       {/* ─── SUBTLE GREEN LIGHT BEAM ACROSS BACKGROUND ─── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Horizontal Laser Light Beam across middle */}
-        <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C6FF36]/40 to-transparent shadow-[0_0_20px_#C6FF36]" />
+        <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#B2D234]/40 to-transparent shadow-[0_0_20px_#B2D234]" />
         
         {/* Deep ambient green glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[450px] bg-[radial-gradient(ellipse,rgba(198,255,54,0.06),transparent_70%)] blur-[120px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[450px] bg-[radial-gradient(ellipse,rgba(178, 210, 52,0.06),transparent_70%)] blur-[120px]" />
       </div>
 
       <div className="relative max-w-7xl mx-auto">
         
         {/* Section Header with Scroll Reveal */}
         <ScrollReveal className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#10110E] border border-white/10 text-xs font-mono text-[#C6FF36] mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#10110E] border border-white/10 text-xs font-mono text-[#B2D234] mb-4">
             <span>PERFORMANCE & SCALE</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-4">
             Proven at enterprise{" "}
-            <span className="font-serif-italic font-normal text-[#C6FF36]">
+            <span className="font-serif-italic font-normal text-[#B2D234]">
               velocity.
             </span>
           </h2>
           <p className="text-base sm:text-lg text-[#888888] font-normal leading-relaxed">
-            High throughput without the infrastructure headaches. Relay executes tens of thousands of complex workflows with sub-second guarantees.
+            High throughput without the infrastructure headaches. Bounty Bytes executes tens of thousands of complex workflows with sub-second guarantees.
           </p>
         </ScrollReveal>
 
@@ -121,11 +121,11 @@ export function AnalyticsSection() {
             <div className="card-futuristic-interactive group relative rounded-3xl bg-[#10110E] border border-white/10 p-8 shadow-[0_20px_50px_rgba(0,0,0,0.6)] flex flex-col justify-between min-h-[300px] cursor-pointer">
               <div>
                 <div className="flex items-center justify-between mb-6">
-                  <span className="p-2.5 rounded-xl bg-[#161814] border border-white/10 text-[#C6FF36] group-hover:border-[#C6FF36]/40 transition-colors">
+                  <span className="p-2.5 rounded-xl bg-[#161814] border border-white/10 text-[#B2D234] group-hover:border-[#B2D234]/40 transition-colors">
                     <TrendingUp className="w-5 h-5" />
                   </span>
-                  <span className="flex items-center gap-1.5 text-[11px] font-mono text-[#C6FF36] px-2.5 py-0.5 rounded-full bg-[#C6FF36]/10 border border-[#C6FF36]/30 shadow-[0_0_8px_rgba(198,255,54,0.15)]">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C6FF36] animate-pulse" />
+                  <span className="flex items-center gap-1.5 text-[11px] font-mono text-[#B2D234] px-2.5 py-0.5 rounded-full bg-[#B2D234]/10 border border-[#B2D234]/30 shadow-[0_0_8px_rgba(178, 210, 52,0.15)]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B2D234] animate-pulse" />
                     Live Velocity
                   </span>
                 </div>
@@ -147,12 +147,12 @@ export function AnalyticsSection() {
                   <path
                     d="M 0 35 Q 25 30, 50 25 T 100 15 T 150 18 T 200 6"
                     fill="none"
-                    stroke="#C6FF36"
+                    stroke="#B2D234"
                     strokeWidth="2"
                     strokeLinecap="round"
-                    className="drop-shadow-[0_0_6px_rgba(198,255,54,0.4)]"
+                    className="drop-shadow-[0_0_6px_rgba(178, 210, 52,0.4)]"
                   />
-                  <circle cx="200" cy="6" r="3.5" fill="#C6FF36" className="animate-ping" />
+                  <circle cx="200" cy="6" r="3.5" fill="#B2D234" className="animate-ping" />
                   <circle cx="200" cy="6" r="2.5" fill="#FFFFFF" />
                 </svg>
               </div>
@@ -164,7 +164,7 @@ export function AnalyticsSection() {
             <div className="card-futuristic-interactive group relative rounded-3xl bg-[#10110E] border border-white/10 p-8 shadow-[0_20px_50px_rgba(0,0,0,0.6)] flex flex-col justify-between min-h-[300px] cursor-pointer">
               <div>
                 <div className="flex items-center justify-between mb-6">
-                  <span className="p-2.5 rounded-xl bg-[#161814] border border-white/10 text-[#C6FF36] group-hover:border-[#C6FF36]/40 transition-colors">
+                  <span className="p-2.5 rounded-xl bg-[#161814] border border-white/10 text-[#B2D234] group-hover:border-[#B2D234]/40 transition-colors">
                     <Clock className="w-5 h-5" />
                   </span>
                   <span className="text-[11px] font-mono text-neutral-400">
@@ -187,11 +187,11 @@ export function AnalyticsSection() {
               <div className="pt-6 border-t border-white/8 mt-6 flex flex-col gap-2">
                 <div className="flex justify-between text-[11px] font-mono text-neutral-400">
                   <span>Weekly Saved Efficiency</span>
-                  <span className="text-[#C6FF36]">10h / 40h (25%)</span>
+                  <span className="text-[#B2D234]">10h / 40h (25%)</span>
                 </div>
                 <div className="w-full h-1.5 rounded-full bg-white/10 overflow-hidden">
                   <div
-                    className="h-full bg-[#C6FF36] rounded-full transition-all duration-1000 shadow-[0_0_12px_#C6FF36]"
+                    className="h-full bg-[#B2D234] rounded-full transition-all duration-1000 shadow-[0_0_12px_#B2D234]"
                     style={{ width: isVisible ? "65%" : "0%" }}
                   />
                 </div>
@@ -204,7 +204,7 @@ export function AnalyticsSection() {
             <div className="card-futuristic-interactive group relative rounded-3xl bg-[#10110E] border border-white/10 p-8 shadow-[0_20px_50px_rgba(0,0,0,0.6)] flex flex-col justify-between min-h-[300px] cursor-pointer">
               <div>
                 <div className="flex items-center justify-between mb-6">
-                  <span className="p-2.5 rounded-xl bg-[#161814] border border-white/10 text-[#C6FF36] group-hover:border-[#C6FF36]/40 transition-colors">
+                  <span className="p-2.5 rounded-xl bg-[#161814] border border-white/10 text-[#B2D234] group-hover:border-[#B2D234]/40 transition-colors">
                     <CheckCircle2 className="w-5 h-5" />
                   </span>
                   <span className="text-[11px] font-mono text-neutral-400">
@@ -212,7 +212,7 @@ export function AnalyticsSection() {
                   </span>
                 </div>
 
-                <div className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#C6FF36] font-mono tracking-tight mb-3 drop-shadow-[0_0_15px_rgba(198,255,54,0.3)]">
+                <div className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#B2D234] font-mono tracking-tight mb-3 drop-shadow-[0_0_15px_rgba(178, 210, 52,0.3)]">
                   {metricCount3}%
                 </div>
                 <h4 className="text-base font-semibold text-neutral-200">
@@ -227,11 +227,11 @@ export function AnalyticsSection() {
               <div className="pt-6 border-t border-white/8 mt-6 flex flex-col gap-2">
                 <div className="flex justify-between text-[11px] font-mono text-neutral-400">
                   <span>Success Rate (Global)</span>
-                  <span className="text-[#C6FF36]">99.98% SLA</span>
+                  <span className="text-[#B2D234]">99.98% SLA</span>
                 </div>
                 <div className="w-full h-1.5 rounded-full bg-white/10 overflow-hidden">
                   <div
-                    className="h-full bg-gradient-to-r from-emerald-500 to-[#C6FF36] rounded-full transition-all duration-1000 shadow-[0_0_12px_#C6FF36]"
+                    className="h-full bg-gradient-to-r from-emerald-500 to-[#B2D234] rounded-full transition-all duration-1000 shadow-[0_0_12px_#B2D234]"
                     style={{ width: isVisible ? "78%" : "0%" }}
                   />
                 </div>
@@ -245,14 +245,14 @@ export function AnalyticsSection() {
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6" staggerDelay={0.12}>
           <StaggerItem>
             <div className="card-futuristic-interactive p-6 rounded-2xl bg-[#10110E]/80 border border-white/8 backdrop-blur-md flex items-start gap-4">
-              <span className="text-[#C6FF36] font-serif text-3xl leading-none select-none">“</span>
+              <span className="text-[#B2D234] font-serif text-3xl leading-none select-none">“</span>
               <div>
                 <p className="text-sm text-neutral-300 leading-relaxed italic">
-                  Relay replaced 3 custom microservices we spent months maintaining. The human-in-the-loop Slack integration alone cut our billing exception response time by 90%.
+                  Bounty Bytes replaced 3 custom microservices we spent months maintaining. The human-in-the-loop Slack integration alone cut our billing exception response time by 90%.
                 </p>
                 <div className="mt-4 flex items-center justify-between text-xs font-mono">
                   <span className="font-semibold text-white">David K., Head of Infra at Ramp</span>
-                  <span className="text-[#C6FF36]">4,200 runs/day</span>
+                  <span className="text-[#B2D234]">4,200 runs/day</span>
                 </div>
               </div>
             </div>
@@ -260,14 +260,14 @@ export function AnalyticsSection() {
 
           <StaggerItem>
             <div className="card-futuristic-interactive p-6 rounded-2xl bg-[#10110E]/80 border border-white/8 backdrop-blur-md flex items-start gap-4">
-              <span className="text-[#C6FF36] font-serif text-3xl leading-none select-none">“</span>
+              <span className="text-[#B2D234] font-serif text-3xl leading-none select-none">“</span>
               <div>
                 <p className="text-sm text-neutral-300 leading-relaxed italic">
-                  Before Relay, broken webhooks took down our invoice pipeline silently. Now we have automatic retries and deterministic replay for every critical transaction.
+                  Before Bounty Bytes, broken webhooks took down our invoice pipeline silently. Now we have automatic retries and deterministic replay for every critical transaction.
                 </p>
                 <div className="mt-4 flex items-center justify-between text-xs font-mono">
                   <span className="font-semibold text-white">Elena Rostova, VP Engineering at Retool</span>
-                  <span className="text-[#C6FF36]">12,800 runs/day</span>
+                  <span className="text-[#B2D234]">12,800 runs/day</span>
                 </div>
               </div>
             </div>

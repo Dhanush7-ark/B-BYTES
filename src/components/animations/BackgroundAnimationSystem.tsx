@@ -47,7 +47,6 @@ export function BackgroundAnimationSystem() {
     { left: "7.0%", width: "45px", height: "75%", top: "0%", duration: "8s", delay: "-1s", opacity: 0.55 },
     { left: "21.5%", width: "60px", height: "85%", top: "4%", duration: "10s", delay: "-3s", opacity: 0.65 },
     { left: "34.0%", width: "42px", height: "70%", top: "8%", duration: "9s", delay: "-5s", opacity: 0.45 },
-    { left: "46.5%", width: "68px", height: "90%", top: "0%", duration: "11s", delay: "-2s", opacity: 0.75 },
     { left: "63.0%", width: "50px", height: "80%", top: "6%", duration: "9.5s", delay: "-4s", opacity: 0.55 },
     { left: "78.5%", width: "62px", height: "85%", top: "0%", duration: "10.5s", delay: "-1.5s", opacity: 0.65 },
     { left: "92.0%", width: "46px", height: "72%", top: "10%", duration: "8.5s", delay: "-6s", opacity: 0.5 },
@@ -82,15 +81,6 @@ export function BackgroundAnimationSystem() {
     { id: 20, left: "34.8%", width: 1.0, height: "490px", duration: "15s", delay: "-13s", opacity: 0.4, glow: false, gradientType: "emerald" },
     { id: 21, left: "36.2%", width: 1.5, height: "780px", duration: "10s", delay: "-4.5s", opacity: 0.85, glow: true, gradientType: "bright" },
     { id: 22, left: "37.6%", width: 0.75, height: "430px", duration: "18s", delay: "-10s", opacity: 0.22, glow: false, gradientType: "faint" },
-
-    // Cluster 4 (Center: 42% - 50%)
-    { id: 23, left: "42.4%", width: 0.75, height: "470px", duration: "21s", delay: "-6s", opacity: 0.25, glow: false, gradientType: "faint" },
-    { id: 24, left: "43.9%", width: 1.5, height: "770px", duration: "10.5s", delay: "-1s", opacity: 0.82, glow: true, gradientType: "bright" },
-    { id: 25, left: "45.2%", width: 2.0, height: "990px", duration: "8s", delay: "-5.5s", opacity: 1.0, glow: true, gradientType: "bright" },
-    { id: 26, left: "46.5%", width: 1.0, height: "600px", duration: "13.5s", delay: "-11s", opacity: 0.5, glow: true, gradientType: "emerald" },
-    { id: 27, left: "47.7%", width: 2.0, height: "910px", duration: "9s", delay: "-3s", opacity: 0.92, glow: true, gradientType: "bright" },
-    { id: 28, left: "48.9%", width: 1.0, height: "650px", duration: "12s", delay: "-8.5s", opacity: 0.65, glow: true, gradientType: "emerald" },
-    { id: 29, left: "50.3%", width: 0.75, height: "390px", duration: "23s", delay: "-16s", opacity: 0.16, glow: false, gradientType: "faint" },
 
     // Cluster 5 (Center-Right: 58% - 68%)
     { id: 30, left: "58.4%", width: 0.75, height: "400px", duration: "19s", delay: "-9s", opacity: 0.2, glow: false, gradientType: "faint" },
@@ -194,16 +184,16 @@ export function BackgroundAnimationSystem() {
       {/* ─── LAYER 1: SOFT RADIAL GREEN AMBIENT LIGHTING ─── */}
       <div className="absolute inset-0">
         {/* Top Header Soft Glow */}
-        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[1100px] h-[650px] bg-[radial-gradient(ellipse_at_top,rgba(198,255,54,0.08),transparent_65%)] blur-[130px] animate-pulse-glow" />
+        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[1100px] h-[650px] bg-[radial-gradient(ellipse_at_top,rgba(178, 210, 52,0.08),transparent_65%)] blur-[130px] animate-pulse-glow" />
 
         {/* Mid-Canvas Olive Ambient Glow */}
         <div className="absolute top-1/3 -left-48 w-[800px] h-[800px] bg-[radial-gradient(circle,rgba(45,55,25,0.35),transparent_70%)] blur-[140px]" />
 
         {/* Lower Canvas Accent Glow */}
-        <div className="absolute top-2/3 -right-48 w-[850px] h-[850px] bg-[radial-gradient(circle,rgba(198,255,54,0.05),transparent_65%)] blur-[140px]" />
+        <div className="absolute top-2/3 -right-48 w-[850px] h-[850px] bg-[radial-gradient(circle,rgba(178, 210, 52,0.05),transparent_65%)] blur-[140px]" />
 
         {/* Footer Ambient Accent */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-[radial-gradient(ellipse_at_bottom,rgba(198,255,54,0.07),transparent_70%)] blur-[120px]" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-[radial-gradient(ellipse_at_bottom,rgba(178, 210, 52,0.07),transparent_70%)] blur-[120px]" />
       </div>
 
       {/* ─── LAYER 2: INTERACTIVE MOUSE-FOLLOWING SPOTLIGHT GLOW (DESKTOP ONLY) ─── */}
@@ -214,7 +204,7 @@ export function BackgroundAnimationSystem() {
             x: smoothMouseX,
             y: smoothMouseY,
             background:
-              "radial-gradient(circle, rgba(198, 255, 54, 0.08) 0%, rgba(198, 255, 54, 0.02) 40%, transparent 70%)",
+              "radial-gradient(circle, rgba(178, 210, 52, 0.08) 0%, rgba(178, 210, 52, 0.02) 40%, transparent 70%)",
             filter: "blur(40px)",
           }}
         />
@@ -248,7 +238,7 @@ export function BackgroundAnimationSystem() {
               top: pillar.top,
               transform: "translateX(-50%)",
               background:
-                "radial-gradient(ellipse at top, rgba(198, 255, 54, 0.22) 0%, rgba(34, 197, 94, 0.08) 45%, transparent 75%)",
+                "radial-gradient(ellipse at top, rgba(178, 210, 52, 0.22) 0%, rgba(34, 197, 94, 0.08) 45%, transparent 75%)",
               filter: "blur(18px)",
               opacity: pillar.opacity,
               animationName: "verticalPillarPulse",
@@ -264,14 +254,14 @@ export function BackgroundAnimationSystem() {
         {verticalLines.map((line) => {
           const bgGradient =
             line.gradientType === "bright"
-              ? "linear-gradient(to bottom, #FFFFFF 0%, #C6FF36 18%, #C6FF36 60%, rgba(198, 255, 54, 0.3) 85%, transparent 100%)"
+              ? "linear-gradient(to bottom, #FFFFFF 0%, #B2D234 18%, #B2D234 60%, rgba(178, 210, 52, 0.3) 85%, transparent 100%)"
               : line.gradientType === "emerald"
-              ? "linear-gradient(to bottom, #C6FF36 0%, #22c55e 40%, rgba(34, 197, 94, 0.25) 80%, transparent 100%)"
-              : "linear-gradient(to bottom, transparent, rgba(198, 255, 54, 0.45) 25%, rgba(198, 255, 54, 0.15) 75%, transparent 100%)";
+              ? "linear-gradient(to bottom, #B2D234 0%, #22c55e 40%, rgba(34, 197, 94, 0.25) 80%, transparent 100%)"
+              : "linear-gradient(to bottom, transparent, rgba(178, 210, 52, 0.45) 25%, rgba(178, 210, 52, 0.15) 75%, transparent 100%)";
 
           const shadow = line.glow
             ? line.gradientType === "bright"
-              ? "0 0 8px #C6FF36, 0 0 18px rgba(198, 255, 54, 0.5)"
+              ? "0 0 8px #B2D234, 0 0 18px rgba(178, 210, 52, 0.5)"
               : "0 0 6px rgba(34, 197, 94, 0.6)"
             : undefined;
 
@@ -305,19 +295,19 @@ export function BackgroundAnimationSystem() {
           className="absolute inset-0 pointer-events-none opacity-40"
           style={{
             backgroundImage:
-              "repeating-linear-gradient(to bottom, transparent, transparent 23px, rgba(198, 255, 54, 0.025) 23px, rgba(198, 255, 54, 0.06) 24px)",
+              "repeating-linear-gradient(to bottom, transparent, transparent 23px, rgba(178, 210, 52, 0.025) 23px, rgba(178, 210, 52, 0.06) 24px)",
           }}
         />
 
         {/* Horizontal Line Tracks & Traveling Laser Beams */}
         {horizontalLines.map((line) => {
           const beamGradient = line.isBrightBeam
-            ? "linear-gradient(to right, transparent 0%, rgba(198, 255, 54, 0.25) 20%, #FFFFFF 65%, #C6FF36 85%, transparent 100%)"
-            : "linear-gradient(to right, transparent 0%, rgba(198, 255, 54, 0.15) 30%, #C6FF36 75%, transparent 100%)";
+            ? "linear-gradient(to right, transparent 0%, rgba(178, 210, 52, 0.25) 20%, #FFFFFF 65%, #B2D234 85%, transparent 100%)"
+            : "linear-gradient(to right, transparent 0%, rgba(178, 210, 52, 0.15) 30%, #B2D234 75%, transparent 100%)";
 
           const beamShadow = line.isBrightBeam
-            ? "0 0 10px #C6FF36, 0 0 20px rgba(198, 255, 54, 0.45)"
-            : "0 0 5px rgba(198, 255, 54, 0.3)";
+            ? "0 0 10px #B2D234, 0 0 20px rgba(178, 210, 52, 0.45)"
+            : "0 0 5px rgba(178, 210, 52, 0.3)";
 
           return (
             <div
@@ -326,7 +316,7 @@ export function BackgroundAnimationSystem() {
               style={{ top: line.top }}
             >
               {/* Very faint baseline guide line spanning across */}
-              <div className="w-full h-px bg-gradient-to-r from-transparent via-[#C6FF36]/8 to-transparent" />
+              <div className="w-full h-px bg-gradient-to-r from-transparent via-[#B2D234]/8 to-transparent" />
 
               {/* Traveling Horizontal Laser Pulse / Scanning Beam (Left to Right) */}
               <div
@@ -355,7 +345,7 @@ export function BackgroundAnimationSystem() {
                     height: "12px",
                     opacity: line.opacity * 0.4,
                     background:
-                      "linear-gradient(to right, transparent 0%, rgba(198, 255, 54, 0.35) 50%, transparent 100%)",
+                      "linear-gradient(to right, transparent 0%, rgba(178, 210, 52, 0.35) 50%, transparent 100%)",
                     animationName: "horizontalLineTravel",
                     animationDuration: line.duration,
                     animationTimingFunction: "linear",
@@ -383,16 +373,16 @@ export function BackgroundAnimationSystem() {
         >
           <defs>
             <linearGradient id="globalTrail1" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#C6FF36" stopOpacity="0" />
-              <stop offset="35%" stopColor="#C6FF36" stopOpacity="0.75" />
-              <stop offset="65%" stopColor="#C6FF36" stopOpacity="0.9" />
-              <stop offset="100%" stopColor="#C6FF36" stopOpacity="0" />
+              <stop offset="0%" stopColor="#B2D234" stopOpacity="0" />
+              <stop offset="35%" stopColor="#B2D234" stopOpacity="0.75" />
+              <stop offset="65%" stopColor="#B2D234" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="#B2D234" stopOpacity="0" />
             </linearGradient>
 
             <linearGradient id="globalTrail2" x1="100%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#C6FF36" stopOpacity="0" />
-              <stop offset="50%" stopColor="#C6FF36" stopOpacity="0.6" />
-              <stop offset="100%" stopColor="#C6FF36" stopOpacity="0" />
+              <stop offset="0%" stopColor="#B2D234" stopOpacity="0" />
+              <stop offset="50%" stopColor="#B2D234" stopOpacity="0.6" />
+              <stop offset="100%" stopColor="#B2D234" stopOpacity="0" />
             </linearGradient>
 
             <filter id="svgLightGlow" x="-20%" y="-20%" width="140%" height="140%">
@@ -463,14 +453,14 @@ export function BackgroundAnimationSystem() {
         {particles.map((p) => (
           <div
             key={p.id}
-            className="absolute rounded-full bg-[#C6FF36] pointer-events-none"
+            className="absolute rounded-full bg-[#B2D234] pointer-events-none"
             style={{
               top: p.top,
               left: p.left,
               width: `${p.size}px`,
               height: `${p.size}px`,
               opacity: p.opacity,
-              boxShadow: `0 0 ${p.size * 3}px #C6FF36`,
+              boxShadow: `0 0 ${p.size * 3}px #B2D234`,
               animationName: p.anim,
               animationDuration: `${p.duration}s`,
               animationTimingFunction: "ease-in-out",
