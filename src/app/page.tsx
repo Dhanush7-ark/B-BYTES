@@ -44,12 +44,15 @@ function HomeContent() {
         <BackgroundAnimationSystem />
 
         {/* ─── NAVIGATION BAR ─── */}
-        <Navbar onStartFree={() => handleOpenStartFree()} />
+        <Navbar
+          onStartFree={() => handleOpenStartFree()}
+          onOpenConsultation={() => setConsultationOpen(true)}
+        />
 
         {/* ─── MAIN CONTENT SECTIONS (ELEVATED ABOVE BACKGROUND) ─── */}
         <main className="relative z-10">
-          {/* ─── HERO SECTION (3D LIGHT RIBBON) ─── */}
-          <section className="relative">
+          {/* ─── 1. HERO SECTION (3D LIGHT RIBBON) ─── */}
+          <section id="home" className="relative">
             <HeroSection
               onWatchBuild={() => setWatchBuildOpen(true)}
               onStartFree={() => handleOpenStartFree()}
@@ -57,7 +60,7 @@ function HomeContent() {
           </section>
 
           {/* ─── 2. GOTHIC CINEMATIC ANIMATED EXPERIENCE (GSAP 6-PHASE TIMELINE) ─── */}
-          <section className="relative">
+          <section id="about" className="relative">
             <GothicCinematicSequence />
           </section>
 
@@ -65,16 +68,22 @@ function HomeContent() {
           <CinematicGreenSection />
 
           {/* 4. REFERENCE-MATCH CINEMATIC PORTFOLIO SHOWCASE (CODENARTS, AZ-DIGITAL, AMRON, CHATONE, FINANCE) */}
-          <CinematicPortfolioShowcase />
+          <div id="case-studies">
+            <CinematicPortfolioShowcase />
+          </div>
 
           {/* 5. MEER MOHSIN POST-CARDS CINEMATIC SECTION (SILHOUETTE UNDER GREEN BEAM, 4 STAGGERED STEP BOXES & HEADLINE) */}
-          <StepOfWorkSection />
+          <div id="services">
+            <StepOfWorkSection />
+          </div>
 
           {/* 5.5 MEER MOHSIN AWARDS & RECOGNITIONS SPLIT-VAULT & 3D TERRAIN SHOWCASE */}
           <AwardsRecognitionSection />
 
           {/* 6. Deep Interactive Workflow Demonstration */}
-          <WorkflowSection />
+          <div id="technologies">
+            <WorkflowSection />
+          </div>
 
           {/* 6. Product Editorial Features */}
           <EditorialFeatures />
@@ -89,7 +98,9 @@ function HomeContent() {
           <PricingSection onSelectPlan={handleOpenStartFree} />
 
           {/* 10. "THIS WILL FEEL DIFFERENT" Statement Screen */}
-          <ThisWillFeelDifferentSection onBookConsultation={() => setConsultationOpen(true)} />
+          <div id="career">
+            <ThisWillFeelDifferentSection onBookConsultation={() => setConsultationOpen(true)} />
+          </div>
         </main>
 
         {/* ─── FOOTER ─── */}
