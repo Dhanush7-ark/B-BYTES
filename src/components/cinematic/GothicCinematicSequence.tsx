@@ -93,8 +93,8 @@ export function GothicCinematicSequence() {
           start: "top top",
           end: "+=450%", // 4.5 screens of smooth scroll headroom
           pin: pinStageRef.current,
+          refreshPriority: 3,
           scrub: 0.85, // Smooth 0.85s fluid follow-through
-          anticipatePin: 1,
           onUpdate: (self) => {
             const p = self.progress;
             setProgressPercent(Math.round(p * 100));
@@ -456,7 +456,7 @@ export function GothicCinematicSequence() {
       {/* ─── PINNED 100VH STAGE (CONTROLLED BY SCROLLTRIGGER) ─── */}
       <div
         ref={pinStageRef}
-        className="relative w-full h-[100vh] min-h-[680px] overflow-hidden bg-[#030303] text-[#e5e5e5] border-t border-b border-[#B2D234]/20"
+        className="relative w-full h-[100vh] min-h-[680px] overflow-hidden bg-[#030303] text-[#e5e5e5]"
         style={{ perspective: "1200px" }}
       >
         {/* ─── PHASE 5 & 6: DRAMATIC FULL-SCREEN DEEP EMERALD ATMOSPHERE ─── */}

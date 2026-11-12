@@ -813,7 +813,7 @@ export function AwardsRecognitionSection() {
           end: "bottom bottom",
           pin: stage,
           pinSpacing: true,
-          anticipatePin: 1,
+          refreshPriority: 1,
           scrub: 1.0,
           onUpdate: (self) => {
             const p = self.progress;

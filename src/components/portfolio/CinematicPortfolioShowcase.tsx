@@ -23,121 +23,121 @@ export interface ShowcaseProject {
 
 export const SHOWCASE_PROJECTS: ShowcaseProject[] = [
   {
-    id: "codenarts",
-    name: "CODENARTS",
-    category: "CREATIVE COMPUTING",
-    year: "2024",
+    id: "digital-marketing",
+    name: "DIGITAL MARKETING",
+    category: "PERFORMANCE & GROWTH",
+    year: "2025",
     description:
-      "A bold creative agency website featuring futuristic Golden and purple visuals, seamless animations, and Immersive storytelling.",
-    image: "/projects/codenarts.svg",
-    accentColor: "#A78BFA",
-    ambientGlow: "rgba(124, 58, 237, 0.45)",
-    secondaryGlow: "rgba(249, 115, 22, 0.28)",
-    aspect: "landscape",
-  },
-  {
-    id: "az-digital",
-    name: "AZ-DIGITAL-VENTURES",
-    category: "EDITORIAL BRANDING",
-    year: "2024",
-    description:
-      "A high-end venture studio editorial platform featuring amber illumination, luxury typography, and fluid interactive transitions.",
-    image: "/projects/az-digital.svg",
+      "Omnichannel performance marketing, algorithmic ad automation, data-driven customer acquisition funnels, and real-time revenue telemetry.",
+    image: "/projects/az-digital.jpg",
     accentColor: "#F97316",
-    ambientGlow: "rgba(234, 88, 12, 0.48)",
+    ambientGlow: "rgba(249, 115, 22, 0.45)",
     secondaryGlow: "rgba(245, 158, 11, 0.22)",
     aspect: "laptop",
   },
   {
-    id: "amron",
-    name: "AMRON",
-    category: "INDUSTRIAL AESTHETICS",
-    year: "2024",
+    id: "web-mobile-development",
+    name: "WEB & MOBILE DEVELOPMENT",
+    category: "CROSS-PLATFORM ECOSYSTEMS",
+    year: "2025",
     description:
-      "An industrial creative studio interface designed with burnt-orange dynamics, precision layouts, and monolithic architecture.",
-    image: "/projects/amron.svg",
-    accentColor: "#EF4444",
-    ambientGlow: "rgba(220, 38, 38, 0.45)",
-    secondaryGlow: "rgba(249, 115, 22, 0.25)",
-    aspect: "monitor",
-  },
-  {
-    id: "chatone",
-    name: "CHATONE",
-    category: "MOBILE ECOSYSTEM",
-    year: "2024",
-    description:
-      "An encrypted mobile communication ecosystem engineered with deep purple radiance, tactile micro-interactions, and real-time streams.",
-    image: "/projects/chatone.svg",
+      "Next-generation responsive web and native iOS & Android applications built with React, Next.js, Flutter, and sub-millisecond edge APIs.",
+    image: "/projects/chatone.jpg",
     accentColor: "#C084FC",
     ambientGlow: "rgba(168, 85, 247, 0.45)",
     secondaryGlow: "rgba(147, 51, 234, 0.25)",
     aspect: "mobile",
   },
   {
-    id: "finance",
-    name: "FINANCE",
-    category: "LIFESTYLE FINTECH",
-    year: "2024",
+    id: "ai-ml-services",
+    name: "AI / ML SERVICES",
+    category: "NEURAL ARCHITECTURE",
+    year: "2025",
     description:
-      "A luxury lifestyle fintech visualizer combining editorial desk environments, warm ambient lighting, and high-frequency asset telemetry.",
-    image: "/projects/finance.svg",
-    accentColor: "#F59E0B",
-    ambientGlow: "rgba(217, 119, 6, 0.42)",
-    secondaryGlow: "rgba(16, 185, 129, 0.18)",
+      "Custom foundation model fine-tuning, computer vision pipelines, predictive intelligence, and ultra-fast hardware-accelerated inference.",
+    image: "/projects/codenarts.jpg",
+    accentColor: "#A78BFA",
+    ambientGlow: "rgba(124, 58, 237, 0.45)",
+    secondaryGlow: "rgba(249, 115, 22, 0.28)",
+    aspect: "monitor",
+  },
+  {
+    id: "desktop-development",
+    name: "DESKTOP DEVELOPMENT",
+    category: "HIGH-PERFORMANCE CLIENTS",
+    year: "2025",
+    description:
+      "Ultra-low latency desktop applications for macOS, Windows, and Linux engineered with Rust, C++, and GPU-rendered canvas pipelines.",
+    image: "/projects/amron.jpg",
+    accentColor: "#EF4444",
+    ambientGlow: "rgba(239, 68, 68, 0.45)",
+    secondaryGlow: "rgba(249, 115, 22, 0.25)",
+    aspect: "laptop",
+  },
+  {
+    id: "graphic-designing",
+    name: "GRAPHIC DESIGNING",
+    category: "EDITORIAL BRAND ATELIER",
+    year: "2025",
+    description:
+      "Visionary brand identities, 3D visual assets, bespoke editorial typography, motion systems, and award-winning digital aesthetic design.",
+    image: "/projects/codenarts.jpg",
+    accentColor: "#38BDF8",
+    ambientGlow: "rgba(56, 189, 248, 0.45)",
+    secondaryGlow: "rgba(147, 51, 234, 0.25)",
+    aspect: "monitor",
+  },
+  {
+    id: "ai-agent-deployment",
+    name: "AI AGENT DEPLOYMENT",
+    category: "AUTONOMOUS AGENT SWARMS",
+    year: "2025",
+    description:
+      "Autonomous multi-agent swarms with tool-calling reasoning frameworks, self-healing workflow automation, and enterprise orchestration.",
+    image: "/projects/finance.jpg",
+    accentColor: "#a4c330",
+    ambientGlow: "rgba(164, 195, 48, 0.48)",
+    secondaryGlow: "rgba(34, 197, 94, 0.25)",
     aspect: "mobile",
   },
   {
-    id: "neura-core",
-    name: "NEURA-CORE",
-    category: "SPATIAL INTELLIGENCE",
+    id: "cyber-security",
+    name: "CYBER SECURITY",
+    category: "ZERO-TRUST DEFENSE",
     year: "2025",
     description:
-      "An autonomous neural interface platform with holographic volumetric data trees, real-time quantum telemetry, and fluid glass shaders.",
-    image: "/projects/neura-core.svg",
+      "Hardened zero-trust defense perimeters, automated threat hunting, military-grade end-to-end encryption, and continuous security auditing.",
+    image: "/projects/amron.jpg",
+    accentColor: "#F43F5E",
+    ambientGlow: "rgba(244, 63, 94, 0.45)",
+    secondaryGlow: "rgba(225, 29, 72, 0.25)",
+    aspect: "laptop",
+  },
+  {
+    id: "it-infrastructure",
+    name: "IT INFRASTRUCTURE",
+    category: "MISSION-CRITICAL SYSTEMS",
+    year: "2025",
+    description:
+      "Enterprise Kubernetes cluster orchestration, multi-region failover architecture, automated CI/CD pipelines, and 99.999% uptime reliability.",
+    image: "/projects/az-digital.jpg",
     accentColor: "#00F0FF",
     ambientGlow: "rgba(0, 240, 255, 0.45)",
     secondaryGlow: "rgba(14, 165, 233, 0.25)",
     aspect: "laptop",
   },
   {
-    id: "aether-kinetics",
-    name: "AETHER-KINETICS",
-    category: "KINETIC ARCHITECTURE",
+    id: "cloud-applications",
+    name: "CLOUD APPLICATIONS",
+    category: "SERVERLESS & DISTRIBUTED EDGE",
     year: "2025",
     description:
-      "A precision automotive design atelier exploring aerodynamic carbon chassis, dynamic light ribbons, and computational fluid modeling.",
-    image: "/projects/aether-kinetics.svg",
-    accentColor: "#F43F5E",
-    ambientGlow: "rgba(244, 63, 94, 0.45)",
-    secondaryGlow: "rgba(225, 29, 72, 0.25)",
-    aspect: "monitor",
-  },
-  {
-    id: "solaris-audio",
-    name: "SOLARIS-AUDIO",
-    category: "SPATIAL ACOUSTICS",
-    year: "2025",
-    description:
-      "Next-generation sonic visualizer featuring real-time frequency waveforms, lossless analog warmth, and immersive tactile soundstage controls.",
-    image: "/projects/solaris-audio.svg",
-    accentColor: "#B2D234",
-    ambientGlow: "rgba(178, 210, 52, 0.42)",
-    secondaryGlow: "rgba(132, 204, 22, 0.22)",
-    aspect: "landscape",
-  },
-  {
-    id: "vortex-studios",
-    name: "VORTEX-STUDIOS",
-    category: "METAVERSE CINEMATICS",
-    year: "2025",
-    description:
-      "A global creative direction studio crafting cinematic CG brand identities, photorealistic environments, and experiential digital campaigns.",
-    image: "/projects/vortex-studios.svg",
-    accentColor: "#D946EF",
-    ambientGlow: "rgba(217, 70, 239, 0.45)",
-    secondaryGlow: "rgba(168, 85, 247, 0.26)",
-    aspect: "laptop",
+      "Resilient cloud-native microservices, serverless event-driven backends, globally distributed edge data meshes, and elastic auto-scaling.",
+    image: "/projects/chatone.jpg",
+    accentColor: "#EAB308",
+    ambientGlow: "rgba(234, 179, 8, 0.45)",
+    secondaryGlow: "rgba(249, 115, 22, 0.22)",
+    aspect: "mobile",
   },
 ];
 
@@ -184,7 +184,8 @@ export function CinematicPortfolioShowcase(): JSX.Element {
           start: "top top",
           end: "bottom bottom",
           pin: stage,
-          anticipatePin: 1,
+          pinSpacing: true,
+          refreshPriority: 2,
           scrub: 1.5, // Weighted smooth scrubbing with physical momentum
           onUpdate: (self) => {
             const p = self.progress;
@@ -360,14 +361,22 @@ export function CinematicPortfolioShowcase(): JSX.Element {
       }
     }, container);
 
-    return () => ctx.revert();
+    const refreshTimer = setTimeout(() => {
+      ScrollTrigger.sort();
+      ScrollTrigger.refresh();
+    }, 150);
+
+    return () => {
+      clearTimeout(refreshTimer);
+      ctx.revert();
+    };
   }, []);
 
   return (
     <div
       ref={containerRef}
       onMouseMove={handleMouseMove}
-      className="relative w-full bg-[#050505] text-white selection:bg-[#FF1A00] selection:text-black z-30"
+      className="relative w-full bg-[#050505] text-white selection:bg-[#FF1A00] selection:text-black"
       style={{
         // 1800vh scroll track gives identical slow, relaxed scroll pacing for all 9 cards + final statement
         height: "1800vh",
@@ -411,10 +420,10 @@ export function CinematicPortfolioShowcase(): JSX.Element {
               <img
                 src={proj.image}
                 alt=""
-                className="h-[140%] w-[140%] max-w-none object-contain pointer-events-none"
+                className="h-[140%] w-[140%] max-w-none object-cover pointer-events-none"
                 style={{
-                  filter: "blur(34px)",
-                  transform: "scale(1.15)",
+                  filter: "blur(38px)",
+                  transform: "scale(1.2)",
                 }}
               />
             </div>
@@ -430,8 +439,8 @@ export function CinematicPortfolioShowcase(): JSX.Element {
           {SHOWCASE_PROJECTS.map((proj, idx) => {
             const maxWidthStyle =
               proj.aspect === "mobile"
-                ? "max-w-[320px] sm:max-w-[360px] md:max-w-[400px]"
-                : "max-w-[580px] sm:max-w-[640px] md:max-w-[700px] lg:max-w-[760px]";
+                ? "max-w-[480px] sm:max-w-[560px] md:max-w-[640px] lg:max-w-[700px]"
+                : "max-w-[580px] sm:max-w-[660px] md:max-w-[740px] lg:max-w-[800px]";
 
             return (
               <div
@@ -474,7 +483,7 @@ export function CinematicPortfolioShowcase(): JSX.Element {
         </div>
 
         {/* ─── LEFT SIDE: PROJECT / CLIENT NAME (Large Bold Minimal Text with Explicit Height) ─── */}
-        <div className="absolute left-6 sm:left-12 lg:left-20 top-1/2 -translate-y-1/2 z-40 w-[260px] sm:w-[340px] h-[200px] pointer-events-none">
+        <div className="absolute left-6 sm:left-12 lg:left-20 top-1/2 -translate-y-1/2 z-40 w-[280px] sm:w-[360px] lg:w-[440px] h-[260px] pointer-events-none">
           {SHOWCASE_PROJECTS.map((proj, idx) => (
             <div
               key={`title-${proj.id}`}
@@ -482,16 +491,32 @@ export function CinematicPortfolioShowcase(): JSX.Element {
               style={{ opacity: idx === 0 ? 1 : 0 }}
             >
               <div className="overflow-hidden py-1">
-                <h2 className="reveal-line text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-[0.06em] text-white uppercase leading-none will-change-transform drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]">
+                <span className="reveal-line block font-mono text-[11px] sm:text-xs tracking-[0.28em] uppercase text-neutral-400 mb-2">
+                  0{idx + 1} // {proj.category}
+                </span>
+              </div>
+              <div className="overflow-hidden py-1">
+                <h2
+                  className="reveal-line font-syne text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-black tracking-tight uppercase leading-[1.05] will-change-transform drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]"
+                  style={{
+                    color: proj.accentColor,
+                    textShadow: `0 0 35px ${proj.accentColor}55`,
+                  }}
+                >
                   {proj.name}
                 </h2>
+              </div>
+              <div className="overflow-hidden py-1 mt-2">
+                <span className="reveal-line block font-mono text-xs text-neutral-500">
+                  EST. {proj.year} — {proj.aspect.toUpperCase()} VIEW
+                </span>
               </div>
             </div>
           ))}
         </div>
 
         {/* ─── RIGHT SIDE: EDITORIAL PROJECT DESCRIPTION & CIRCULAR ORBIT INDICATOR (with Explicit Height) ─── */}
-        <div className="hidden md:block absolute right-8 sm:right-12 lg:right-20 top-1/2 -translate-y-1/2 z-40 w-[260px] lg:w-[320px] h-[240px] pointer-events-none">
+        <div className="hidden md:block absolute right-8 sm:right-12 lg:right-20 top-1/2 -translate-y-1/2 z-40 w-[260px] lg:w-[320px] h-[260px] pointer-events-none">
           {SHOWCASE_PROJECTS.map((proj, idx) => (
             <div
               key={`desc-${proj.id}`}
@@ -572,7 +597,15 @@ export function CinematicPortfolioShowcase(): JSX.Element {
         {/* ─── BOTTOM: HORIZONTAL TELEMETRY BAR (Matching meermohsin.me layout) ─── */}
         <div className="absolute bottom-6 left-0 right-0 z-40 px-8 sm:px-16 flex items-center justify-between font-mono text-[9px] sm:text-[11px] tracking-[0.32em] uppercase text-white/45 select-none pointer-events-none">
           <div className="flex items-center gap-2">
-            <span className="text-[#A78BFA] text-xs font-bold shadow-[0_0_10px_#A78BFA]">+</span>
+            <span
+              className="text-xs font-bold transition-colors duration-500"
+              style={{
+                color: SHOWCASE_PROJECTS[activeProjectIndex]?.accentColor || "#F97316",
+                textShadow: `0 0 10px ${SHOWCASE_PROJECTS[activeProjectIndex]?.accentColor || "#F97316"}`,
+              }}
+            >
+              +
+            </span>
           </div>
           <div className="flex items-center gap-2">
             <span>TENSION</span>
@@ -590,7 +623,15 @@ export function CinematicPortfolioShowcase(): JSX.Element {
             <span>IMPACT</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-[#A78BFA] text-xs font-bold shadow-[0_0_10px_#A78BFA]">+</span>
+            <span
+              className="text-xs font-bold transition-colors duration-500"
+              style={{
+                color: SHOWCASE_PROJECTS[activeProjectIndex]?.accentColor || "#F97316",
+                textShadow: `0 0 10px ${SHOWCASE_PROJECTS[activeProjectIndex]?.accentColor || "#F97316"}`,
+              }}
+            >
+              +
+            </span>
           </div>
         </div>
       </div>

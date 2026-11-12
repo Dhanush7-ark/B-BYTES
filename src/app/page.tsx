@@ -68,7 +68,7 @@ function HomeContent() {
           <CinematicGreenSection />
 
           {/* 4. REFERENCE-MATCH CINEMATIC PORTFOLIO SHOWCASE (CODENARTS, AZ-DIGITAL, AMRON, CHATONE, FINANCE) */}
-          <div id="case-studies">
+          <div id="case-studies" className="relative">
             <CinematicPortfolioShowcase />
           </div>
 

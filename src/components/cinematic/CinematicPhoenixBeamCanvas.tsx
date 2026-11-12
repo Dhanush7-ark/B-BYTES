@@ -124,39 +124,9 @@ void main() {
   // Preserve 100% crisp bird pixels
   vec4 color = mix(driftedBase, baseColor, smoothstep(0.35, 0.75, birdLuminance));
 
-  // ─── 5. TOP-TO-BOTTOM TRAVELING GREEN LASER BEAM ───
-  // At scrollProgress = 0.0 -> reaches Step 01 (Discovery, ~0.25 down)
-  // At scrollProgress = 0.33 -> reaches Step 02 (Creative Direction, ~0.50 down)
-  // At scrollProgress = 0.66 -> reaches Step 03 (Digital Craftsmanship, ~0.75 down)
-  // At scrollProgress = 1.00 -> reaches Step 04 (Launch & Evolution) and ground floor
-  float beamProgressY = mix(0.24, 1.05, clamp(u_scrollProgress, 0.0, 1.0));
-  
-  // Vertical laser beam reach mask
-  float beamReachMask = smoothstep(beamProgressY + 0.16, beamProgressY - 0.02, uv.y);
-  
-  // Distance from central laser beam
-  float distFromBeam = abs(uv.x - 0.50);
-  float isBeamCore = smoothstep(0.22, 0.015, distFromBeam);
-  
-  // Traveling Laser Head Flare (corona burst that travels down with scroll)
-  float headDist = length(vec2((uv.x - 0.50) * 4.0, uv.y - beamProgressY));
-  float headFlare = exp(-headDist * headDist * 50.0) * isBeamCore * 2.2;
-
-  // Apply beam progress illumination (softly dim upcoming regions until laser arrives)
-  float ambientDim = mix(0.18, 1.0, beamReachMask);
-  // Keep the dormant phoenix visible even before arrival, but ignite when laser reaches it
-  color.rgb *= mix(ambientDim, 1.0, smoothstep(0.70, 0.90, uv.y) * 0.4);
-  
-  // Add traveling laser head corona burst
-  color.rgb += vec3(0.75, 1.0, 0.22) * headFlare;
-
-  // Ground floor impact burst when laser connects with the bottom
-  float groundImpact = smoothstep(0.75, 1.0, u_scrollProgress) * floorMask * 0.35;
-  color.rgb += vec3(0.70, 0.95, 0.20) * groundImpact;
-
-  // ─── 6. VOLUMETRIC GREEN SMOKE GLOW IN BOUNTY LIME (#B2D234 / #D8FF38) ───
+  // ─── 5. VOLUMETRIC GREEN SMOKE GLOW IN BOUNTY LIME (#B2D234 / #D8FF38) ───
   vec3 groundSmokeColor = mix(vec3(0.68, 0.88, 0.20), vec3(0.85, 1.0, 0.24), groundFog2 * 0.5 + 0.5);
-  float totalSmokeAlpha = (groundSmokeDensity * 0.50 + atmoFog * 0.32) * smokeOcclusion;
+  float totalSmokeAlpha = (groundSmokeDensity * 0.48 + atmoFog * 0.30) * smokeOcclusion;
 
   color.rgb += groundSmokeColor * totalSmokeAlpha;
 
@@ -167,17 +137,11 @@ void main() {
 interface CinematicPhoenixBeamCanvasProps {
   className?: string;
   style?: React.CSSProperties;
-  progress?: number;
 }
 
-export function CinematicPhoenixBeamCanvas({ className, style, progress }: CinematicPhoenixBeamCanvasProps) {
+export function CinematicPhoenixBeamCanvas({ className, style }: CinematicPhoenixBeamCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [hasWebGL, setHasWebGL] = useState(true);
-  const progressPropRef = useRef<number | undefined>(progress);
-
-  useEffect(() => {
-    progressPropRef.current = progress;
-  }, [progress]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -299,20 +263,14 @@ export function CinematicPhoenixBeamCanvas({ className, style, progress }: Cinem
       smoothVelocity += (rawVelocity * 0.0022 - smoothVelocity) * 0.14;
       smoothVelocity = Math.max(-0.12, Math.min(0.12, smoothVelocity));
 
-      // Calculate scroll progress through the parent section (#step-of-work)
-      let rawProgress = 0;
-      if (progressPropRef.current !== undefined) {
-        rawProgress = Math.max(0, Math.min(1, progressPropRef.current));
-      } else {
-        const parentSection = (canvas.closest('#step-of-work') || canvas.parentElement?.closest('section') || canvas) as HTMLElement;
-        const rect = parentSection.getBoundingClientRect();
-        const winH = window.innerHeight;
-        const sectionH = rect.height;
-        const scrollDist = -rect.top;
-        const maxScroll = Math.max(1, sectionH - winH);
-        rawProgress = Math.max(0, Math.min(1, scrollDist / maxScroll));
-      }
-      smoothProgress += (rawProgress - smoothProgress) * 0.12;
+      // Calculate scroll progress through the canvas section
+      const rect = canvas.getBoundingClientRect();
+      const winH = window.innerHeight;
+      const sectionH = rect.height;
+      const scrollDist = -rect.top;
+      const maxScroll = Math.max(1, sectionH - winH);
+      const rawProgress = Math.max(0, Math.min(1, scrollDist / maxScroll));
+      smoothProgress += (rawProgress - smoothProgress) * 0.10;
 
       gl.useProgram(program);
       gl.uniform1f(uTimeLoc, elapsed);

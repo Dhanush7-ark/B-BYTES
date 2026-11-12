@@ -23,121 +23,121 @@ export interface ShowcaseProject {
 
 export const SHOWCASE_PROJECTS: ShowcaseProject[] = [
   {
-    id: "codenarts",
-    name: "CODENARTS",
-    category: "CREATIVE COMPUTING",
-    year: "2024",
+    id: "digital-marketing",
+    name: "DIGITAL MARKETING",
+    category: "PERFORMANCE & GROWTH",
+    year: "2025",
     description:
-      "A bold creative agency website featuring futuristic Golden and purple visuals, seamless animations, and Immersive storytelling.",
-    image: "/projects/codenarts.svg",
-    accentColor: "#A78BFA",
-    ambientGlow: "rgba(124, 58, 237, 0.45)",
-    secondaryGlow: "rgba(249, 115, 22, 0.28)",
-    aspect: "landscape",
-  },
-  {
-    id: "az-digital",
-    name: "AZ-DIGITAL-VENTURES",
-    category: "EDITORIAL BRANDING",
-    year: "2024",
-    description:
-      "A high-end venture studio editorial platform featuring amber illumination, luxury typography, and fluid interactive transitions.",
-    image: "/projects/az-digital.svg",
+      "Omnichannel performance marketing, algorithmic ad automation, data-driven customer acquisition funnels, and real-time revenue telemetry.",
+    image: "/projects/az-digital.jpg",
     accentColor: "#F97316",
-    ambientGlow: "rgba(234, 88, 12, 0.48)",
+    ambientGlow: "rgba(249, 115, 22, 0.45)",
     secondaryGlow: "rgba(245, 158, 11, 0.22)",
     aspect: "laptop",
   },
   {
-    id: "amron",
-    name: "AMRON",
-    category: "INDUSTRIAL AESTHETICS",
-    year: "2024",
+    id: "web-mobile-development",
+    name: "WEB & MOBILE DEVELOPMENT",
+    category: "CROSS-PLATFORM ECOSYSTEMS",
+    year: "2025",
     description:
-      "An industrial creative studio interface designed with burnt-orange dynamics, precision layouts, and monolithic architecture.",
-    image: "/projects/amron.svg",
-    accentColor: "#EF4444",
-    ambientGlow: "rgba(220, 38, 38, 0.45)",
-    secondaryGlow: "rgba(249, 115, 22, 0.25)",
-    aspect: "monitor",
-  },
-  {
-    id: "chatone",
-    name: "CHATONE",
-    category: "MOBILE ECOSYSTEM",
-    year: "2024",
-    description:
-      "An encrypted mobile communication ecosystem engineered with deep purple radiance, tactile micro-interactions, and real-time streams.",
-    image: "/projects/chatone.svg",
+      "Next-generation responsive web and native iOS & Android applications built with React, Next.js, Flutter, and sub-millisecond edge APIs.",
+    image: "/projects/chatone.jpg",
     accentColor: "#C084FC",
     ambientGlow: "rgba(168, 85, 247, 0.45)",
     secondaryGlow: "rgba(147, 51, 234, 0.25)",
     aspect: "mobile",
   },
   {
-    id: "finance",
-    name: "FINANCE",
-    category: "LIFESTYLE FINTECH",
-    year: "2024",
+    id: "ai-ml-services",
+    name: "AI / ML SERVICES",
+    category: "NEURAL ARCHITECTURE",
+    year: "2025",
     description:
-      "A luxury lifestyle fintech visualizer combining editorial desk environments, warm ambient lighting, and high-frequency asset telemetry.",
-    image: "/projects/finance.svg",
-    accentColor: "#F59E0B",
-    ambientGlow: "rgba(217, 119, 6, 0.42)",
-    secondaryGlow: "rgba(16, 185, 129, 0.18)",
+      "Custom foundation model fine-tuning, computer vision pipelines, predictive intelligence, and ultra-fast hardware-accelerated inference.",
+    image: "/projects/codenarts.jpg",
+    accentColor: "#A78BFA",
+    ambientGlow: "rgba(124, 58, 237, 0.45)",
+    secondaryGlow: "rgba(249, 115, 22, 0.28)",
+    aspect: "monitor",
+  },
+  {
+    id: "desktop-development",
+    name: "DESKTOP DEVELOPMENT",
+    category: "HIGH-PERFORMANCE CLIENTS",
+    year: "2025",
+    description:
+      "Ultra-low latency desktop applications for macOS, Windows, and Linux engineered with Rust, C++, and GPU-rendered canvas pipelines.",
+    image: "/projects/amron.jpg",
+    accentColor: "#EF4444",
+    ambientGlow: "rgba(239, 68, 68, 0.45)",
+    secondaryGlow: "rgba(249, 115, 22, 0.25)",
+    aspect: "laptop",
+  },
+  {
+    id: "graphic-designing",
+    name: "GRAPHIC DESIGNING",
+    category: "EDITORIAL BRAND ATELIER",
+    year: "2025",
+    description:
+      "Visionary brand identities, 3D visual assets, bespoke editorial typography, motion systems, and award-winning digital aesthetic design.",
+    image: "/projects/codenarts.jpg",
+    accentColor: "#38BDF8",
+    ambientGlow: "rgba(56, 189, 248, 0.45)",
+    secondaryGlow: "rgba(147, 51, 234, 0.25)",
+    aspect: "monitor",
+  },
+  {
+    id: "ai-agent-deployment",
+    name: "AI AGENT DEPLOYMENT",
+    category: "AUTONOMOUS AGENT SWARMS",
+    year: "2025",
+    description:
+      "Autonomous multi-agent swarms with tool-calling reasoning frameworks, self-healing workflow automation, and enterprise orchestration.",
+    image: "/projects/finance.jpg",
+    accentColor: "#a4c330",
+    ambientGlow: "rgba(164, 195, 48, 0.48)",
+    secondaryGlow: "rgba(34, 197, 94, 0.25)",
     aspect: "mobile",
   },
   {
-    id: "neura-core",
-    name: "NEURA-CORE",
-    category: "SPATIAL INTELLIGENCE",
+    id: "cyber-security",
+    name: "CYBER SECURITY",
+    category: "ZERO-TRUST DEFENSE",
     year: "2025",
     description:
-      "An autonomous neural interface platform with holographic volumetric data trees, real-time quantum telemetry, and fluid glass shaders.",
-    image: "/projects/neura-core.svg",
+      "Hardened zero-trust defense perimeters, automated threat hunting, military-grade end-to-end encryption, and continuous security auditing.",
+    image: "/projects/amron.jpg",
+    accentColor: "#F43F5E",
+    ambientGlow: "rgba(244, 63, 94, 0.45)",
+    secondaryGlow: "rgba(225, 29, 72, 0.25)",
+    aspect: "laptop",
+  },
+  {
+    id: "it-infrastructure",
+    name: "IT INFRASTRUCTURE",
+    category: "MISSION-CRITICAL SYSTEMS",
+    year: "2025",
+    description:
+      "Enterprise Kubernetes cluster orchestration, multi-region failover architecture, automated CI/CD pipelines, and 99.999% uptime reliability.",
+    image: "/projects/az-digital.jpg",
     accentColor: "#00F0FF",
     ambientGlow: "rgba(0, 240, 255, 0.45)",
     secondaryGlow: "rgba(14, 165, 233, 0.25)",
     aspect: "laptop",
   },
   {
-    id: "aether-kinetics",
-    name: "AETHER-KINETICS",
-    category: "KINETIC ARCHITECTURE",
+    id: "cloud-applications",
+    name: "CLOUD APPLICATIONS",
+    category: "SERVERLESS & DISTRIBUTED EDGE",
     year: "2025",
     description:
-      "A precision automotive design atelier exploring aerodynamic carbon chassis, dynamic light ribbons, and computational fluid modeling.",
-    image: "/projects/aether-kinetics.svg",
-    accentColor: "#F43F5E",
-    ambientGlow: "rgba(244, 63, 94, 0.45)",
-    secondaryGlow: "rgba(225, 29, 72, 0.25)",
-    aspect: "monitor",
-  },
-  {
-    id: "solaris-audio",
-    name: "SOLARIS-AUDIO",
-    category: "SPATIAL ACOUSTICS",
-    year: "2025",
-    description:
-      "Next-generation sonic visualizer featuring real-time frequency waveforms, lossless analog warmth, and immersive tactile soundstage controls.",
-    image: "/projects/solaris-audio.svg",
-    accentColor: "#B2D234",
-    ambientGlow: "rgba(178, 210, 52, 0.42)",
-    secondaryGlow: "rgba(132, 204, 22, 0.22)",
-    aspect: "landscape",
-  },
-  {
-    id: "vortex-studios",
-    name: "VORTEX-STUDIOS",
-    category: "METAVERSE CINEMATICS",
-    year: "2025",
-    description:
-      "A global creative direction studio crafting cinematic CG brand identities, photorealistic environments, and experiential digital campaigns.",
-    image: "/projects/vortex-studios.svg",
-    accentColor: "#D946EF",
-    ambientGlow: "rgba(217, 70, 239, 0.45)",
-    secondaryGlow: "rgba(168, 85, 247, 0.26)",
-    aspect: "laptop",
+      "Resilient cloud-native microservices, serverless event-driven backends, globally distributed edge data meshes, and elastic auto-scaling.",
+    image: "/projects/chatone.jpg",
+    accentColor: "#EAB308",
+    ambientGlow: "rgba(234, 179, 8, 0.45)",
+    secondaryGlow: "rgba(249, 115, 22, 0.22)",
+    aspect: "mobile",
   },
 ];
 
@@ -411,10 +411,10 @@ export function CinematicShowcase(): JSX.Element {
               <img
                 src={proj.image}
                 alt=""
-                className="h-[140%] w-[140%] max-w-none object-contain pointer-events-none"
+                className="h-[140%] w-[140%] max-w-none object-cover pointer-events-none"
                 style={{
-                  filter: "blur(34px)",
-                  transform: "scale(1.15)",
+                  filter: "blur(38px)",
+                  transform: "scale(1.2)",
                 }}
               />
             </div>
@@ -430,8 +430,8 @@ export function CinematicShowcase(): JSX.Element {
           {SHOWCASE_PROJECTS.map((proj, idx) => {
             const maxWidthStyle =
               proj.aspect === "mobile"
-                ? "max-w-[320px] sm:max-w-[360px] md:max-w-[400px]"
-                : "max-w-[580px] sm:max-w-[640px] md:max-w-[700px] lg:max-w-[760px]";
+                ? "max-w-[480px] sm:max-w-[560px] md:max-w-[640px] lg:max-w-[700px]"
+                : "max-w-[580px] sm:max-w-[660px] md:max-w-[740px] lg:max-w-[800px]";
 
             return (
               <div

@@ -139,12 +139,18 @@ export function CinematicGreenBackground({
         float baseHeight = 0.58 + 0.18 * sin(t * 0.4) + u_scroll * 0.3;
         float flameDist = (1.0 - uv.y) - baseHeight + (f - 0.5) * 0.85;
 
-        // Specified Palette
-        vec3 colBg = vec3(0.012, 0.027, 0.016);          // #030704
-        vec3 colDarkGreen = vec3(0.024, 0.239, 0.125);   // #063D20
-        vec3 colDeepEmerald = vec3(0.0, 0.561, 0.298);    // #008F4C
-        vec3 colNeonGreen = vec3(0.0, 1.0, 0.522);        // #C5EB2A
-        vec3 colHighlight = vec3(0.224, 1.0, 0.612);      // #39FF9C
+        // Exact Flame Color Palette (matching fire-green.gif: #B4D535, #ADCE32, #C5E23C, #D8F050)
+        vec3 colBg = vec3(0.09, 0.12, 0.025);          // Deep warm chartreuse base #171f06
+        vec3 colDarkFlame = vec3(0.22, 0.29, 0.06);    // #384a0f
+        vec3 colMidFlame = vec3(0.45, 0.58, 0.12);     // #73941f
+        vec3 colBaseFlame = vec3(0.68, 0.83, 0.20);    // #aed433 (exact flame green)
+        vec3 colBrightFlame = vec3(0.78, 0.94, 0.23);  // #c7f03a
+        vec3 colHighlight = vec3(0.92, 1.0, 0.45);     // #ebff73 (hot flame core)
+
+        // Ambient fluid flame clouds throughout entire background (warm chartreuse lime)
+        vec3 ambientSmoke = mix(colBg, colDarkFlame, 0.5 + 0.5 * sin(f * 3.1415 + t * 0.5));
+        ambientSmoke += colMidFlame * pow(f, 2.2) * 0.65;
+        ambientSmoke += colBaseFlame * pow(f, 3.5) * 0.45;
 
         // Sharp liquid flame edge thresholds
         float edge = smoothstep(-0.045, 0.045, flameDist);
@@ -153,17 +159,17 @@ export function CinematicGreenBackground({
 
         // Deep internal shading
         float internalDepth = clamp((flameDist + 0.35) / 0.7, 0.0, 1.0);
-        vec3 flameCol = mix(colDarkGreen, colDeepEmerald, internalDepth);
-        flameCol = mix(flameCol, colNeonGreen, pow(internalDepth, 2.8) * 0.9);
+        vec3 flameCol = mix(colDarkFlame, colBaseFlame, internalDepth);
+        flameCol = mix(flameCol, colBrightFlame, pow(internalDepth, 2.2) * 0.9);
 
-        // Final color composition with dramatic cinematic contrast
-        vec3 finalCol = mix(colBg, flameCol, glowEdge);
-        finalCol += colHighlight * highlightRim * 2.0;
-        finalCol += colNeonGreen * (1.0 - edge) * pow(f, 3.2) * 0.45;
+        // Final color composition with identical flame-green atmosphere
+        vec3 finalCol = mix(ambientSmoke, flameCol, glowEdge);
+        finalCol += colHighlight * highlightRim * 2.2;
+        finalCol += colBrightFlame * (1.0 - edge) * pow(f, 3.2) * 0.55;
 
-        // Vignette around edges to focus center emblem
-        float vignette = 1.0 - length(uv - 0.5) * 0.65;
-        finalCol *= clamp(vignette, 0.25, 1.0);
+        // Subtle vignette around edges
+        float vignette = 1.0 - length(uv - 0.5) * 0.35;
+        finalCol *= clamp(vignette, 0.55, 1.0);
 
         gl_FragColor = vec4(finalCol, 1.0);
       }
