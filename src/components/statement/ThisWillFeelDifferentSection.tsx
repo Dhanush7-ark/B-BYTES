@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import { Phone, Sparkles } from "lucide-react";
 import { motion, useInView, useMotionValue, useSpring, useTransform, type Variants } from "framer-motion";
 import Image from "next/image";
+import { Footer } from "@/components/layout/Footer";
 
 interface ThisWillFeelDifferentSectionProps {
   onBookConsultation?: () => void;
@@ -107,32 +108,42 @@ export function ThisWillFeelDifferentSection({
       ref={sectionRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative min-h-screen w-full flex flex-col justify-between py-6 sm:py-10 px-4 sm:px-8 lg:px-12 overflow-hidden bg-[#000000] z-20 border-t border-b border-[#B2D234]/15 select-none"
+      className="relative w-full flex flex-col overflow-hidden bg-[#000000] z-20 border-t border-[#B2D234]/15"
       style={{ perspective: "1200px" }}
     >
       {/* ─── 1. PURE SOLID BLACK BACKGROUND WITH VOLUMETRIC GREEN GLOW ─── */}
       <div className="absolute inset-0 bg-[#000000] pointer-events-none overflow-hidden">
-        {/* Central Atmospheric Emerald Radiance */}
+        {/* Upper Atmospheric Emerald Radiance behind Statement */}
         <motion.div
           animate={
             isInView
-              ? { opacity: [0.4, 0.75, 0.4], scale: [0.85, 1.05, 0.85] }
+              ? { opacity: [0.45, 0.75, 0.45], scale: [0.85, 1.05, 0.85] }
               : { opacity: 0.1, scale: 0.7 }
           }
           transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] sm:w-[1200px] h-[600px] sm:h-[800px] pointer-events-none"
+          className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] sm:w-[1200px] h-[600px] sm:h-[800px] pointer-events-none"
         >
           <div
             className="w-full h-full"
             style={{
               background:
-                "radial-gradient(ellipse at center, rgba(178, 210, 52, 0.15) 0%, rgba(0, 59, 32, 0.05) 45%, transparent 75%)",
+                "radial-gradient(ellipse at center, rgba(178, 210, 52, 0.18) 0%, rgba(0, 59, 32, 0.06) 45%, transparent 75%)",
               filter: "blur(90px)",
             }}
           />
         </motion.div>
 
-        {/* Subtle Cyberpunk CRT Scanline Texture */}
+        {/* Lower Atmospheric Emerald Radiance behind Footer */}
+        <div
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] sm:w-[1400px] h-[550px] pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse at center, rgba(178, 210, 52, 0.14) 0%, rgba(0, 59, 32, 0.05) 50%, transparent 80%)",
+            filter: "blur(110px)",
+          }}
+        />
+
+        {/* Subtle Cyberpunk CRT Scanline Texture across full container */}
         <div
           className="absolute inset-0 pointer-events-none opacity-10"
           style={{
@@ -142,9 +153,9 @@ export function ThisWillFeelDifferentSection({
         />
       </div>
 
-      {/* ─── GREEN FIRE FLAME HANDS ANIMATION (DUAL TOP & BOTTOM REFERENCE MATCH) ─── */}
+      {/* ─── GREEN FIRE FLAME HANDS ANIMATION (DUAL TOP & BOTTOM MIXED THROUGH FOOTER) ─── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-        {/* Top Flame Layer (Inverted, reaching down) */}
+        {/* Top Flame Layer (Inverted, reaching down over the statement) */}
         <div className="absolute top-0 left-0 w-full h-[30vh] sm:h-[38vh] md:h-[42vh] overflow-hidden opacity-90">
           <img
             src="/fire-green.gif"
@@ -157,27 +168,29 @@ export function ThisWillFeelDifferentSection({
           />
         </div>
 
-        {/* Bottom Flame Layer (Reaching up behind content) */}
-        <div className="absolute bottom-0 left-0 w-full h-[32vh] sm:h-[40vh] md:h-[44vh] overflow-hidden opacity-95">
+        {/* Bottom Flame Layer (Rising from the bottom directly behind the Footer) */}
+        <div className="absolute bottom-0 left-0 w-full h-[40vh] sm:h-[50vh] md:h-[62vh] overflow-hidden opacity-95">
           <img
             src="/fire-green.gif"
             alt="Green Flame Hands"
             className="w-full h-full object-cover select-none pointer-events-none"
             style={{
-              maskImage: "linear-gradient(to top, black 55%, transparent 100%)",
-              WebkitMaskImage: "linear-gradient(to top, black 55%, transparent 100%)",
+              maskImage: "linear-gradient(to top, black 50%, transparent 100%)",
+              WebkitMaskImage: "linear-gradient(to top, black 50%, transparent 100%)",
             }}
           />
         </div>
       </div>
 
-      {/* ─── 2. TOP BAR: CYBER-TRIBAL SIGIL & STATUS INDEX ─── */}
-      <motion.div
-        initial={{ opacity: 0, y: -15 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -15 }}
-        transition={{ duration: 0.6 }}
-        className="relative z-10 flex items-center justify-between w-full max-w-7xl mx-auto mb-2 sm:mb-4 pointer-events-none"
-      >
+      {/* ─── STATEMENT CONTENT CONTAINER ─── */}
+      <div className="relative z-10 w-full min-h-screen flex flex-col justify-between py-6 sm:py-10 px-4 sm:px-8 lg:px-12 select-none">
+        {/* 2. TOP BAR: CYBER-TRIBAL SIGIL & STATUS INDEX */}
+        <motion.div
+          initial={{ opacity: 0, y: -15 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -15 }}
+          transition={{ duration: 0.6 }}
+          className="relative z-10 flex items-center justify-between w-full max-w-7xl mx-auto mb-2 sm:mb-4 pointer-events-none"
+        >
         {/* Cyber-Gothic Butterfly Sigil in Neon Green */}
         <div className="flex items-center gap-3">
           <svg
@@ -429,6 +442,12 @@ export function ThisWillFeelDifferentSection({
           </div>
         </div>
       </motion.div>
+      </div>
+
+      {/* ─── 5. INTEGRATED FOOTER (MIXED DIRECTLY INSIDE THE FLAME ANIMATION) ─── */}
+      <div className="relative z-10 w-full pointer-events-auto select-auto">
+        <Footer />
+      </div>
 
       <style>{`
         @keyframes greenEqualizerPulse {

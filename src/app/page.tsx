@@ -7,17 +7,9 @@ import { BackgroundAnimationSystem } from "@/components/animations/BackgroundAni
 import { Navbar } from "@/components/navbar/Navbar";
 import { HeroSection } from "@/components/hero/HeroSection";
 import { GothicCinematicSequence } from "@/components/cinematic/GothicCinematicSequence";
-import { ThisWillFeelDifferentSection } from "@/components/statement/ThisWillFeelDifferentSection";
+import { Footer } from "@/components/layout/Footer";
 import { CinematicGreenSection } from "@/components/statement/CinematicGreenSection";
 import { CinematicPortfolioShowcase } from "@/components/portfolio/CinematicPortfolioShowcase";
-import { StepOfWorkSection } from "@/components/cinematic/StepOfWorkSection";
-import { AwardsRecognitionSection } from "@/components/awards/AwardsRecognitionSection";
-import { WorkflowSection } from "@/components/workflow/WorkflowSection";
-import { EditorialFeatures } from "@/components/features/EditorialFeatures";
-import { AnalyticsSection } from "@/components/analytics/AnalyticsSection";
-import { TestimonialsSection } from "@/components/testimonials/TestimonialsSection";
-import { PricingSection } from "@/components/pricing/PricingSection";
-import { Footer } from "@/components/layout/Footer";
 import { WatchBuildModal } from "@/components/modals/WatchBuildModal";
 import { StartFreeModal } from "@/components/modals/StartFreeModal";
 import { ConsultationModal } from "@/components/modals/ConsultationModal";
@@ -67,44 +59,16 @@ function HomeContent() {
           {/* 3. "ORGANIC VELOCITY. UNBROKEN FLOW." CINEMATIC GREEN FLAME STATEMENT SCREEN */}
           <CinematicGreenSection />
 
-          {/* 4. REFERENCE-MATCH CINEMATIC PORTFOLIO SHOWCASE (CODENARTS, AZ-DIGITAL, AMRON, CHATONE, FINANCE) */}
+          {/* 4. REFERENCE-MATCH CINEMATIC PORTFOLIO SHOWCASE (9 CARDS) */}
           <div id="case-studies" className="relative">
+            <div id="services" className="relative" />
+            <div id="technologies" className="relative" />
             <CinematicPortfolioShowcase />
-          </div>
-
-          {/* 5. MEER MOHSIN POST-CARDS CINEMATIC SECTION (SILHOUETTE UNDER GREEN BEAM, 4 STAGGERED STEP BOXES & HEADLINE) */}
-          <div id="services">
-            <StepOfWorkSection />
-          </div>
-
-          {/* 5.5 MEER MOHSIN AWARDS & RECOGNITIONS SPLIT-VAULT & 3D TERRAIN SHOWCASE */}
-          <AwardsRecognitionSection />
-
-          {/* 6. Deep Interactive Workflow Demonstration */}
-          <div id="technologies">
-            <WorkflowSection />
-          </div>
-
-          {/* 6. Product Editorial Features */}
-          <EditorialFeatures />
-
-          {/* 7. Analytics & Performance Section */}
-          <AnalyticsSection />
-
-          {/* 8. Testimonials Section */}
-          <TestimonialsSection />
-
-          {/* 9. Pricing Section */}
-          <PricingSection onSelectPlan={handleOpenStartFree} />
-
-          {/* 10. "THIS WILL FEEL DIFFERENT" Statement Screen */}
-          <div id="career">
-            <ThisWillFeelDifferentSection onBookConsultation={() => setConsultationOpen(true)} />
           </div>
         </main>
 
-        {/* ─── FOOTER ─── */}
-        <div className="relative z-10">
+        {/* ─── FOOTER WITH INTEGRATED GREEN FLAME ANIMATION ─── */}
+        <div id="career" className="relative z-10">
           <Footer />
         </div>
 
