@@ -183,7 +183,6 @@ export function AwardsRecognitionSection() {
   const cardElementsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   const [activeCardIndex, setActiveCardIndex] = useState(0);
-  const [scrollProgress, setScrollProgress] = useState(0);
 
   // ─── 1. FIXED STATIONARY CARDS ATTACHED TO BOUNTY BYTES TILES ───
   const certificates: Card3DLocation[] = [
@@ -716,12 +715,17 @@ export function AwardsRecognitionSection() {
     };
     window.addEventListener("resize", handleResize);
 
-    // ─── F. RENDER & 3D PROJECTION LOOP ───
-    let animId: number;
+    // ─── F. RENDER & 3D PROJECTION LOOP (GPU-OPTIMIZED WITH VIEWPORT SLEEP) ───
+    let webglAnimFrameId = 0;
+    let isVisible = false;
     const tempProjVec = new THREE.Vector3();
 
     const animate = () => {
-      animId = requestAnimationFrame(animate);
+      if (!isVisible) {
+        webglAnimFrameId = 0;
+        return;
+      }
+      webglAnimFrameId = requestAnimationFrame(animate);
       const three = threeRef.current;
 
       const lerpSpeed = 0.14;
@@ -770,10 +774,36 @@ export function AwardsRecognitionSection() {
         domEl.style.zIndex = `${zIndex}`;
       });
     };
-    animate();
+
+    const startAnimation = () => {
+      if (webglAnimFrameId === 0) {
+        isVisible = true;
+        webglAnimFrameId = requestAnimationFrame(animate);
+      }
+    };
+
+    const stopAnimation = () => {
+      isVisible = false;
+      if (webglAnimFrameId !== 0) {
+        cancelAnimationFrame(webglAnimFrameId);
+        webglAnimFrameId = 0;
+      }
+    };
+
+    // Pause WebGL rendering entirely when off-screen to free 100% GPU for rest of page
+    const viewObserver = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        startAnimation();
+      } else {
+        stopAnimation();
+      }
+    }, { rootMargin: "300px 0px" });
+
+    viewObserver.observe(canvas);
 
     return () => {
-      cancelAnimationFrame(animId);
+      viewObserver.disconnect();
+      stopAnimation();
       window.removeEventListener("resize", handleResize);
       rawFloorGeo.dispose();
       facetedGeo.dispose();
@@ -814,10 +844,11 @@ export function AwardsRecognitionSection() {
           pin: stage,
           pinSpacing: true,
           refreshPriority: 1,
+          anticipatePin: 1, // Pre-calculates pinning to eliminate boundary stutter
+          fastScrollEnd: true,
           scrub: 1.0,
           onUpdate: (self) => {
             const p = self.progress;
-            setScrollProgress(p);
 
             const three = threeRef.current;
             computeStableCameraTransform(p, three.targetCamPos, three.targetLookAt);
@@ -1072,19 +1103,19 @@ export function AwardsRecognitionSection() {
             className="absolute top-0 left-0 w-1/2 h-full bg-[#000000] overflow-hidden border-r border-[#B2D234]/30 transform-gpu"
             style={{ transformOrigin: "left center" }}
           >
-            <div className="absolute top-0 left-0 w-screen h-full flex flex-col items-center justify-center">
+            <div className="absolute top-0 left-0 w-[200%] h-full flex flex-col items-center justify-center">
               <div className="text-center select-none leading-none">
                 <span
-                  className="block text-6xl sm:text-8xl md:text-9xl lg:text-[11.5rem] text-[#B2D234]"
+                  className="block text-3xl sm:text-5xl md:text-6xl lg:text-[6.5rem] xl:text-[7.5rem] text-[#B2D234]"
                   style={{
                     fontFamily: "'Ruthie', var(--font-bodoni-72), cursive",
                     textShadow: "0 0 50px rgba(178, 210, 52, 0.65)",
                   }}
                 >
-                  AWARDS &
+                  Have a wide range of
                 </span>
-                <span className="font-syne font-black uppercase tracking-tight text-white block text-5xl sm:text-7xl md:text-8xl lg:text-[9.5rem] mt-2">
-                  RECOGNITIONS
+                <span className="font-syne font-black uppercase tracking-tight text-white block text-3xl sm:text-5xl md:text-6xl lg:text-[6.5rem] xl:text-[7.5rem] mt-3 sm:mt-4">
+                  CREATIVE PROJECTS
                 </span>
               </div>
               <p className="absolute bottom-[13%] w-[90vw] max-w-xl text-center font-sans text-xs sm:text-sm text-neutral-300 font-light leading-relaxed px-4">
@@ -1101,19 +1132,19 @@ export function AwardsRecognitionSection() {
             className="absolute top-0 right-0 w-1/2 h-full bg-[#000000] overflow-hidden border-l border-[#B2D234]/30 transform-gpu"
             style={{ transformOrigin: "right center" }}
           >
-            <div className="absolute top-0 right-0 w-screen h-full flex flex-col items-center justify-center">
+            <div className="absolute top-0 right-0 w-[200%] h-full flex flex-col items-center justify-center">
               <div className="text-center select-none leading-none">
                 <span
-                  className="block text-6xl sm:text-8xl md:text-9xl lg:text-[11.5rem] text-[#B2D234]"
+                  className="block text-3xl sm:text-5xl md:text-6xl lg:text-[6.5rem] xl:text-[7.5rem] text-[#B2D234]"
                   style={{
                     fontFamily: "'Ruthie', var(--font-bodoni-72), cursive",
                     textShadow: "0 0 50px rgba(178, 210, 52, 0.65)",
                   }}
                 >
-                  AWARDS &
+                  Have a wide range of
                 </span>
-                <span className="font-syne font-black uppercase tracking-tight text-white block text-5xl sm:text-7xl md:text-8xl lg:text-[9.5rem] mt-2">
-                  RECOGNITIONS
+                <span className="font-syne font-black uppercase tracking-tight text-white block text-3xl sm:text-5xl md:text-6xl lg:text-[6.5rem] xl:text-[7.5rem] mt-3 sm:mt-4">
+                  CREATIVE PROJECTS
                 </span>
               </div>
               <p className="absolute bottom-[13%] w-[90vw] max-w-xl text-center font-sans text-xs sm:text-sm text-neutral-300 font-light leading-relaxed px-4">

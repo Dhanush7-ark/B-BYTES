@@ -6,13 +6,14 @@ import { CinematicLoader } from "@/components/loader/CinematicLoader";
 import { BackgroundAnimationSystem } from "@/components/animations/BackgroundAnimationSystem";
 import { Navbar } from "@/components/navbar/Navbar";
 import { HeroSection } from "@/components/hero/HeroSection";
-import { GothicCinematicSequence } from "@/components/cinematic/GothicCinematicSequence";
 import { Footer } from "@/components/layout/Footer";
 import { CinematicGreenSection } from "@/components/statement/CinematicGreenSection";
 import { CinematicPortfolioShowcase } from "@/components/portfolio/CinematicPortfolioShowcase";
+import { AwardsRecognitionSection } from "@/components/awards/AwardsRecognitionSection";
 import { WatchBuildModal } from "@/components/modals/WatchBuildModal";
 import { StartFreeModal } from "@/components/modals/StartFreeModal";
 import { ConsultationModal } from "@/components/modals/ConsultationModal";
+import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
 
 function HomeContent() {
   const { isLoading } = useLoadingState();
@@ -27,7 +28,7 @@ function HomeContent() {
   };
 
   return (
-    <>
+    <SmoothScrollProvider>
       {/* ─── CINEMATIC 1 TO 100 PRELOADER ─── */}
       {isLoading && <CinematicLoader />}
 
@@ -51,20 +52,18 @@ function HomeContent() {
             />
           </section>
 
-          {/* ─── 2. GOTHIC CINEMATIC ANIMATED EXPERIENCE (GSAP 6-PHASE TIMELINE) ─── */}
-          <section id="about" className="relative">
-            <GothicCinematicSequence />
-          </section>
-
-          {/* 3. "ORGANIC VELOCITY. UNBROKEN FLOW." CINEMATIC GREEN FLAME STATEMENT SCREEN */}
+          {/* 2. "ORGANIC VELOCITY. UNBROKEN FLOW." CINEMATIC GREEN FLAME STATEMENT SCREEN */}
           <CinematicGreenSection />
 
-          {/* 4. REFERENCE-MATCH CINEMATIC PORTFOLIO SHOWCASE (9 CARDS) */}
+          {/* 3. REFERENCE-MATCH CINEMATIC PORTFOLIO SHOWCASE (9 CARDS) */}
           <div id="case-studies" className="relative">
             <div id="services" className="relative" />
             <div id="technologies" className="relative" />
             <CinematicPortfolioShowcase />
           </div>
+
+          {/* 5. AWARDS & RECOGNITIONS SPLIT-VAULT & 3D CAMERA ZOOM SECTION (4 CARDS) */}
+          <AwardsRecognitionSection />
         </main>
 
         {/* ─── FOOTER WITH INTEGRATED GREEN FLAME ANIMATION ─── */}
@@ -93,7 +92,7 @@ function HomeContent() {
           onClose={() => setConsultationOpen(false)}
         />
       </div>
-    </>
+    </SmoothScrollProvider>
   );
 }
 

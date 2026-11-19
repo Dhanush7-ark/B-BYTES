@@ -1,9 +1,24 @@
 "use client";
 
-import { useId } from "react";
+import { useId, useRef, useState, useEffect } from "react";
 
 export function HeroLightRibbon() {
   const id = useId().replace(/:/g, "_");
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { rootMargin: "200px 0px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   // ─── 1. CORE CENTERLINE BEZIER PATH ───
   // Trajectory:
@@ -249,7 +264,11 @@ export function HeroLightRibbon() {
   ];
 
   return (
-    <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden select-none">
+    <div
+      ref={containerRef}
+      className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden select-none"
+      style={{ visibility: isVisible ? "visible" : "hidden" }}
+    >
       {/* ─── OPTICAL VOLUMETRIC GLOW HOTSPOT (MATCHING PHOTO'S WHITE-HOT BLOOM) ─── */}
       {/* 1. Primary Apex Lens Flare Bloom at (x: 23%, y: 56%) */}
       <div

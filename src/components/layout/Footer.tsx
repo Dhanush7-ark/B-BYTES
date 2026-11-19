@@ -52,15 +52,13 @@ export function Footer() {
       
       {/* ─── 1. GREEN FLAME ANIMATION (RISING DRAMATICALLY UP AT BASE OF FOOTER) ─── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-        <div className="absolute bottom-0 left-0 w-full h-[65vh] min-h-[420px] overflow-hidden opacity-75">
+        <div className="absolute bottom-0 left-0 w-full h-[65vh] min-h-[420px] overflow-hidden opacity-75 transform-gpu">
+          <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-[#050505] to-transparent pointer-events-none z-10" />
           <img
             src="/fire-green.gif"
             alt="Green Flame Atmosphere"
-            className="w-full h-full object-cover select-none pointer-events-none"
-            style={{
-              maskImage: "linear-gradient(to top, black 25%, rgba(0,0,0,0.5) 65%, transparent 100%)",
-              WebkitMaskImage: "linear-gradient(to top, black 25%, rgba(0,0,0,0.5) 65%, transparent 100%)",
-            }}
+            className="w-full h-full object-cover select-none pointer-events-none transform-gpu"
+            loading="lazy"
           />
         </div>
       </div>

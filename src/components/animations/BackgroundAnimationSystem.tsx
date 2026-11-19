@@ -199,20 +199,19 @@ export function BackgroundAnimationSystem() {
       {/* ─── LAYER 2: INTERACTIVE MOUSE-FOLLOWING SPOTLIGHT GLOW (DESKTOP ONLY) ─── */}
       {isDesktopHover && (
         <motion.div
-          className="absolute -top-[350px] -left-[350px] w-[700px] h-[700px] rounded-full pointer-events-none"
+          className="absolute -top-[350px] -left-[350px] w-[700px] h-[700px] rounded-full pointer-events-none transform-gpu"
           style={{
             x: smoothMouseX,
             y: smoothMouseY,
             background:
-              "radial-gradient(circle, rgba(178, 210, 52, 0.08) 0%, rgba(178, 210, 52, 0.02) 40%, transparent 70%)",
-            filter: "blur(40px)",
+              "radial-gradient(circle, rgba(178, 210, 52, 0.08) 0%, rgba(178, 210, 52, 0.03) 35%, rgba(178, 210, 52, 0.01) 55%, transparent 70%)",
           }}
         />
       )}
 
       {/* ─── LAYER 3: THIN VERTICAL NEON-GREEN LINES SLOWLY MOVING FROM TOP TO BOTTOM ─── */}
       <motion.div
-        className="absolute inset-0 w-full h-full"
+        className="absolute inset-0 w-full h-full transform-gpu will-change-transform"
         style={{ y: parallaxVerticalLines }}
       >
         {/* Subtle static grid guides */}
@@ -238,8 +237,7 @@ export function BackgroundAnimationSystem() {
               top: pillar.top,
               transform: "translateX(-50%)",
               background:
-                "radial-gradient(ellipse at top, rgba(178, 210, 52, 0.22) 0%, rgba(34, 197, 94, 0.08) 45%, transparent 75%)",
-              filter: "blur(18px)",
+                "radial-gradient(ellipse at top, rgba(178, 210, 52, 0.18) 0%, rgba(34, 197, 94, 0.06) 45%, transparent 75%)",
               opacity: pillar.opacity,
               animationName: "verticalPillarPulse",
               animationDuration: pillar.duration,
@@ -362,7 +360,7 @@ export function BackgroundAnimationSystem() {
 
       {/* ─── LAYER 5: CINEMATIC CURVED NEON-GREEN SVG LIGHT TRAILS ─── */}
       <motion.div
-        className="absolute inset-0 w-full h-full pointer-events-none"
+        className="absolute inset-0 w-full h-full pointer-events-none transform-gpu will-change-transform"
         style={{ y: parallaxLightTrails }}
       >
         <svg
@@ -447,7 +445,7 @@ export function BackgroundAnimationSystem() {
 
       {/* ─── LAYER 6: MULTIPLE SUBTLE GLOWING GREEN PARTICLES FLOATING IN DIFFERENT DIRECTIONS ─── */}
       <motion.div
-        className="absolute inset-0 w-full h-full pointer-events-none"
+        className="absolute inset-0 w-full h-full pointer-events-none transform-gpu will-change-transform"
         style={{ y: parallaxParticlesFast }}
       >
         {particles.map((p) => (
