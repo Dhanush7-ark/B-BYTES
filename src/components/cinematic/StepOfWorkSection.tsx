@@ -43,6 +43,16 @@ export function StepOfWorkSection() {
           }}
         />
 
+        {/* Base Static High-Fidelity Phoenix Beam Pillar (Instant Load & Zero Lag) */}
+        <img
+          src="/phoenix-beam-pillar.png"
+          alt="Cinematic Green Phoenix in Vertical Light Beam"
+          className="absolute top-0 left-0 w-screen min-w-full h-full object-cover object-bottom select-none pointer-events-none filter drop-shadow-[0_0_60px_rgba(178,210,52,0.55)]"
+          style={{
+            mixBlendMode: "screen",
+          }}
+        />
+
         {/* ─── HARDWARE WEBGL: REAL-TIME IN-PLACE WING FLAP & FLUID SMOKE DYNAMICS ─── */}
         <CinematicPhoenixBeamCanvas
           className="absolute top-0 left-0 w-screen min-w-full h-full object-cover object-bottom select-none pointer-events-none filter drop-shadow-[0_0_60px_rgba(178,210,52,0.55)]"
@@ -111,10 +121,11 @@ export function StepOfWorkSection() {
           <div className="w-6 h-6 rounded-sm border border-[#B2D234]/40 flex items-center justify-center bg-[#101704]/90 backdrop-blur-md shadow-[0_0_12px_rgba(178,210,52,0.2)]">
             <span className="w-1.5 h-1.5 rounded-full bg-[#B2D234] shadow-[0_0_6px_#D8FF38]" />
           </div>
-          <div className="font-mono text-[11px] tracking-wider text-neutral-300">
+          <div className="font-mono text-[10px] sm:text-[11px] tracking-wider text-neutral-300">
             <span className="text-[#B2D234] font-semibold">BOUNTY</span>
             <span className="text-neutral-500 mx-1.5">//</span>
-            <span className="text-neutral-400">PROCESS CONTINUUM (3 LONG SCROLL SECTIONS)</span>
+            <span className="text-neutral-400 hidden sm:inline">PROCESS CONTINUUM (3 LONG SCROLL SECTIONS)</span>
+            <span className="text-neutral-400 sm:hidden">PROCESS CONTINUUM</span>
           </div>
         </div>
 
@@ -213,7 +224,7 @@ export function StepOfWorkSection() {
               </span>
             </div>
             <h3
-              className="font-calligraphy text-5xl sm:text-6xl md:text-7xl text-[#B2D234] leading-none mb-3"
+              className="font-calligraphy text-4xl sm:text-6xl md:text-7xl text-[#B2D234] leading-none mb-3"
               style={{
                 fontFamily: "'Ruthie', var(--font-bodoni-72), cursive",
                 textShadow: "0 0 35px rgba(178, 210, 52, 0.5)",
@@ -243,7 +254,7 @@ export function StepOfWorkSection() {
               <Palette className="w-4 h-4 text-[#B2D234]" />
             </div>
             <h3
-              className="font-calligraphy text-5xl sm:text-6xl md:text-7xl text-[#B2D234] leading-none mb-3"
+              className="font-calligraphy text-4xl sm:text-6xl md:text-7xl text-[#B2D234] leading-none mb-3"
               style={{
                 fontFamily: "'Ruthie', var(--font-bodoni-72), cursive",
                 textShadow: "0 0 35px rgba(178, 210, 52, 0.5)",
@@ -273,7 +284,7 @@ export function StepOfWorkSection() {
               </span>
             </div>
             <h3
-              className="font-calligraphy text-5xl sm:text-6xl md:text-7xl text-[#B2D234] leading-none mb-3"
+              className="font-calligraphy text-4xl sm:text-6xl md:text-7xl text-[#B2D234] leading-none mb-3"
               style={{
                 fontFamily: "'Ruthie', var(--font-bodoni-72), cursive",
                 textShadow: "0 0 35px rgba(178, 210, 52, 0.5)",
@@ -303,7 +314,7 @@ export function StepOfWorkSection() {
               <Rocket className="w-4 h-4 text-[#B2D234]" />
             </div>
             <h3
-              className="font-calligraphy text-5xl sm:text-6xl md:text-7xl text-[#B2D234] leading-none mb-3"
+              className="font-calligraphy text-4xl sm:text-6xl md:text-7xl text-[#B2D234] leading-none mb-3"
               style={{
                 fontFamily: "'Ruthie', var(--font-bodoni-72), cursive",
                 textShadow: "0 0 35px rgba(178, 210, 52, 0.5)",
@@ -320,7 +331,7 @@ export function StepOfWorkSection() {
       </div>
 
       {/* ═══════════════════════════════════════════════════════════════════
-          SECTION 03: CINEMATIC HUMAN SILHOUETTE (BOTTOM SECTION ~100VH)
+          SECTION 03: CINEMATIC GREEN PHOENIX ARRIVAL (BOTTOM SECTION ~100VH)
           ARRIVING AT THE BASE OF THE GREEN PILLAR & GLOWING HORIZON FLOOR
       ═══════════════════════════════════════════════════════════════════ */}
       <div className="relative z-30 min-h-[90vh] w-full max-w-7xl mx-auto px-6 sm:px-12 pb-16 flex flex-col justify-end">
@@ -335,10 +346,10 @@ export function StepOfWorkSection() {
           <div className="max-w-xs text-left font-mono text-[11px] text-neutral-400">
             <div className="text-[#B2D234] font-semibold flex items-center gap-2 mb-1">
               <ShieldCheck className="w-3.5 h-3.5" />
-              <span>STAGE // MONOLITH ARRIVAL</span>
+              <span>STAGE // PHOENIX MONOLITH ARRIVAL</span>
             </div>
             <p className="text-neutral-400 leading-relaxed">
-              Where high-precision machine intelligence converges with human intention on the sovereign frontier.
+              Where high-precision machine intelligence converges with the radiant emerald phoenix on the sovereign frontier.
             </p>
           </div>
 
@@ -349,7 +360,7 @@ export function StepOfWorkSection() {
             </div>
             <div className="flex items-center gap-2 text-neutral-300">
               <span className="w-2 h-2 rounded-full bg-[#B2D234] animate-pulse" />
-              <span>CONTINUING SEAMLESSLY INTO WORKFLOW SIMULATOR</span>
+              <span>PHOENIX BEAM ACTIVE // CONTINUING SEAMLESSLY</span>
             </div>
           </div>
         </motion.div>

@@ -962,7 +962,7 @@ export function AwardsRecognitionSection() {
                   cardElementsRef.current[index] = el;
                 }}
                 onClick={() => scrollToCard(index)}
-                className={`award-3d-card-item absolute left-0 top-0 will-change-transform select-none cursor-pointer pointer-events-auto w-[350px] sm:w-[450px] md:w-[500px] lg:w-[550px] h-[520px] sm:h-[620px] md:h-[680px] lg:h-[720px] rounded-2xl p-8 sm:p-10 md:p-12 flex flex-col justify-between shadow-[0_35px_100px_rgba(0,0,0,0.96)] border transform-gpu origin-center ${
+                className={`award-3d-card-item absolute left-0 top-0 will-change-transform select-none cursor-pointer pointer-events-auto w-[88vw] sm:w-[420px] md:w-[480px] lg:w-[540px] max-w-[540px] h-[460px] sm:h-[580px] md:h-[640px] lg:h-[700px] rounded-2xl p-5 sm:p-8 md:p-12 flex flex-col justify-between shadow-[0_35px_100px_rgba(0,0,0,0.96)] border transform-gpu origin-center ${
                   isCurrentFocus
                     ? "ring-2 ring-[#B2D234] shadow-[0_0_70px_rgba(178,210,52,0.52)]"
                     : "hover:ring-1 hover:ring-[#B2D234]/70"
@@ -982,11 +982,11 @@ export function AwardsRecognitionSection() {
                 {/* Top Row: Logo & Category */}
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <span className="font-syne font-black text-3xl sm:text-4xl tracking-tighter">
+                    <span className="font-syne font-black text-2xl sm:text-4xl tracking-tighter">
                       {cert.logo}
                     </span>
                     <span
-                      className="text-[10px] sm:text-xs font-mono tracking-widest uppercase px-3 py-1.5 rounded"
+                      className="text-[10px] sm:text-xs font-mono tracking-widest uppercase px-2.5 sm:px-3 py-1 sm:py-1.5 rounded"
                       style={{
                         backgroundColor: `${cert.textColor}18`,
                         color: cert.textColor,
@@ -996,15 +996,15 @@ export function AwardsRecognitionSection() {
                     </span>
                   </div>
 
-                  <h3 className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl tracking-tight leading-none mb-3">
+                  <h3 className="font-syne font-bold text-2xl sm:text-3xl md:text-5xl tracking-tight leading-none mb-2 sm:mb-3">
                     {cert.category}
                   </h3>
 
-                  <div className="text-base sm:text-lg md:text-xl font-medium opacity-85 mb-1.5">
+                  <div className="text-sm sm:text-lg md:text-xl font-medium opacity-85 mb-1 sm:mb-1.5">
                     {cert.date}
                   </div>
 
-                  <div className="font-syne font-black text-2xl sm:text-3xl md:text-4xl tracking-tight uppercase">
+                  <div className="font-syne font-black text-xl sm:text-2xl md:text-4xl tracking-tight uppercase">
                     {cert.recipient}
                   </div>
 
@@ -1106,7 +1106,7 @@ export function AwardsRecognitionSection() {
             <div className="absolute top-0 left-0 w-[200%] h-full flex flex-col items-center justify-center">
               <div className="text-center select-none leading-none">
                 <span
-                  className="block text-3xl sm:text-5xl md:text-6xl lg:text-[6.5rem] xl:text-[7.5rem] text-[#B2D234]"
+                  className="block text-2xl sm:text-5xl md:text-6xl lg:text-[6.5rem] xl:text-[7.5rem] text-[#B2D234]"
                   style={{
                     fontFamily: "'Ruthie', var(--font-bodoni-72), cursive",
                     textShadow: "0 0 50px rgba(178, 210, 52, 0.65)",
@@ -1114,7 +1114,7 @@ export function AwardsRecognitionSection() {
                 >
                   Have a wide range of
                 </span>
-                <span className="font-syne font-black uppercase tracking-tight text-white block text-3xl sm:text-5xl md:text-6xl lg:text-[6.5rem] xl:text-[7.5rem] mt-3 sm:mt-4">
+                <span className="font-syne font-black uppercase tracking-tight text-white block text-2xl sm:text-5xl md:text-6xl lg:text-[6.5rem] xl:text-[7.5rem] mt-2 sm:mt-4">
                   CREATIVE PROJECTS
                 </span>
               </div>
@@ -1135,7 +1135,7 @@ export function AwardsRecognitionSection() {
             <div className="absolute top-0 right-0 w-[200%] h-full flex flex-col items-center justify-center">
               <div className="text-center select-none leading-none">
                 <span
-                  className="block text-3xl sm:text-5xl md:text-6xl lg:text-[6.5rem] xl:text-[7.5rem] text-[#B2D234]"
+                  className="block text-2xl sm:text-5xl md:text-6xl lg:text-[6.5rem] xl:text-[7.5rem] text-[#B2D234]"
                   style={{
                     fontFamily: "'Ruthie', var(--font-bodoni-72), cursive",
                     textShadow: "0 0 50px rgba(178, 210, 52, 0.65)",
@@ -1143,7 +1143,7 @@ export function AwardsRecognitionSection() {
                 >
                   Have a wide range of
                 </span>
-                <span className="font-syne font-black uppercase tracking-tight text-white block text-3xl sm:text-5xl md:text-6xl lg:text-[6.5rem] xl:text-[7.5rem] mt-3 sm:mt-4">
+                <span className="font-syne font-black uppercase tracking-tight text-white block text-2xl sm:text-5xl md:text-6xl lg:text-[6.5rem] xl:text-[7.5rem] mt-2 sm:mt-4">
                   CREATIVE PROJECTS
                 </span>
               </div>

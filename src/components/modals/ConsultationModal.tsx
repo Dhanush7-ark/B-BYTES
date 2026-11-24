@@ -48,7 +48,7 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-lg rounded-3xl bg-[#10110E] border border-white/10 p-6 sm:p-8 shadow-[0_25px_70px_rgba(0,0,0,0.9),0_0_50px_rgba(178, 210, 52,0.06)] overflow-hidden z-10"
+            className="relative w-full max-w-lg rounded-3xl bg-[#10110E] border border-white/10 p-6 sm:p-8 shadow-[0_25px_70px_rgba(0,0,0,0.9),0_0_50px_rgba(178, 210, 52,0.06)] overflow-y-auto max-h-[92vh] z-10"
           >
             {/* Ambient Background Glow */}
             <div className="absolute -top-24 -right-24 w-60 h-60 rounded-full bg-[radial-gradient(circle,rgba(178, 210, 52,0.15),transparent_70%)] blur-3xl pointer-events-none" />

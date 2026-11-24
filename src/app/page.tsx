@@ -9,6 +9,7 @@ import { HeroSection } from "@/components/hero/HeroSection";
 import { Footer } from "@/components/layout/Footer";
 import { CinematicGreenSection } from "@/components/statement/CinematicGreenSection";
 import { CinematicPortfolioShowcase } from "@/components/portfolio/CinematicPortfolioShowcase";
+import { StepOfWorkSection } from "@/components/cinematic/StepOfWorkSection";
 import { AwardsRecognitionSection } from "@/components/awards/AwardsRecognitionSection";
 import { WatchBuildModal } from "@/components/modals/WatchBuildModal";
 import { StartFreeModal } from "@/components/modals/StartFreeModal";
@@ -57,9 +58,13 @@ function HomeContent() {
 
           {/* 3. REFERENCE-MATCH CINEMATIC PORTFOLIO SHOWCASE (9 CARDS) */}
           <div id="case-studies" className="relative">
-            <div id="services" className="relative" />
             <div id="technologies" className="relative" />
             <CinematicPortfolioShowcase />
+          </div>
+
+          {/* 4. THE STEP-OF-WORK CINEMATIC SECTION (GREEN PHOENIX IN VERTICAL LIGHT BEAM & 4 STAGGERED STEP BOXES) */}
+          <div id="services" className="relative">
+            <StepOfWorkSection />
           </div>
 
           {/* 5. AWARDS & RECOGNITIONS SPLIT-VAULT & 3D CAMERA ZOOM SECTION (4 CARDS) */}

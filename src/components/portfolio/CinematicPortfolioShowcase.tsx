@@ -534,8 +534,8 @@ export function CinematicPortfolioShowcase(): JSX.Element {
           {SHOWCASE_PROJECTS.map((proj, idx) => {
             const maxWidthStyle =
               proj.aspect === "mobile"
-                ? "max-w-[360px] sm:max-w-[420px] md:max-w-[480px] lg:max-w-[520px]"
-                : "max-w-[440px] sm:max-w-[500px] md:max-w-[560px] lg:max-w-[620px]";
+                ? "max-w-[300px] sm:max-w-[420px] md:max-w-[480px] lg:max-w-[520px]"
+                : "max-w-[350px] sm:max-w-[480px] md:max-w-[560px] lg:max-w-[620px]";
 
             return (
               <div
@@ -560,12 +560,12 @@ export function CinematicPortfolioShowcase(): JSX.Element {
                       scrollToProject(idx);
                     }
                   }}
-                  className="relative w-full max-h-[44vh] rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_25px_65px_rgba(0,0,0,0.85),0_10px_25px_rgba(0,0,0,0.6)] cursor-pointer pointer-events-auto transition-transform hover:scale-[1.01] flex items-center justify-center"
+                  className="relative w-full max-h-[38vh] sm:max-h-[44vh] rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_25px_65px_rgba(0,0,0,0.85),0_10px_25px_rgba(0,0,0,0.6)] cursor-pointer pointer-events-auto transition-transform hover:scale-[1.01] flex items-center justify-center"
                 >
                   <img
                     src={proj.image}
                     alt={proj.name}
-                    className="w-full h-auto max-h-[44vh] object-contain block select-none pointer-events-auto"
+                    className="w-full h-auto max-h-[38vh] sm:max-h-[44vh] object-contain block select-none pointer-events-auto"
                     draggable={false}
                   />
                 </div>
@@ -598,7 +598,7 @@ export function CinematicPortfolioShowcase(): JSX.Element {
         </div>
 
         {/* ─── LEFT SIDE: PROJECT NAME (Pure White, Bold, Minimalist - Matching Image 1) ─── */}
-        <div className="absolute left-6 sm:left-10 lg:left-16 xl:left-24 top-1/2 -translate-y-1/2 z-40 w-[240px] sm:w-[280px] md:w-[320px] lg:w-[360px] h-[200px] pointer-events-none flex flex-col justify-center">
+        <div className="absolute left-6 sm:left-10 lg:left-16 xl:left-24 top-20 sm:top-24 md:top-1/2 md:-translate-y-1/2 z-40 w-auto max-w-[85vw] md:w-[320px] lg:w-[360px] h-auto md:h-[200px] pointer-events-none flex flex-col justify-center">
           {SHOWCASE_PROJECTS.map((proj, idx) => (
             <div
               key={`title-${proj.id}`}
@@ -606,7 +606,7 @@ export function CinematicPortfolioShowcase(): JSX.Element {
               style={{ opacity: idx === 0 ? 1 : 0, visibility: idx === 0 ? "visible" : "hidden" }}
             >
               <div className="overflow-hidden py-1">
-                <h2 className="reveal-line font-syne text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-bold tracking-tight text-white uppercase leading-[1.08] will-change-transform drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]">
+                <h2 className="reveal-line font-syne text-xl sm:text-2xl md:text-4xl lg:text-[40px] font-bold tracking-tight text-white uppercase leading-[1.08] will-change-transform drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]">
                   {proj.name}
                 </h2>
               </div>
@@ -648,11 +648,11 @@ export function CinematicPortfolioShowcase(): JSX.Element {
 
         {/* ─── PHASE 10: FINAL ENDING SECTION (White Statement Bottom-Center) ─── */}
         <div
-          className="final-statement-wrap pointer-events-none absolute bottom-24 sm:bottom-28 left-0 right-0 z-40 px-6 sm:px-12 flex flex-col items-center justify-center text-center opacity-0"
+          className="final-statement-wrap pointer-events-none absolute bottom-20 sm:bottom-28 left-0 right-0 z-40 px-4 sm:px-12 flex flex-col items-center justify-center text-center opacity-0"
         >
           <div className="max-w-4xl mx-auto">
             <h1
-              className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-light tracking-tight text-white leading-[1.25]"
+              className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-light tracking-tight text-white leading-[1.25]"
               style={{
                 fontFamily: "var(--font-bodoni-72), 'Bodoni MT', 'Didot', Georgia, serif",
                 textShadow: "0 0 35px rgba(255,255,255,0.45), 0 0 70px rgba(255,255,255,0.2)",
@@ -669,34 +669,34 @@ export function CinematicPortfolioShowcase(): JSX.Element {
                 </span>
               ))}
             </h1>
-            <div className="mt-4 font-mono text-[10px] tracking-[0.3em] uppercase text-neutral-300 opacity-80">
+            <div className="mt-3 sm:mt-4 font-mono text-[9px] sm:text-[10px] tracking-[0.25em] sm:tracking-[0.3em] uppercase text-neutral-300 opacity-80">
               DIGITAL ATELIER // BOUNTY BYTES AI STUDIOS
             </div>
           </div>
         </div>
 
         {/* ─── BOTTOM: HORIZONTAL TELEMETRY BAR (Matching Image 1 meermohsin.me layout) ─── */}
-        <div className="absolute bottom-6 left-0 right-0 z-40 px-8 sm:px-16 flex items-center justify-between font-mono text-[9px] sm:text-[11px] tracking-[0.32em] uppercase text-white/50 select-none pointer-events-none">
-          <div className="flex items-center gap-2">
-            <span className="text-xs text-white/40">✕</span>
+        <div className="absolute bottom-4 sm:bottom-6 left-0 right-0 z-40 px-4 sm:px-16 flex items-center justify-between font-mono text-[8px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.32em] uppercase text-white/50 select-none pointer-events-none">
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <span className="text-[10px] sm:text-xs text-white/40">✕</span>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2">
             <span>TENSION</span>
           </div>
-          <div className="flex items-center gap-2">
-            <span className="text-white/30 text-xs">✕</span>
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <span className="text-white/30 text-[10px] sm:text-xs">✕</span>
           </div>
-          <div className="flex items-center gap-2">
-            <span className="text-white/85 font-semibold tracking-[0.38em]">IMMERSION</span>
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <span className="text-white/85 font-semibold tracking-[0.25em] sm:tracking-[0.38em]">IMMERSION</span>
           </div>
-          <div className="flex items-center gap-2">
-            <span className="text-white/30 text-xs">✕</span>
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <span className="text-white/30 text-[10px] sm:text-xs">✕</span>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2">
             <span>IMPACT</span>
           </div>
-          <div className="flex items-center gap-2">
-            <span className="text-xs text-white/40">✕</span>
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <span className="text-[10px] sm:text-xs text-white/40">✕</span>
           </div>
         </div>
       </div>

@@ -63,7 +63,7 @@ export function WatchBuildModal({ isOpen, onClose, onStartFree }: WatchBuildModa
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 lg:p-8 bg-black/85 backdrop-blur-xl transition-all">
-      <div className="relative w-full max-w-4xl rounded-3xl bg-[#10110E] border border-white/15 shadow-[0_25px_80px_rgba(0,0,0,0.9)] overflow-hidden flex flex-col">
+      <div className="relative w-full max-w-4xl rounded-3xl bg-[#10110E] border border-white/15 shadow-[0_25px_80px_rgba(0,0,0,0.9)] overflow-y-auto max-h-[92vh] flex flex-col">
         
         {/* Modal Top Bar */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-white/8 bg-[#0a0b09]/80">

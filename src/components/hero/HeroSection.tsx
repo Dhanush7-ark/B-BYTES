@@ -1,368 +1,199 @@
 "use client";
 
-import { useState } from "react";
-import { ArrowRight, Play, Zap, GitBranch, ArrowUpRight, Database, CheckCircle2 } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
-import { HeroLightRibbon } from "./HeroLightRibbon";
+import { useMemo, type JSX } from "react";
+import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface HeroSectionProps {
   onWatchBuild?: () => void;
   onStartFree?: () => void;
 }
 
-export function HeroSection({ onWatchBuild, onStartFree }: HeroSectionProps) {
-  const [activeStep, setActiveStep] = useState<number>(2);
-  const shouldReduceMotion = false;
+/* ─────────────────────────────────────────────────────────────
+   FLOATING LOGO-GREEN (#B2D234) EMBER PARTICLES
+   ───────────────────────────────────────────────────────────── */
+function FloatingEmbers() {
+  const embers = useMemo(() => {
+    return Array.from({ length: 24 }).map((_, i) => ({
+      id: i,
+      left: `${15 + (i * 3.7) % 80}%`,
+      bottom: `${(i * 4) % 65}%`,
+      size: `${2 + (i % 3) * 1.5}px`,
+      duration: `${4 + (i % 5) * 1.5}s`,
+      delay: `${(i * 0.4) % 5}s`,
+      drift: `${(i % 2 === 0 ? 1 : -1) * (15 + (i % 4) * 10)}px`,
+      opacity: 0.35 + (i % 4) * 0.18,
+    }));
+  }, []);
 
   return (
-    <section className="relative min-h-screen pt-28 sm:pt-36 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-transparent">
-      {/* ─── AMBIENT CINEMATIC LIGHTING & MATCHED LIGHT RIBBON ─── */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Soft Olive Green Gradient Halo in Top Center */}
-        <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] sm:w-[1000px] h-[550px] bg-[radial-gradient(ellipse_at_top,rgba(178, 210, 52,0.12),transparent_70%)] blur-[100px] animate-pulse-glow" />
+    <div className="absolute inset-0 pointer-events-none overflow-hidden z-10">
+      {embers.map((e) => (
+        <motion.div
+          key={`ember-${e.id}`}
+          initial={{ y: 0, x: 0, opacity: 0 }}
+          animate={{
+            y: [-10, -180],
+            x: [0, parseFloat(e.drift)],
+            opacity: [0, e.opacity, 0],
+          }}
+          transition={{
+            duration: parseFloat(e.duration),
+            repeat: Infinity,
+            delay: parseFloat(e.delay),
+            ease: "easeOut",
+          }}
+          style={{
+            position: "absolute",
+            left: e.left,
+            bottom: e.bottom,
+            width: e.size,
+            height: e.size,
+            borderRadius: "50%",
+            backgroundColor: "#B2D234",
+            boxShadow: "0 0 8px #B2D234, 0 0 16px rgba(178, 210, 52, 0.8)",
+          }}
+        />
+      ))}
+    </div>
+  );
+}
 
-        {/* Subtle Right Halo behind Dashboard */}
-        <div className="absolute top-1/4 -right-40 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(178, 210, 52,0.08),transparent_65%)] blur-[120px]" />
+/* ─────────────────────────────────────────────────────────────
+   HERO SECTION COMPONENT (CLEAN MINIMALIST VERSION)
+   ───────────────────────────────────────────────────────────── */
+export function HeroSection({ onWatchBuild, onStartFree }: HeroSectionProps): JSX.Element {
+  return (
+    <section className="relative min-h-screen w-full overflow-hidden bg-[#030704] text-white flex flex-col justify-center pt-24 sm:pt-32 pb-16 px-6 sm:px-10 lg:px-16 selection:bg-[#B2D234] selection:text-black">
+      
+      {/* ─── 1. CINEMATIC PHOENIX & MOUNTAIN BACKGROUND ─── */}
+      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
+        {/* The Clean Color-Graded Wallpaper in #B2D234 Logo Green */}
+        <img
+          src="/images/phoenix-hero-lime.jpg"
+          alt="Emerald Phoenix atop Mountain in Project Colors"
+          className="w-full h-full object-cover object-right lg:object-center filter brightness-[1.02] contrast-[1.05]"
+        />
 
-        {/* ─── EXACT MATCH LIGHT RIBBON VORTEX (FROM REFERENCE VIDEO & PHOTO) ─── */}
-        <HeroLightRibbon />
+        {/* Soft Left Mist Vignette — enhances typography contrast while preserving mountain ridges */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#030704]/85 via-[#030704]/45 to-transparent sm:w-[60%] pointer-events-none" />
 
-        {/* Subtle dot matrix grid */}
-        <div className="absolute inset-0 bg-grid-pattern opacity-40" />
+        {/* Soft Radial Ambient Logo Green Glow behind Phoenix */}
+        <div className="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(178,210,52,0.18),transparent_65%)] blur-[90px]" />
+        <div className="absolute top-1/3 left-10 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(178,210,52,0.08),transparent_70%)] blur-[100px]" />
+
+        {/* Thin Geometric Orbit Ring in Sky behind Phoenix in #B2D234 */}
+        <div
+          className="absolute right-[4%] sm:right-[14%] top-[10%] sm:top-[12%] w-[260px] sm:w-[540px] lg:w-[680px] h-[260px] sm:h-[540px] lg:h-[680px] rounded-full border border-[#B2D234]/25 pointer-events-none"
+          style={{
+            boxShadow: "0 0 25px rgba(178, 210, 52, 0.15)",
+          }}
+        />
+
+        {/* Bottom Fade to Solid Obsidian to blend seamlessly into next section */}
+        <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#000000] via-[#000000]/60 to-transparent pointer-events-none" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      {/* ─── 2. FLOATING LOGO-GREEN EMBERS / SPARKS ─── */}
+      <FloatingEmbers />
+
+      {/* ─── 3. MAIN HERO CONTENT AREA (LEFT COLUMN) ─── */}
+      <div className="relative z-20 w-full max-w-7xl mx-auto flex flex-col justify-center items-start">
+        <div className="max-w-2xl">
           
-          {/* ─── LEFT COLUMN: HERO COPY & CTAS ─── */}
-          <motion.div
-            initial={shouldReduceMotion ? {} : { opacity: 0, y: 30 }}
+          {/* ─── HERO HEADLINE WITH EXACT MATCH LENS FLARE EFFECT (MATCHING USER SCREENSHOT) ─── */}
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 flex flex-col items-start z-10"
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="font-syne text-4xl sm:text-5xl md:text-6xl lg:text-[76px] xl:text-[84px] font-bold tracking-tight leading-[1.05] mb-6 sm:mb-8 select-none"
           >
-            {/* Small outlined badge */}
-            <motion.div
-              initial={shouldReduceMotion ? {} : { opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#10110E] border border-white/10 text-xs font-mono text-neutral-300 mb-8 hover:border-[#B2D234]/40 hover:shadow-[0_0_15px_rgba(178, 210, 52,0.15)] transition-all cursor-default"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#B2D234] animate-pulse" />
-              <span>Open beta / 240 apps connected</span>
-              <ArrowUpRight className="w-3 h-3 text-[#B2D234] opacity-70" />
-            </motion.div>
+            {/* Line 1: Pure Crisp White */}
+            <span className="block text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]">
+              Ignite Your
+            </span>
 
-            {/* Large headline with modern sans & italic serif */}
-            <motion.h1
-              initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="font-syne text-4xl sm:text-6xl lg:text-[68px] font-extrabold tracking-tight text-white leading-[1.08] mb-6"
-            >
-              The handoffs run{" "}
-              <span className="font-serif-italic font-normal text-[#B2D234] block sm:inline">
-                themselves.
+            {/* Line 2: Infinite Potential with Gradient, Glow & Integrated Baseline Lens Flare */}
+            <span className="relative inline-block mt-1">
+              {/* Luminous Tinted Green Text (Matching Image 1:1) */}
+              <span
+                className="bg-gradient-to-b from-[#F2FFE0] via-[#D5F565] to-[#B2D234] bg-clip-text text-transparent font-extrabold"
+                style={{
+                  filter: "drop-shadow(0 0 25px rgba(178, 210, 52, 0.45))",
+                }}
+              >
+                Infinite Potential
               </span>
-            </motion.h1>
 
-            {/* Supporting text */}
-            <motion.p
-              initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="text-base sm:text-lg text-[#888888] font-normal leading-relaxed max-w-xl mb-10 text-balance"
-            >
-              Bounty Bytes orchestrates next-generation 3D interactive web experiences engineered with cutting-edge visual technologies.
-            </motion.p>
+              {/* ─── EXACT BASELINE LENS FLARE EFFECT ─── */}
+              {/* 1. Main Horizontal Anamorphic Laser Beam directly across the baseline */}
+              <span
+                className="absolute -bottom-1 -left-4 sm:-left-12 -right-8 sm:-right-36 max-w-[95vw] h-[2px] pointer-events-none block"
+                style={{
+                  background: "linear-gradient(90deg, transparent 0%, rgba(178, 210, 52, 0.3) 12%, rgba(178, 210, 52, 0.95) 35%, #FFFFFF 60%, rgba(178, 210, 52, 0.95) 80%, rgba(178, 210, 52, 0.3) 92%, transparent 100%)",
+                  boxShadow: "0 0 10px #B2D234, 0 0 24px #B2D234, 0 0 50px rgba(178, 210, 52, 0.7)",
+                }}
+              />
 
-            {/* Buttons with Premium Hover Effects */}
-            <motion.div
-              initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-6"
-            >
-              {/* Primary button: Start free (glow + light sweep) */}
-              <button
-                onClick={onStartFree}
-                className="btn-primary-neon group relative inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-[#B2D234] text-[#050505] font-semibold text-sm cursor-pointer"
-              >
-                <span>Start free</span>
-                <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
-              </button>
+              {/* 2. Soft Volumetric Radiance under the baseline */}
+              <span
+                className="absolute -bottom-5 left-0 right-0 h-10 pointer-events-none block blur-md"
+                style={{
+                  background: "radial-gradient(ellipse 70% 100% at 50% 0%, rgba(178, 210, 52, 0.55), transparent 70%)",
+                }}
+              />
 
-              {/* Secondary button: Watch a build, 2 minutes */}
-              <button
-                onClick={onWatchBuild}
-                className="btn-secondary-glow group inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#10110E] hover:bg-[#161814] border border-white/10 hover:border-[#B2D234]/30 text-neutral-200 text-sm font-medium transition-all duration-200 cursor-pointer"
-              >
-                <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-[#B2D234] group-hover:text-black transition-colors">
-                  <Play className="w-2.5 h-2.5 fill-current ml-0.5" />
-                </div>
-                <span>Watch a build, 2 minutes</span>
-              </button>
-            </motion.div>
+              {/* 3. Primary Optical Starburst Hotspot (Just after the 'l' in Potential, matching photo) */}
+              <span className="absolute -bottom-1 right-2 sm:right-6 pointer-events-none flex items-center justify-center">
+                {/* Intense White Core */}
+                <span className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-white shadow-[0_0_12px_#FFFFFF,0_0_28px_#B2D234,0_0_60px_#B2D234] block" />
+                {/* Horizontal Flare Ray */}
+                <span className="absolute w-28 sm:w-40 h-[2px] bg-gradient-to-r from-transparent via-white to-transparent shadow-[0_0_10px_#B2D234] block" />
+                {/* Vertical Flare Ray */}
+                <span className="absolute h-12 sm:h-16 w-[1.5px] bg-gradient-to-b from-transparent via-white to-transparent opacity-85 shadow-[0_0_8px_#B2D234] block" />
+                {/* Subtle 45-degree Starburst Rays */}
+                <span className="absolute w-16 sm:w-20 h-[1px] rotate-45 bg-gradient-to-r from-transparent via-[#C5EB2A] to-transparent opacity-65 block" />
+                <span className="absolute w-16 sm:w-20 h-[1px] -rotate-45 bg-gradient-to-r from-transparent via-[#C5EB2A] to-transparent opacity-65 block" />
+              </span>
 
-            {/* Below the buttons microcopy */}
-            <motion.p
-              initial={shouldReduceMotion ? {} : { opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="text-xs font-mono text-neutral-500 tracking-wide flex items-center gap-2"
-            >
-              <span>Free for 14 days</span>
-              <span className="text-neutral-700">/</span>
-              <span>No card</span>
-              <span className="text-neutral-700">/</span>
-              <span>No sales calls</span>
-            </motion.p>
-          </motion.div>
+              {/* 4. Secondary Soft Flare Hotspot (Under 'Infinite', matching photo) */}
+              <span className="absolute -bottom-1 left-[18%] pointer-events-none flex items-center justify-center">
+                <span className="w-2.5 h-2.5 rounded-full bg-white/95 shadow-[0_0_10px_#FFFFFF,0_0_22px_#B2D234,0_0_45px_rgba(178,210,52,0.9)] block" />
+                <span className="absolute w-20 sm:w-28 h-[1.5px] bg-gradient-to-r from-transparent via-white to-transparent opacity-80 block" />
+              </span>
+            </span>
+          </motion.h1>
 
-          {/* ─── RIGHT COLUMN: SOPHISTICATED WORKFLOW AUTOMATION DASHBOARD ─── */}
-          <motion.div
-            initial={shouldReduceMotion ? {} : { opacity: 0, scale: 0.94, y: 30 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 relative z-10"
+          {/* Subtitle / Description (Clean & Crisp below the Lens Flare) */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            className="text-sm sm:text-base md:text-lg text-neutral-300 font-normal leading-relaxed max-w-xl mb-8 sm:mb-10 text-balance"
           >
-            {/* Ambient Backlight for Dashboard Card */}
-            <div className="absolute -inset-1 rounded-3xl bg-gradient-to-tr from-[#B2D234]/15 via-transparent to-[#B2D234]/5 blur-xl opacity-60 animate-pulse-glow" />
+            A new era of creativity, innovation and possibilities.<br className="hidden sm:inline" />
+            Let&apos;s build something extraordinary together.
+          </motion.p>
 
-            {/* Dashboard Outer Glass Panel with Gentle Float */}
-            <div className="relative rounded-2xl sm:rounded-3xl bg-[#10110E]/90 border border-white/10 backdrop-blur-2xl shadow-[0_25px_60px_rgba(0,0,0,0.8),0_0_40px_rgba(178, 210, 52,0.04)] overflow-hidden animate-float-slow">
-              
-              {/* Dashboard Window Header Bar */}
-              <div className="flex items-center justify-between px-5 py-3.5 border-b border-white/5 bg-[#0a0b09]/80">
-                <div className="flex items-center gap-3">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-neutral-700/60" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-neutral-700/60" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-neutral-700/60" />
-                  </div>
-                  <span className="text-[11px] font-mono text-neutral-300 pl-2 border-l border-white/10 font-medium">
-                    Refunds over 5000 &nbsp;|&nbsp; 3 steps / 1 branch
-                  </span>
-                </div>
-
-                <div className="flex items-center gap-3 text-xs">
-                  <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#1a2014] border border-[#B2D234]/30 text-[#B2D234] text-[10px] font-mono shadow-[0_0_10px_rgba(178, 210, 52,0.15)]">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#B2D234] animate-pulse" />
-                    LIVE RUNNING
-                  </span>
-                  <span className="text-[11px] font-mono text-neutral-500">Latency: 24ms</span>
-                </div>
-              </div>
-
-              {/* Workflow Canvas Inner Interface */}
-              <div className="p-4 sm:p-7 relative min-h-[460px] flex flex-col justify-between bg-[radial-gradient(ellipse_at_top_right,rgba(178, 210, 52,0.03),transparent_60%)]">
-                
-                {/* SVG Connecting Flow Lines with Self-Drawing and Glowing Moving Particles */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <linearGradient id="wireGradHero" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#B2D234" stopOpacity="0.85" />
-                      <stop offset="100%" stopColor="#B2D234" stopOpacity="0.4" />
-                    </linearGradient>
-                    <filter id="wireGlowHero" x="-20%" y="-20%" width="140%" height="140%">
-                      <feGaussianBlur stdDeviation="3" result="blur" />
-                      <feMerge>
-                        <feMergeNode in="blur" />
-                        <feMergeNode in="SourceGraphic" />
-                      </feMerge>
-                    </filter>
-                  </defs>
-
-                  {/* Wire 1: Node 1 (Refund created) to Node 2 (Amount over 5000 condition) */}
-                  <motion.path
-                    initial={{ pathLength: 0, opacity: 0 }}
-                    animate={{ pathLength: 1, opacity: 0.85 }}
-                    transition={{ duration: 1.2, delay: 0.5, ease: "easeInOut" }}
-                    d="M 170 85 C 220 85, 230 85, 275 85"
-                    fill="none"
-                    stroke="#B2D234"
-                    strokeWidth="2"
-                    filter="url(#wireGlowHero)"
-                  />
-                  {/* Glowing moving particle traveling along wire 1 */}
-                  <circle r="3.5" fill="#B2D234" filter="url(#wireGlowHero)">
-                    <animateMotion
-                      path="M 170 85 C 220 85, 230 85, 275 85"
-                      dur="2.2s"
-                      repeatCount="indefinite"
-                    />
-                  </circle>
-                  <circle r="1.5" fill="#FFFFFF">
-                    <animateMotion
-                      path="M 170 85 C 220 85, 230 85, 275 85"
-                      dur="2.2s"
-                      repeatCount="indefinite"
-                    />
-                  </circle>
-
-                  {/* Wire 2: Branch true (Amount over 5000) to Action (Log to warehouse) */}
-                  <motion.path
-                    initial={{ pathLength: 0, opacity: 0 }}
-                    animate={{ pathLength: 1, opacity: 0.85 }}
-                    transition={{ duration: 1.2, delay: 0.9, ease: "easeInOut" }}
-                    d="M 445 70 C 490 70, 480 160, 520 160"
-                    fill="none"
-                    stroke="#B2D234"
-                    strokeWidth="2"
-                    filter="url(#wireGlowHero)"
-                  />
-                  {/* Glowing moving particle traveling along wire 2 */}
-                  <circle r="3.5" fill="#B2D234" filter="url(#wireGlowHero)">
-                    <animateMotion
-                      path="M 445 70 C 490 70, 480 160, 520 160"
-                      dur="2.0s"
-                      repeatCount="indefinite"
-                    />
-                  </circle>
-                  <circle r="1.5" fill="#FFFFFF">
-                    <animateMotion
-                      path="M 445 70 C 490 70, 480 160, 520 160"
-                      dur="2.0s"
-                      repeatCount="indefinite"
-                    />
-                  </circle>
-
-                  {/* Wire 3: Branch else (dimmed alternate path) */}
-                  <motion.path
-                    initial={{ pathLength: 0, opacity: 0 }}
-                    animate={{ pathLength: 1, opacity: 0.35 }}
-                    transition={{ duration: 1, delay: 1.1, ease: "easeInOut" }}
-                    d="M 445 105 C 490 105, 480 230, 520 230"
-                    fill="none"
-                    stroke="rgba(255,255,255,0.2)"
-                    strokeWidth="1.5"
-                    strokeDasharray="4 4"
-                  />
-                </svg>
-
-                {/* ─── WORKFLOW NODES CONTAINER WITH SEQUENTIAL APPEARANCE ─── */}
-                <div className="relative z-10 flex flex-col gap-5">
-                  
-                  {/* TOP ROW: NODE 1 TRIGGER + NODE 2 CONDITION */}
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
-                    {/* Node 1: Refund created */}
-                    <motion.div
-                      initial={shouldReduceMotion ? {} : { opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                      className="card-futuristic-interactive relative p-3 sm:p-3.5 rounded-xl bg-[#161814] border border-[#B2D234]/40 shadow-[0_4px_20px_rgba(0,0,0,0.5),0_0_15px_rgba(178, 210, 52,0.1)] w-[160px] sm:w-[175px] group cursor-pointer"
-                    >
-                      <div className="flex items-center justify-between mb-1.5">
-                        <div className="flex items-center gap-1.5">
-                          <span className="w-4 h-4 rounded bg-[#B2D234]/15 border border-[#B2D234]/30 flex items-center justify-center text-[#B2D234] text-[10px]">
-                            ⚡
-                          </span>
-                          <span className="text-[9px] font-mono uppercase tracking-wider text-neutral-400">
-                            TRIGGER
-                          </span>
-                        </div>
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#B2D234] animate-pulse shadow-[0_0_6px_#B2D234]" />
-                      </div>
-                      <h4 className="text-xs sm:text-sm font-semibold text-white">Refund created</h4>
-                      <p className="text-[10px] font-mono text-[#B2D234] mt-0.5">Stripe webhook</p>
-                    </motion.div>
-
-                    {/* Node 2: Amount over 5000 Condition */}
-                    <motion.div
-                      initial={shouldReduceMotion ? {} : { opacity: 0, y: 15 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.65, ease: [0.16, 1, 0.3, 1] }}
-                      className="card-futuristic-interactive relative p-3 sm:p-3.5 rounded-xl bg-[#161814] border border-white/15 w-[190px] sm:w-[210px] shadow-[0_8px_25px_rgba(0,0,0,0.6)] cursor-pointer"
-                    >
-                      <div className="flex items-center justify-between mb-1.5">
-                        <div className="flex items-center gap-1.5">
-                          <GitBranch className="w-3.5 h-3.5 text-[#B2D234]" />
-                          <span className="text-[9px] font-mono uppercase tracking-wider text-neutral-400">
-                            CONDITION
-                          </span>
-                        </div>
-                        <span className="text-[9px] font-mono text-neutral-500">eval: true</span>
-                      </div>
-                      <h4 className="text-xs sm:text-sm font-semibold text-white">Amount over 5000</h4>
-                      <div className="mt-2 flex items-center justify-between gap-1 text-[9px] font-mono">
-                        <span className="px-1.5 py-0.5 rounded bg-[#B2D234]/15 text-[#B2D234] border border-[#B2D234]/30 font-bold">
-                          true
-                        </span>
-                        <span className="px-1.5 py-0.5 rounded bg-white/5 text-neutral-500">
-                          else
-                        </span>
-                      </div>
-                    </motion.div>
-                  </div>
-
-                  {/* ACTION ROW: LOG TO WAREHOUSE POSTGRES */}
-                  <div className="flex justify-end pt-1">
-                    <motion.div
-                      initial={shouldReduceMotion ? {} : { opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                      className="card-futuristic-interactive p-3 sm:p-3.5 rounded-xl bg-[#161814] border border-[#B2D234]/50 shadow-[0_4px_25px_rgba(178, 210, 52,0.12)] w-[210px] sm:w-[230px] relative group cursor-pointer"
-                    >
-                      <div className="flex items-center justify-between mb-1.5">
-                        <div className="flex items-center gap-1.5">
-                          <Database className="w-3.5 h-3.5 text-[#B2D234]" />
-                          <span className="text-[9px] font-mono uppercase tracking-wider text-[#B2D234]">
-                            ACTION
-                          </span>
-                        </div>
-                        <span className="text-[9px] font-mono text-[#B2D234]">SUCCESS</span>
-                      </div>
-                      <h4 className="text-xs sm:text-sm font-semibold text-white">Log to warehouse</h4>
-                      <div className="mt-1 flex items-center justify-between text-[10px] font-mono text-neutral-400">
-                        <span>postgres</span>
-                        <span className="text-emerald-400">12ms</span>
-                      </div>
-                    </motion.div>
-                  </div>
-                </div>
-
-                {/* ─── LAST RUNS EXECUTION TABLE (MATCHING PHOTO) ─── */}
-                <motion.div
-                  initial={shouldReduceMotion ? {} : { opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 1.1 }}
-                  className="mt-5 pt-3 border-t border-white/5 font-mono text-[11px]"
-                >
-                  <div className="flex items-center justify-between mb-2 text-[10px] uppercase tracking-wider text-neutral-500 font-semibold">
-                    <span>last runs</span>
-                    <span className="text-neutral-600">status</span>
-                  </div>
-                  <div className="flex flex-col gap-1.5">
-                    <div className="flex items-center justify-between py-1 px-2 rounded bg-white/[0.02] border border-white/5 hover:border-[#B2D234]/20 transition-colors">
-                      <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-3 h-3 text-[#B2D234]" />
-                        <span className="text-neutral-200">invoice reminder</span>
-                      </div>
-                      <span className="text-[10px] text-neutral-500">14:12:01 • OK</span>
-                    </div>
-                    <div className="flex items-center justify-between py-1 px-2 rounded bg-[#B2D234]/5 border border-[#B2D234]/20">
-                      <div className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#B2D234] animate-pulse" />
-                        <span className="text-[#B2D234] font-medium">Refunds over 5000</span>
-                      </div>
-                      <span className="text-[10px] text-[#B2D234]">14:12:15 • 24ms</span>
-                    </div>
-                    <div className="flex items-center justify-between py-1 px-2 rounded bg-white/[0.02] border border-white/5 hover:border-[#B2D234]/20 transition-colors">
-                      <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-3 h-3 text-neutral-400" />
-                        <span className="text-neutral-400">backend routine</span>
-                      </div>
-                      <span className="text-[10px] text-neutral-500">14:11:48 • OK</span>
-                    </div>
-                  </div>
-                </motion.div>
-
-              </div>
-            </div>
+          {/* Primary Action Button: Explore More → in Logo Green (#B2D234) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full sm:w-auto"
+          >
+            <button
+              onClick={onStartFree}
+              className="w-full sm:w-auto group relative inline-flex items-center justify-center gap-2.5 px-8 sm:px-9 py-3.5 sm:py-4 rounded-full bg-[#B2D234] text-[#050505] font-semibold text-sm sm:text-base hover:bg-[#c5eb2a] shadow-[0_0_30px_rgba(178,210,52,0.55),0_0_60px_rgba(178,210,52,0.25)] hover:shadow-[0_0_45px_rgba(178,210,52,0.85)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 cursor-pointer"
+            >
+              <span>Explore More</span>
+              <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+            </button>
           </motion.div>
 
         </div>
       </div>
+
     </section>
   );
 }

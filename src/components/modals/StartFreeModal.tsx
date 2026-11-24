@@ -23,7 +23,7 @@ export function StartFreeModal({ isOpen, onClose, selectedPlan = "Professional" 
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-xl transition-all">
-      <div className="relative w-full max-w-md rounded-3xl bg-[#10110E] border border-white/15 shadow-[0_25px_80px_rgba(0,0,0,0.9)] p-6 sm:p-8 overflow-hidden">
+      <div className="relative w-full max-w-md rounded-3xl bg-[#10110E] border border-white/15 shadow-[0_25px_80px_rgba(0,0,0,0.9)] p-6 sm:p-8 overflow-y-auto max-h-[92vh]">
         
         {/* Ambient Top Glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-24 bg-[#B2D234]/15 blur-2xl pointer-events-none" />

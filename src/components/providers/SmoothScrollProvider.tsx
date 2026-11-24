@@ -61,8 +61,20 @@ export function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
     };
     document.addEventListener("click", handleAnchorClick, { passive: false });
 
+    // Responsive viewport resize listener to keep ScrollTrigger perfectly aligned across mobile/tablet/desktop
+    let resizeTimer: NodeJS.Timeout;
+    const handleResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 150);
+    };
+    window.addEventListener("resize", handleResize, { passive: true });
+
     return () => {
       document.removeEventListener("click", handleAnchorClick);
+      window.removeEventListener("resize", handleResize);
+      clearTimeout(resizeTimer);
       gsap.ticker.remove(onTick);
       lenis.destroy();
       lenisRef.current = null;
