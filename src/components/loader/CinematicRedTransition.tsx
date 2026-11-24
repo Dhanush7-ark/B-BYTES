@@ -142,7 +142,7 @@ export function CinematicRedTransition({
         if (textOpacity > 0.001) {
           ctx.save();
           ctx.globalAlpha = textOpacity;
-          ctx.fillStyle = "#C6FF36";
+          ctx.fillStyle = "#B2D234";
           ctx.textAlign = "center";
           ctx.textBaseline = "middle";
 
@@ -294,7 +294,7 @@ export function CinematicRedTransition({
           }
 
           const currentAlpha = ember.maxAlpha * (1 - ember.life / ember.maxLife);
-          ctx.fillStyle = `rgba(198, 255, 54, ${currentAlpha})`;
+          ctx.fillStyle = `rgba(178, 210, 52, ${currentAlpha})`;
           ctx.shadowColor = "#00FF41";
           ctx.shadowBlur = 6;
           ctx.beginPath();

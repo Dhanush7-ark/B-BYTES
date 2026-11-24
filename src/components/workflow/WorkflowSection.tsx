@@ -57,11 +57,39 @@ export function WorkflowSection() {
   };
 
   return (
-    <section id="workflow" className="relative py-28 sm:py-36 px-4 sm:px-6 lg:px-8 bg-transparent overflow-hidden border-t border-white/5">
-      {/* Background ambient lighting */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(198,255,54,0.08),transparent_70%)] blur-[120px] animate-pulse-glow" />
-        <div className="absolute inset-0 bg-grid-pattern opacity-30" />
+    <section id="workflow" className="relative pt-12 pb-28 sm:pt-16 sm:pb-36 px-4 sm:px-6 lg:px-8 bg-transparent overflow-hidden">
+      {/* ─── CONTINUOUS VERTICAL BEAM & ATMOSPHERIC LIGHTING STRETCHED FROM ABOVE ─── */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Full-width volumetric radial glow */}
+        <div
+          className="absolute inset-0 w-screen min-w-full h-full pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse 100% 80% at 50% 30%, rgba(178, 210, 52, 0.22) 0%, rgba(178, 210, 52, 0.05) 50%, transparent 80%)",
+            filter: "blur(80px)",
+          }}
+        />
+
+        {/* Continuous Stretched Silhouette Atmosphere into Workflow Section */}
+        <img
+          src="/cinematic-silhouette-bounty-clean.png"
+          alt=""
+          className="absolute inset-0 w-screen min-w-full h-full object-cover object-bottom opacity-35 select-none pointer-events-none filter drop-shadow-[0_0_60px_rgba(178,210,52,0.5)]"
+          style={{ mixBlendMode: "screen" }}
+        />
+
+        {/* Radiant Floor Bloom Diffusing Downward into Workflow */}
+        <div
+          className="absolute top-0 left-0 right-0 w-screen min-w-full h-[220px] pointer-events-none z-10"
+          style={{
+            background:
+              "radial-gradient(ellipse 95% 70% at 50% 0%, rgba(178, 210, 52, 0.35) 0%, rgba(178, 210, 52, 0.08) 45%, transparent 80%)",
+            filter: "blur(30px)",
+          }}
+        />
+
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 bg-grid-pattern opacity-20" />
       </div>
 
       <div className="relative max-w-7xl mx-auto">
@@ -69,17 +97,17 @@ export function WorkflowSection() {
         {/* Section Header with Scroll Reveal */}
         <ScrollReveal className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#10110E] border border-white/10 text-xs font-mono text-[#C6FF36] mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#10110E] border border-white/10 text-xs font-mono text-[#B2D234] mb-4">
               <span>CANVAS ARCHITECTURE // LIVE SIMULATOR</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-4">
               Automate the{" "}
-              <span className="font-serif-italic font-normal text-[#C6FF36]">
+              <span className="font-serif-italic font-normal text-[#B2D234]">
                 messy middle.
               </span>
             </h2>
             <p className="text-base sm:text-lg text-[#888888] font-normal leading-relaxed max-w-2xl">
-              Real workflows have human exceptions, conditional dead-ends, and multi-app handoffs. Relay orchestrates every branch without dropping state.
+              Real workflows have human exceptions, conditional dead-ends, and multi-app handoffs. Bounty Bytes orchestrates every branch without dropping state.
             </p>
           </div>
 
@@ -94,7 +122,7 @@ export function WorkflowSection() {
                 }}
                 className={`px-3.5 py-1.5 rounded-xl text-xs font-mono transition-all duration-300 cursor-pointer ${
                   selectedScenario === idx
-                    ? "bg-[#C6FF36] text-[#050505] font-semibold shadow-[0_0_18px_rgba(198,255,54,0.4)] scale-105"
+                    ? "bg-[#B2D234] text-[#050505] font-semibold shadow-[0_0_18px_rgba(178, 210, 52,0.4)] scale-105"
                     : "text-neutral-400 hover:text-white hover:bg-white/5"
                 }`}
               >
@@ -105,13 +133,13 @@ export function WorkflowSection() {
         </ScrollReveal>
 
         {/* ─── INTERACTIVE WORKFLOW CANVAS DISPLAY ─── */}
-        <ScrollReveal delay={0.15} className="relative rounded-3xl bg-[#10110E]/90 border border-white/10 backdrop-blur-2xl shadow-[0_30px_70px_rgba(0,0,0,0.8),0_0_35px_rgba(198,255,54,0.03)] overflow-hidden">
+        <ScrollReveal delay={0.15} className="relative rounded-3xl bg-[#10110E]/90 border border-white/10 backdrop-blur-2xl shadow-[0_30px_70px_rgba(0,0,0,0.8),0_0_35px_rgba(178, 210, 52,0.03)] overflow-hidden">
           
           {/* Top Canvas Toolbar */}
           <div className="flex flex-wrap items-center justify-between px-6 py-4 border-b border-white/8 bg-[#0a0b09]/80 gap-4">
             <div className="flex items-center gap-4">
               <span className="text-xs font-mono text-neutral-300 font-semibold flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#C6FF36] animate-pulse shadow-[0_0_8px_#C6FF36]" />
+                <span className="w-2 h-2 rounded-full bg-[#B2D234] animate-pulse shadow-[0_0_8px_#B2D234]" />
                 {current.title}
               </span>
               <span className="text-neutral-600 font-mono text-xs">|</span>
@@ -122,7 +150,7 @@ export function WorkflowSection() {
               <button
                 onClick={handleSimulateRun}
                 disabled={isRunning}
-                className="btn-primary-neon inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#C6FF36] text-[#050505] text-xs font-mono font-semibold transition-all duration-200 disabled:opacity-50 cursor-pointer"
+                className="btn-primary-neon inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#B2D234] text-[#050505] text-xs font-mono font-semibold transition-all duration-200 disabled:opacity-50 cursor-pointer"
               >
                 {isRunning ? (
                   <>
@@ -140,7 +168,7 @@ export function WorkflowSection() {
           </div>
 
           {/* Interactive Flow Nodes Visualizer */}
-          <div className="p-6 sm:p-12 relative min-h-[480px] bg-[radial-gradient(ellipse_at_center,rgba(198,255,54,0.02),transparent_70%)]">
+          <div className="p-6 sm:p-12 relative min-h-[480px] bg-[radial-gradient(ellipse_at_center,rgba(178, 210, 52,0.02),transparent_70%)]">
             
             {/* SVG Interactive Connection Lines with Glowing Pulse Particles */}
             <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
@@ -160,14 +188,14 @@ export function WorkflowSection() {
                 y1="120"
                 x2="380"
                 y2="120"
-                stroke={activeStepIndex >= 1 ? "#C6FF36" : "rgba(255,255,255,0.15)"}
+                stroke={activeStepIndex >= 1 ? "#B2D234" : "rgba(255,255,255,0.15)"}
                 strokeWidth="2"
                 strokeDasharray={activeStepIndex >= 1 ? "none" : "4 4"}
                 filter={activeStepIndex >= 1 ? "url(#wirePulseFilter)" : undefined}
               />
               {activeStepIndex >= 1 && (
                 <>
-                  <circle r="3.5" fill="#C6FF36" filter="url(#wirePulseFilter)">
+                  <circle r="3.5" fill="#B2D234" filter="url(#wirePulseFilter)">
                     <animateMotion
                       path="M 220 120 L 380 120"
                       dur="1.8s"
@@ -188,13 +216,13 @@ export function WorkflowSection() {
               <path
                 d="M 580 120 C 640 120, 640 60, 710 60"
                 fill="none"
-                stroke={activeStepIndex >= 2 ? "#C6FF36" : "rgba(255,255,255,0.15)"}
+                stroke={activeStepIndex >= 2 ? "#B2D234" : "rgba(255,255,255,0.15)"}
                 strokeWidth="2"
                 filter={activeStepIndex >= 2 ? "url(#wirePulseFilter)" : undefined}
               />
               {activeStepIndex >= 2 && (
                 <>
-                  <circle r="3.5" fill="#C6FF36" filter="url(#wirePulseFilter)">
+                  <circle r="3.5" fill="#B2D234" filter="url(#wirePulseFilter)">
                     <animateMotion
                       path="M 580 120 C 640 120, 640 60, 710 60"
                       dur="2.0s"
@@ -226,13 +254,13 @@ export function WorkflowSection() {
                 y1="60"
                 x2="970"
                 y2="60"
-                stroke={activeStepIndex >= 3 ? "#C6FF36" : "rgba(255,255,255,0.15)"}
+                stroke={activeStepIndex >= 3 ? "#B2D234" : "rgba(255,255,255,0.15)"}
                 strokeWidth="2"
                 filter={activeStepIndex >= 3 ? "url(#wirePulseFilter)" : undefined}
               />
               {activeStepIndex >= 3 && (
                 <>
-                  <circle r="3.5" fill="#C6FF36" filter="url(#wirePulseFilter)">
+                  <circle r="3.5" fill="#B2D234" filter="url(#wirePulseFilter)">
                     <animateMotion
                       path="M 910 60 L 970 60"
                       dur="1.4s"
@@ -257,21 +285,21 @@ export function WorkflowSection() {
               <div
                 className={`card-futuristic-interactive p-5 rounded-2xl bg-[#161814] border transition-all duration-300 w-full lg:w-[240px] shadow-xl cursor-pointer ${
                   activeStepIndex >= 0
-                    ? "border-[#C6FF36] shadow-[0_0_25px_rgba(198,255,54,0.2)]"
+                    ? "border-[#B2D234] shadow-[0_0_25px_rgba(178, 210, 52,0.2)]"
                     : "border-white/10 opacity-60"
                 }`}
               >
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#C6FF36] bg-[#C6FF36]/10 px-2 py-0.5 rounded border border-[#C6FF36]/30">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#B2D234] bg-[#B2D234]/10 px-2 py-0.5 rounded border border-[#B2D234]/30">
                     STEP 01 // TRIGGER
                   </span>
-                  <CheckCircle className={`w-4 h-4 transition-colors ${activeStepIndex >= 0 ? "text-[#C6FF36] drop-shadow-[0_0_6px_#C6FF36]" : "text-neutral-600"}`} />
+                  <CheckCircle className={`w-4 h-4 transition-colors ${activeStepIndex >= 0 ? "text-[#B2D234] drop-shadow-[0_0_6px_#B2D234]" : "text-neutral-600"}`} />
                 </div>
                 <h4 className="text-sm font-semibold text-white">{current.triggerName}</h4>
                 <p className="text-xs font-mono text-neutral-400 mt-1.5">{current.triggerParam}</p>
                 <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[10px] font-mono text-neutral-500">
                   <span>Source: Webhook</span>
-                  <span className="text-[#C6FF36]">12ms</span>
+                  <span className="text-[#B2D234]">12ms</span>
                 </div>
               </div>
 
@@ -279,7 +307,7 @@ export function WorkflowSection() {
               <div
                 className={`card-futuristic-interactive p-5 rounded-2xl bg-[#161814] border transition-all duration-300 w-full lg:w-[250px] shadow-xl cursor-pointer ${
                   activeStepIndex >= 1
-                    ? "border-[#C6FF36] shadow-[0_0_25px_rgba(198,255,54,0.2)]"
+                    ? "border-[#B2D234] shadow-[0_0_25px_rgba(178, 210, 52,0.2)]"
                     : "border-white/10 opacity-60"
                 }`}
               >
@@ -287,11 +315,11 @@ export function WorkflowSection() {
                   <span className="text-[10px] font-mono uppercase tracking-wider text-amber-300 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/30">
                     STEP 02 // LOGIC
                   </span>
-                  <CheckCircle className={`w-4 h-4 transition-colors ${activeStepIndex >= 1 ? "text-[#C6FF36] drop-shadow-[0_0_6px_#C6FF36]" : "text-neutral-600"}`} />
+                  <CheckCircle className={`w-4 h-4 transition-colors ${activeStepIndex >= 1 ? "text-[#B2D234] drop-shadow-[0_0_6px_#B2D234]" : "text-neutral-600"}`} />
                 </div>
                 <h4 className="text-sm font-semibold text-white">{current.conditionName}</h4>
                 <div className="mt-3 flex flex-col gap-1.5 text-xs font-mono">
-                  <span className="px-2 py-1 rounded bg-[#C6FF36]/15 text-[#C6FF36] border border-[#C6FF36]/40 flex items-center justify-between shadow-[0_0_8px_rgba(198,255,54,0.15)]">
+                  <span className="px-2 py-1 rounded bg-[#B2D234]/15 text-[#B2D234] border border-[#B2D234]/40 flex items-center justify-between shadow-[0_0_8px_rgba(178, 210, 52,0.15)]">
                     <span>BRANCH TRUE</span>
                     <span>✓ Matched</span>
                   </span>
@@ -308,15 +336,15 @@ export function WorkflowSection() {
                 <div
                   className={`card-futuristic-interactive p-4 rounded-2xl bg-[#161814] border transition-all duration-300 cursor-pointer ${
                     activeStepIndex >= 2
-                      ? "border-[#C6FF36] shadow-[0_0_25px_rgba(198,255,54,0.2)]"
+                      ? "border-[#B2D234] shadow-[0_0_25px_rgba(178, 210, 52,0.2)]"
                       : "border-white/10 opacity-50"
                   }`}
                 >
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-[10px] font-mono uppercase text-[#C6FF36] bg-[#C6FF36]/10 px-2 py-0.5 rounded border border-[#C6FF36]/20">
+                    <span className="text-[10px] font-mono uppercase text-[#B2D234] bg-[#B2D234]/10 px-2 py-0.5 rounded border border-[#B2D234]/20">
                       BRANCH 1 // HUMAN GATE
                     </span>
-                    <span className="w-2 h-2 rounded-full bg-[#C6FF36] animate-pulse shadow-[0_0_8px_#C6FF36]" />
+                    <span className="w-2 h-2 rounded-full bg-[#B2D234] animate-pulse shadow-[0_0_8px_#B2D234]" />
                   </div>
                   <h5 className="text-xs font-semibold text-white">{current.branchTrueName}</h5>
                   <p className="text-[11px] text-neutral-400 mt-1">Intervention required only if threshold &gt; 90%</p>
@@ -335,7 +363,7 @@ export function WorkflowSection() {
                 <div
                   className={`card-futuristic-interactive p-4 rounded-2xl bg-[#161814] border transition-all duration-300 cursor-pointer ${
                     activeStepIndex >= 3
-                      ? "border-[#C6FF36] shadow-[0_0_30px_rgba(198,255,54,0.25)]"
+                      ? "border-[#B2D234] shadow-[0_0_30px_rgba(178, 210, 52,0.25)]"
                       : "border-white/10 opacity-50"
                   }`}
                 >
@@ -343,11 +371,11 @@ export function WorkflowSection() {
                     <span className="text-[10px] font-mono uppercase text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-500/40">
                       STEP 03 // DISPATCH ACTIONS
                     </span>
-                    <CheckCircle className={`w-4 h-4 ${activeStepIndex >= 3 ? "text-[#C6FF36] drop-shadow-[0_0_8px_#C6FF36]" : "text-neutral-600"}`} />
+                    <CheckCircle className={`w-4 h-4 ${activeStepIndex >= 3 ? "text-[#B2D234] drop-shadow-[0_0_8px_#B2D234]" : "text-neutral-600"}`} />
                   </div>
                   <h5 className="text-xs font-semibold text-white">{current.actionName}</h5>
                   <div className="mt-2 flex items-center gap-2 text-[10px] font-mono text-neutral-400">
-                    <span className="text-[#C6FF36]">State: Committing to Postgres</span>
+                    <span className="text-[#B2D234]">State: Committing to Postgres</span>
                     <span>• 4ms</span>
                   </div>
                 </div>
@@ -360,7 +388,7 @@ export function WorkflowSection() {
           <div className="px-6 py-4 border-t border-white/8 bg-[#0d0e0b] flex flex-wrap items-center justify-between gap-4 text-xs font-mono">
             <div className="flex items-center gap-3">
               <span className="flex items-center gap-1.5 text-neutral-300">
-                <span className="w-2 h-2 rounded-full bg-[#C6FF36] animate-pulse shadow-[0_0_8px_#C6FF36]" />
+                <span className="w-2 h-2 rounded-full bg-[#B2D234] animate-pulse shadow-[0_0_8px_#B2D234]" />
                 {isRunning ? "Simulating execution steps..." : "Last execution completed cleanly"}
               </span>
               <span className="text-neutral-600">•</span>
@@ -369,7 +397,7 @@ export function WorkflowSection() {
 
             <div className="flex items-center gap-4 text-neutral-400">
               <span>Runs remaining this billing cycle: <strong className="text-white">49,820</strong></span>
-              <a href="#product" className="text-[#C6FF36] hover:underline cursor-pointer">
+              <a href="#product" className="text-[#B2D234] hover:underline cursor-pointer">
                 View Full Audit Replay →
               </a>
             </div>

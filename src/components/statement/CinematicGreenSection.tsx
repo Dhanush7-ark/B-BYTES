@@ -1,103 +1,175 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { CinematicGreenBackground } from "@/components/animations/CinematicGreenBackground";
-import { Sparkles, Terminal, Activity } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Sparkles } from "lucide-react";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export function CinematicGreenSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
+  const topFlameRef = useRef<HTMLDivElement>(null);
+  const bottomFlameRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(true);
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
+  // Viewport sleep observer: completely suspends GIF animation decoding when off-screen
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
 
-  // Layered parallax transformations
-  const textOpacity = useTransform(scrollYProgress, [0.15, 0.4, 0.65, 0.85], [0, 1, 1, 0]);
-  const textScale = useTransform(scrollYProgress, [0.15, 0.5, 0.85], [0.92, 1, 0.95]);
-  const textY = useTransform(scrollYProgress, [0.15, 0.5, 0.85], [30, 0, -30]);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { rootMargin: "250px 0px" }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // GSAP ScrollTrigger synchronization (unified with Lenis & central ticker, zero competing listeners)
+  useEffect(() => {
+    const section = sectionRef.current;
+    const textEl = textRef.current;
+    const topFlame = topFlameRef.current;
+    const bottomFlame = bottomFlameRef.current;
+
+    if (!section || !textEl || !topFlame || !bottomFlame) return;
+
+    const ctx = gsap.context(() => {
+      // Parallax text drift and scale
+      gsap.fromTo(
+        textEl,
+        { opacity: 0.5, scale: 0.96, y: 30 },
+        {
+          opacity: 1,
+          scale: 1,
+          y: -25,
+          ease: "none",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 80%",
+            end: "bottom 20%",
+            scrub: 0.6,
+          },
+        }
+      );
+
+      // Top flame exit drift
+      gsap.fromTo(
+        topFlame,
+        { y: 0 },
+        {
+          y: -70,
+          ease: "none",
+          scrollTrigger: {
+            trigger: section,
+            start: "top top",
+            end: "center top",
+            scrub: 0.6,
+          },
+        }
+      );
+
+      // Bottom flame entrance drift
+      gsap.fromTo(
+        bottomFlame,
+        { y: 50 },
+        {
+          y: 0,
+          ease: "none",
+          scrollTrigger: {
+            trigger: section,
+            start: "center bottom",
+            end: "bottom bottom",
+            scrub: 0.6,
+          },
+        }
+      );
+    }, section);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <section
+      id="about"
       ref={sectionRef}
-      className="relative w-full min-h-[110vh] sm:min-h-[125vh] flex flex-col justify-between overflow-hidden bg-[#030704] z-20 border-t border-b border-white/10 select-none"
+      className="relative w-full min-h-[140vh] sm:min-h-[160vh] flex flex-col justify-center items-center overflow-hidden bg-[#aaca31] select-none"
+      style={{
+        backgroundColor: "#aaca31",
+        visibility: isVisible ? "visible" : "hidden",
+      }}
     >
-      {/* ─── GPU WEBGL LIQUID-INK FLAMES & CENTRAL SYMMETRICAL EMBLEM ─── */}
-      <CinematicGreenBackground className="absolute inset-0 w-full h-full" showEmblem={true} />
-
-      {/* ─── FOREGROUND EDITORIAL CONTENT (SCROLL-REACTIVE) ─── */}
-      <div className="relative z-30 w-full flex flex-col justify-between min-h-screen py-16 sm:py-24 px-6 sm:px-12 lg:px-20 pointer-events-none">
-        
-        {/* Top Header Row */}
-        <div className="w-full max-w-7xl mx-auto flex items-center justify-between pointer-events-auto">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#063D20]/60 border border-[#00FF85]/30 text-xs font-mono text-[#00FF85] backdrop-blur-md shadow-[0_0_15px_rgba(0,255,133,0.15)]">
-            <span className="w-2 h-2 rounded-full bg-[#00FF85] animate-pulse" />
-            <span>03 // AUTONOMOUS MATRIX</span>
-          </div>
-
-          <div className="hidden sm:flex items-center gap-4 font-mono text-xs text-[#00FF85]/70">
-            <span className="flex items-center gap-1.5">
-              <Activity className="w-3.5 h-3.5" />
-              <span>GPU KINETIC SHADER</span>
-            </span>
-            <span>•</span>
-            <span>SHARP SILHOUETTE ENGINE</span>
-          </div>
+      {/* ─── GREEN FLAME HANDS ANIMATION LAYERS ─── */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-10">
+        {/* Top Hanging Flame Claws (Inverted - Transitions from black into #aaca31 green) */}
+        <div
+          ref={topFlameRef}
+          className="absolute top-0 left-0 w-full h-[30vh] sm:h-[38vh] md:h-[44vh] overflow-hidden opacity-100 pointer-events-none transform-gpu will-change-transform"
+        >
+          <img
+            src="/fire-green.gif"
+            alt="Green Flame Top"
+            className="w-full h-full object-cover rotate-180 select-none pointer-events-none transform-gpu"
+            loading="eager"
+          />
+          {/* Seamless feathering gradient overlay to eliminate any horizontal boundary line */}
+          <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#aaca31] via-[#aaca31]/80 to-transparent pointer-events-none z-10" />
         </div>
 
-        {/* Center Floating Editorial Copy (Framed Around Emblem) */}
-        <motion.div
-          style={{ opacity: textOpacity, scale: textScale, y: textY }}
-          className="w-full max-w-4xl mx-auto text-center my-auto py-12 flex flex-col items-center pointer-events-auto"
+        {/* Bottom Rising Flame Hands (Upright - Transitions from #aaca31 green into black below) */}
+        <div
+          ref={bottomFlameRef}
+          className="absolute bottom-0 left-0 w-full h-[30vh] sm:h-[38vh] md:h-[44vh] overflow-hidden opacity-100 pointer-events-none transform-gpu will-change-transform"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 border border-[#00FF85]/20 text-[11px] font-mono text-neutral-300 mb-6 backdrop-blur-sm">
-            <Sparkles className="w-3 h-3 text-[#00FF85]" />
-            <span className="tracking-[0.25em] uppercase text-[#00FF85]">BEYOND DETERMINISTIC WORKFLOWS</span>
+          {/* Seamless feathering gradient overlay to eliminate any horizontal boundary line */}
+          <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-[#aaca31] via-[#aaca31]/80 to-transparent pointer-events-none z-10" />
+          <img
+            src="/fire-green.gif"
+            alt="Green Flame Bottom"
+            className="w-full h-full object-cover select-none pointer-events-none transform-gpu"
+            loading="eager"
+          />
+        </div>
+      </div>
+
+      {/* ─── FOREGROUND EDITORIAL CONTENT (HIGH CONTRAST ON #aaca31 GREEN) ─── */}
+      <div className="relative z-30 w-full flex flex-col justify-center items-center min-h-[140vh] sm:min-h-[160vh] py-16 px-6 sm:px-12 lg:px-20 pointer-events-none">
+        
+        {/* Center Floating Editorial Copy (Isolated with generous spacing - Bold high-contrast black typography) */}
+        <div
+          ref={textRef}
+          className="w-full max-w-4xl mx-auto text-center my-auto py-20 sm:py-28 md:py-36 flex flex-col items-center pointer-events-auto transform-gpu will-change-transform"
+        >
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black text-[11px] font-mono text-[#aaca31] mb-6 shadow-lg">
+            <Sparkles className="w-3 h-3 text-[#aaca31]" />
+            <span className="tracking-[0.25em] uppercase text-[#aaca31]">BEYOND DETERMINISTIC WORKFLOWS</span>
           </div>
 
           <h2
-            className="font-syne font-extrabold uppercase text-white tracking-tight leading-[1.05] text-3xl sm:text-5xl md:text-6xl lg:text-[72px] mb-6"
-            style={{
-              textShadow: "0 0 40px rgba(0, 255, 133, 0.35)",
-            }}
+            className="font-syne font-black uppercase text-black tracking-tight leading-[1.03] text-4xl sm:text-6xl md:text-7xl lg:text-[84px] mb-6"
           >
             ORGANIC VELOCITY.{" "}
             <span
-              className="text-[#00FF85] block sm:inline font-serif-italic font-normal"
+              className="text-black block sm:inline font-serif-italic font-normal"
               style={{
                 fontFamily: 'var(--font-bodoni-72), "ITC Bodoni 72", Georgia, serif',
                 fontStyle: "italic",
-                textShadow: "0 0 50px rgba(0, 255, 133, 0.6)",
               }}
             >
               Unbroken flow.
             </span>
           </h2>
 
-          <p className="text-base sm:text-lg lg:text-xl text-neutral-300 font-normal leading-relaxed max-w-2xl text-balance">
+          <p className="text-base sm:text-lg lg:text-xl text-black/90 font-medium leading-relaxed max-w-2xl text-balance">
             Watch the handoffs dissolve into continuous execution. When machines coordinate autonomously, latency approaches zero and operations evolve organically.
           </p>
-        </motion.div>
-
-        {/* Bottom Status Ticker Bar (Image 1 Style with Green Theme) */}
-        <div className="w-full max-w-7xl mx-auto pt-6 border-t border-[#00FF85]/15 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-[#00FF85]/80 pointer-events-auto">
-          <div className="flex items-center gap-2">
-            <Terminal className="w-3.5 h-3.5 text-[#00FF85]" />
-            <span className="tracking-widest uppercase text-[10px] text-neutral-400">
-              TELEMETRY CORE // SHADER_FLUID_V4
-            </span>
-          </div>
-
-          <div className="flex items-center flex-wrap justify-center sm:justify-end gap-5 tracking-[0.25em] text-neutral-300">
-            <span className="text-[#00FF85]">+</span>
-            <span>TENSION</span>
-            <span className="text-[#00FF85]">+</span>
-            <span>IMMERSION</span>
-            <span className="text-[#00FF85]">+</span>
-            <span>IMPACT</span>
-            <span className="text-[#00FF85]">+</span>
-          </div>
         </div>
 
       </div>

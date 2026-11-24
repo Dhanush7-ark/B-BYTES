@@ -56,7 +56,7 @@ export function LoaderParticles({
           centerY,
           glowRadius
         );
-        radialGlow.addColorStop(0, `rgba(198, 255, 54, ${glowAlpha})`);
+        radialGlow.addColorStop(0, `rgba(178, 210, 52, ${glowAlpha})`);
         radialGlow.addColorStop(0.4, `rgba(0, 255, 65, ${glowAlpha * 0.4})`);
         radialGlow.addColorStop(1, "rgba(0, 255, 65, 0)");
         ctx.fillStyle = radialGlow;
@@ -102,7 +102,7 @@ export function LoaderParticles({
             p.y,
             p.size * 4
           );
-          glowGrad.addColorStop(0, `rgba(198, 255, 54, ${alpha * 0.5})`);
+          glowGrad.addColorStop(0, `rgba(178, 210, 52, ${alpha * 0.5})`);
           glowGrad.addColorStop(1, "rgba(0, 255, 65, 0)");
           ctx.fillStyle = glowGrad;
           ctx.fillRect(
@@ -116,7 +116,7 @@ export function LoaderParticles({
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         // Alternate between glowing neon-green particles and deep emerald specs
-        ctx.fillStyle = i % 3 === 0 ? `rgba(0, 59, 32, ${alpha * 0.9})` : `rgba(198, 255, 54, ${alpha})`;
+        ctx.fillStyle = i % 3 === 0 ? `rgba(0, 59, 32, ${alpha * 0.9})` : `rgba(178, 210, 52, ${alpha})`;
         ctx.fill();
       }
     },

@@ -52,7 +52,7 @@ export function HeroRibbonTransition({
         className="absolute -top-32 -right-32 w-[900px] h-[900px] rounded-full pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle, rgba(198,255,54,0.45) 0%, rgba(238,255,96,0.2) 25%, rgba(0,255,65,0.08) 50%, transparent 75%)",
+            "radial-gradient(circle, rgba(178, 210, 52,0.45) 0%, rgba(238,255,96,0.2) 25%, rgba(0,255,65,0.08) 50%, transparent 75%)",
           filter: "blur(60px)",
           animation: "flarePulse 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards",
           willChange: "transform, opacity",
@@ -64,9 +64,9 @@ export function HeroRibbonTransition({
         className="absolute top-[28%] -right-20 w-[140vw] h-[3px] pointer-events-none"
         style={{
           background:
-            "linear-gradient(90deg, transparent 0%, rgba(198,255,54,0.85) 40%, #FFFFFF 65%, rgba(0,255,65,0.9) 80%, transparent 100%)",
+            "linear-gradient(90deg, transparent 0%, rgba(178, 210, 52,0.85) 40%, #FFFFFF 65%, rgba(0,255,65,0.9) 80%, transparent 100%)",
           boxShadow:
-            "0 0 25px rgba(198,255,54,0.9), 0 0 50px rgba(0,255,65,0.5), 0 0 100px rgba(198,255,54,0.3)",
+            "0 0 25px rgba(178, 210, 52,0.9), 0 0 50px rgba(0,255,65,0.5), 0 0 100px rgba(178, 210, 52,0.3)",
           transform: "rotate(-18deg) translateY(-50%)",
           animation: "anamorphicStreak 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards",
           willChange: "transform, opacity",
@@ -79,7 +79,7 @@ export function HeroRibbonTransition({
         style={{
           background:
             "linear-gradient(90deg, transparent 0%, rgba(238,255,96,0.6) 35%, #FFFFFF 70%, transparent 100%)",
-          boxShadow: "0 0 15px rgba(198,255,54,0.8)",
+          boxShadow: "0 0 15px rgba(178, 210, 52,0.8)",
           transform: "rotate(-25deg) translateY(-50%)",
           animation: "counterStreak 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards",
           willChange: "transform, opacity",

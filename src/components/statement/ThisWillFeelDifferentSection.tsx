@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import { Phone, Sparkles } from "lucide-react";
 import { motion, useInView, useMotionValue, useSpring, useTransform, type Variants } from "framer-motion";
 import Image from "next/image";
+import { Footer } from "@/components/layout/Footer";
 
 interface ThisWillFeelDifferentSectionProps {
   onBookConsultation?: () => void;
@@ -14,7 +15,7 @@ interface ThisWillFeelDifferentSectionProps {
  * Full-screen cinematic statement section:
  * - Triggers automatically upon passing through the hero section (NOT manual scroll scrubbing)
  * - Individual letters fly in from the deep background ONE BY ONE in 3D perspective
- * - Pure Neon Green (#00FF41) & Electric Emerald (#39FF14) on pure black (#000000)
+ * - Pure Neon Green (#B2D234) & Electric Emerald (#C5EB2A) on pure black (#000000)
  * - ZERO shape logo cluttering the center
  * - Interactive 3D mouse tilt + breathing volumetric radiance
  * - Barcode equalizer & "+ TENSION + IMMERSION + IMPACT +" telemetry bar
@@ -107,52 +108,93 @@ export function ThisWillFeelDifferentSection({
       ref={sectionRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative min-h-screen w-full flex flex-col justify-between py-6 sm:py-10 px-4 sm:px-8 lg:px-12 overflow-hidden bg-[#000000] z-20 border-t border-b border-[#00FF41]/15 select-none"
+      className="relative w-full flex flex-col overflow-hidden bg-[#000000] z-20 border-t border-[#B2D234]/15"
       style={{ perspective: "1200px" }}
     >
       {/* ─── 1. PURE SOLID BLACK BACKGROUND WITH VOLUMETRIC GREEN GLOW ─── */}
       <div className="absolute inset-0 bg-[#000000] pointer-events-none overflow-hidden">
-        {/* Central Atmospheric Emerald Radiance */}
+        {/* Upper Atmospheric Emerald Radiance behind Statement */}
         <motion.div
           animate={
             isInView
-              ? { opacity: [0.4, 0.75, 0.4], scale: [0.85, 1.05, 0.85] }
+              ? { opacity: [0.45, 0.75, 0.45], scale: [0.85, 1.05, 0.85] }
               : { opacity: 0.1, scale: 0.7 }
           }
           transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] sm:w-[1200px] h-[600px] sm:h-[800px] pointer-events-none"
+          className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] sm:w-[1200px] h-[600px] sm:h-[800px] pointer-events-none"
         >
           <div
             className="w-full h-full"
             style={{
               background:
-                "radial-gradient(ellipse at center, rgba(0, 255, 65, 0.15) 0%, rgba(0, 59, 32, 0.05) 45%, transparent 75%)",
+                "radial-gradient(ellipse at center, rgba(178, 210, 52, 0.18) 0%, rgba(0, 59, 32, 0.06) 45%, transparent 75%)",
               filter: "blur(90px)",
             }}
           />
         </motion.div>
 
-        {/* Subtle Cyberpunk CRT Scanline Texture */}
+        {/* Lower Atmospheric Emerald Radiance behind Footer */}
+        <div
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] sm:w-[1400px] h-[550px] pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse at center, rgba(178, 210, 52, 0.14) 0%, rgba(0, 59, 32, 0.05) 50%, transparent 80%)",
+            filter: "blur(110px)",
+          }}
+        />
+
+        {/* Subtle Cyberpunk CRT Scanline Texture across full container */}
         <div
           className="absolute inset-0 pointer-events-none opacity-10"
           style={{
             backgroundImage:
-              "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 255, 65, 0.04) 2px, rgba(0, 255, 65, 0.04) 4px)",
+              "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(178, 210, 52, 0.04) 2px, rgba(178, 210, 52, 0.04) 4px)",
           }}
         />
       </div>
 
-      {/* ─── 2. TOP BAR: CYBER-TRIBAL SIGIL & STATUS INDEX ─── */}
-      <motion.div
-        initial={{ opacity: 0, y: -15 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -15 }}
-        transition={{ duration: 0.6 }}
-        className="relative z-10 flex items-center justify-between w-full max-w-7xl mx-auto mb-2 sm:mb-4 pointer-events-none"
-      >
+      {/* ─── GREEN FIRE FLAME HANDS ANIMATION (DUAL TOP & BOTTOM MIXED THROUGH FOOTER) ─── */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        {/* Top Flame Layer (Inverted, reaching down over the statement) */}
+        <div className="absolute top-0 left-0 w-full h-[30vh] sm:h-[38vh] md:h-[42vh] overflow-hidden opacity-90">
+          <img
+            src="/fire-green.gif"
+            alt="Green Flame Atmosphere"
+            className="w-full h-full object-cover rotate-180 select-none pointer-events-none"
+            style={{
+              maskImage: "linear-gradient(to bottom, black 55%, transparent 100%)",
+              WebkitMaskImage: "linear-gradient(to bottom, black 55%, transparent 100%)",
+            }}
+          />
+        </div>
+
+        {/* Bottom Flame Layer (Rising from the bottom directly behind the Footer) */}
+        <div className="absolute bottom-0 left-0 w-full h-[40vh] sm:h-[50vh] md:h-[62vh] overflow-hidden opacity-95">
+          <img
+            src="/fire-green.gif"
+            alt="Green Flame Hands"
+            className="w-full h-full object-cover select-none pointer-events-none"
+            style={{
+              maskImage: "linear-gradient(to top, black 50%, transparent 100%)",
+              WebkitMaskImage: "linear-gradient(to top, black 50%, transparent 100%)",
+            }}
+          />
+        </div>
+      </div>
+
+      {/* ─── STATEMENT CONTENT CONTAINER ─── */}
+      <div className="relative z-10 w-full min-h-screen flex flex-col justify-between py-6 sm:py-10 px-4 sm:px-8 lg:px-12 select-none">
+        {/* 2. TOP BAR: CYBER-TRIBAL SIGIL & STATUS INDEX */}
+        <motion.div
+          initial={{ opacity: 0, y: -15 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -15 }}
+          transition={{ duration: 0.6 }}
+          className="relative z-10 flex items-center justify-between w-full max-w-7xl mx-auto mb-2 sm:mb-4 pointer-events-none"
+        >
         {/* Cyber-Gothic Butterfly Sigil in Neon Green */}
         <div className="flex items-center gap-3">
           <svg
-            className="w-7 h-7 sm:w-8 sm:h-8 text-[#00FF41] filter drop-shadow-[0_0_10px_rgba(0,255,65,0.7)] transition-transform duration-300 hover:scale-110"
+            className="w-7 h-7 sm:w-8 sm:h-8 text-[#B2D234] filter drop-shadow-[0_0_10px_rgba(178, 210, 52,0.7)] transition-transform duration-300 hover:scale-110"
             viewBox="0 0 100 100"
             fill="none"
             stroke="currentColor"
@@ -164,20 +206,20 @@ export function ThisWillFeelDifferentSection({
             <path d="M 50 50 C 42 32, 28 16, 14 12 C 20 28, 28 40, 40 48 C 22 46, 8 54, 4 64 C 18 62, 32 70, 42 80 C 46 68, 48 58, 50 50 Z" />
             <path d="M 50 50 C 58 32, 72 16, 86 12 C 80 28, 72 40, 60 48 C 78 46, 92 54, 96 64 C 82 62, 68 70, 58 80 C 54 68, 52 58, 50 50 Z" />
             <path d="M 50 16 L 50 84" strokeWidth="2" />
-            <circle cx="50" cy="50" r="3" fill="#00FF41" />
+            <circle cx="50" cy="50" r="3" fill="#B2D234" />
           </svg>
 
-          <span className="font-mono text-[9px] sm:text-xs uppercase tracking-[0.32em] text-[#00FF41]/90 font-semibold">
-            RELAY // ARCHITECTURE
+          <span className="font-mono text-[9px] sm:text-xs uppercase tracking-[0.32em] text-[#B2D234]/90 font-semibold">
+            BOUNTY BYTES // ARCHITECTURE
           </span>
         </div>
 
         {/* Section Index & Status Badge */}
         <div className="flex items-center gap-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#001A0D]/80 border border-[#00FF41]/30 text-xs font-mono text-neutral-300 backdrop-blur-sm shadow-[0_0_15px_rgba(0,255,65,0.15)]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00FF41] animate-pulse shadow-[0_0_8px_#00FF41]" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#101704]/80 border border-[#B2D234]/30 text-xs font-mono text-neutral-300 backdrop-blur-sm shadow-[0_0_15px_rgba(178, 210, 52,0.15)]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#B2D234] animate-pulse shadow-[0_0_8px_#B2D234]" />
             <span className="text-neutral-400">02 &nbsp;//&nbsp;</span>
-            <span className="text-[#00FF41]">PARADIGM SHIFT</span>
+            <span className="text-[#B2D234]">PARADIGM SHIFT</span>
           </div>
         </div>
       </motion.div>
@@ -202,7 +244,7 @@ export function ThisWillFeelDifferentSection({
                 variants={letterVariants}
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
-                className="inline-block font-syne font-black uppercase text-[#00FF41] text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[98px] leading-none filter drop-shadow-[0_0_30px_rgba(0,255,65,0.7)] drop-shadow-[0_0_60px_rgba(0,255,65,0.3)]"
+                className="inline-block font-syne font-black uppercase text-[#B2D234] text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[98px] leading-none filter drop-shadow-[0_0_30px_rgba(178, 210, 52,0.7)] drop-shadow-[0_0_60px_rgba(178, 210, 52,0.3)]"
               >
                 {char === " " ? "\u00A0" : char}
               </motion.span>
@@ -244,7 +286,7 @@ export function ThisWillFeelDifferentSection({
                 alt="FEEL"
                 fill
                 priority
-                className="object-contain filter drop-shadow-[0_0_35px_rgba(57,255,20,0.85)] drop-shadow-[0_0_75px_rgba(0,255,65,0.45)]"
+                className="object-contain filter drop-shadow-[0_0_35px_rgba(197, 235, 42,0.85)] drop-shadow-[0_0_75px_rgba(178, 210, 52,0.45)]"
               />
             </div>
           </motion.div>
@@ -263,7 +305,7 @@ export function ThisWillFeelDifferentSection({
                 variants={letterVariants}
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
-                className="inline-block font-syne font-black uppercase text-[#00FF41] text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[98px] leading-none filter drop-shadow-[0_0_30px_rgba(0,255,65,0.7)] drop-shadow-[0_0_60px_rgba(0,255,65,0.3)]"
+                className="inline-block font-syne font-black uppercase text-[#B2D234] text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[98px] leading-none filter drop-shadow-[0_0_30px_rgba(178, 210, 52,0.7)] drop-shadow-[0_0_60px_rgba(178, 210, 52,0.3)]"
               >
                 {char}
               </motion.span>
@@ -281,7 +323,7 @@ export function ThisWillFeelDifferentSection({
               className="w-full h-full"
               style={{
                 background:
-                  "radial-gradient(circle at center, rgba(57, 255, 20, 0.35) 0%, rgba(0, 255, 65, 0.1) 40%, transparent 70%)",
+                  "radial-gradient(circle at center, rgba(197, 235, 42, 0.35) 0%, rgba(178, 210, 52, 0.1) 40%, transparent 70%)",
                 filter: "blur(40px)",
               }}
             />
@@ -307,11 +349,11 @@ export function ThisWillFeelDifferentSection({
             onClick={onBookConsultation}
             onMouseEnter={() => setIsHoveredBtn(true)}
             onMouseLeave={() => setIsHoveredBtn(false)}
-            className="group relative inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-[#001A0D]/90 hover:bg-[#002B18] border border-[#00FF41]/40 hover:border-[#00FF41] text-xs font-mono uppercase tracking-[0.2em] text-[#00FF41] transition-all duration-300 shadow-[0_0_20px_rgba(0,255,65,0.2)] hover:shadow-[0_0_30px_rgba(0,255,65,0.45)] cursor-pointer"
+            className="group relative inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-[#101704]/90 hover:bg-[#1B2707] border border-[#B2D234]/40 hover:border-[#B2D234] text-xs font-mono uppercase tracking-[0.2em] text-[#B2D234] transition-all duration-300 shadow-[0_0_20px_rgba(178, 210, 52,0.2)] hover:shadow-[0_0_30px_rgba(178, 210, 52,0.45)] cursor-pointer"
           >
-            <Phone className="w-3.5 h-3.5 transition-transform duration-200 group-hover:scale-110 text-[#39FF14]" />
+            <Phone className="w-3.5 h-3.5 transition-transform duration-200 group-hover:scale-110 text-[#C5EB2A]" />
             <span>BOOK A CONSULTATION</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00FF41] animate-ping" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#B2D234] animate-ping" />
           </button>
         </motion.div>
       </div>
@@ -328,7 +370,7 @@ export function ThisWillFeelDifferentSection({
           {equalizerBars.map((bar) => (
             <span
               key={bar.id}
-              className="w-[2px] bg-[#00FF41] rounded-full shadow-[0_0_6px_rgba(0,255,65,0.85)]"
+              className="w-[2px] bg-[#B2D234] rounded-full shadow-[0_0_6px_rgba(178, 210, 52,0.85)]"
               style={{
                 height: bar.h,
                 animation: `greenEqualizerPulse ${bar.dur} ease-in-out infinite alternate`,
@@ -340,7 +382,7 @@ export function ThisWillFeelDifferentSection({
         {/* Center: Minimalist Plus Telemetry Strip (Exact Video Match) */}
         <div className="flex items-center gap-3 sm:gap-8 md:gap-12 text-[10px] sm:text-xs font-semibold tracking-[0.2em] sm:tracking-[0.28em] text-white/90">
           <svg
-            className="w-2.5 h-2.5 text-[#00FF41]/80 inline-block flex-shrink-0"
+            className="w-2.5 h-2.5 text-[#B2D234]/80 inline-block flex-shrink-0"
             viewBox="0 0 10 10"
             fill="none"
             stroke="currentColor"
@@ -353,7 +395,7 @@ export function ThisWillFeelDifferentSection({
           <span className="tracking-[0.32em] text-white">TENSION</span>
 
           <svg
-            className="w-2.5 h-2.5 text-[#00FF41]/80 inline-block flex-shrink-0"
+            className="w-2.5 h-2.5 text-[#B2D234]/80 inline-block flex-shrink-0"
             viewBox="0 0 10 10"
             fill="none"
             stroke="currentColor"
@@ -366,7 +408,7 @@ export function ThisWillFeelDifferentSection({
           <span className="tracking-[0.32em] text-white">IMMERSION</span>
 
           <svg
-            className="w-2.5 h-2.5 text-[#00FF41]/80 inline-block flex-shrink-0"
+            className="w-2.5 h-2.5 text-[#B2D234]/80 inline-block flex-shrink-0"
             viewBox="0 0 10 10"
             fill="none"
             stroke="currentColor"
@@ -379,7 +421,7 @@ export function ThisWillFeelDifferentSection({
           <span className="tracking-[0.32em] text-white">IMPACT</span>
 
           <svg
-            className="w-2.5 h-2.5 text-[#00FF41]/80 inline-block flex-shrink-0"
+            className="w-2.5 h-2.5 text-[#B2D234]/80 inline-block flex-shrink-0"
             viewBox="0 0 10 10"
             fill="none"
             stroke="currentColor"
@@ -392,14 +434,20 @@ export function ThisWillFeelDifferentSection({
 
         {/* Right: Minimalist Online Badge */}
         <div className="pointer-events-auto">
-          <div className="flex items-center gap-2.5 px-3 py-1.5 rounded bg-black/85 border border-[#00FF41]/30 shadow-[0_0_12px_rgba(0,0,0,0.9)]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00FF41] shadow-[0_0_8px_#00FF41] animate-pulse" />
+          <div className="flex items-center gap-2.5 px-3 py-1.5 rounded bg-black/85 border border-[#B2D234]/30 shadow-[0_0_12px_rgba(0,0,0,0.9)]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#B2D234] shadow-[0_0_8px_#B2D234] animate-pulse" />
             <span className="text-[10px] text-white font-mono tracking-wider font-semibold">
-              ONLINE <span className="text-[#00FF41]">&bull; Let&apos;s Connect</span>
+              ONLINE <span className="text-[#B2D234]">&bull; Let&apos;s Connect</span>
             </span>
           </div>
         </div>
       </motion.div>
+      </div>
+
+      {/* ─── 5. INTEGRATED FOOTER (MIXED DIRECTLY INSIDE THE FLAME ANIMATION) ─── */}
+      <div className="relative z-10 w-full pointer-events-auto select-auto">
+        <Footer />
+      </div>
 
       <style>{`
         @keyframes greenEqualizerPulse {

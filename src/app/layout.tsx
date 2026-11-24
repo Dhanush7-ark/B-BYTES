@@ -17,13 +17,25 @@ const bodoni72 = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: `${siteConfig.name} — The handoffs run themselves`,
+  title: "Bounty Bytes AI Studios — Next-Gen 3D Interactive Experiences",
   description: siteConfig.description,
+  icons: {
+    icon: "/favicon.png",
+    apple: "/logo.png",
+  },
   openGraph: {
-    title: `${siteConfig.name} — The handoffs run themselves`,
+    title: "Bounty Bytes AI Studios — Next-Gen 3D Interactive Experiences",
     description: siteConfig.description,
     url: siteConfig.url,
     siteName: siteConfig.name,
+    images: [
+      {
+        url: "/logo.png",
+        width: 1011,
+        height: 497,
+        alt: "Bounty Bytes AI Studios",
+      },
+    ],
     type: "website",
   },
 };
@@ -43,7 +55,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-screen bg-[#050505] font-sans text-neutral-100 antialiased selection:bg-[#C6FF36] selection:text-black">
+      <body className="min-h-screen bg-[#050505] font-sans text-neutral-100 antialiased selection:bg-[#B2D234] selection:text-black">
         {children}
       </body>
     </html>
